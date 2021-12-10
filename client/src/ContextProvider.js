@@ -37,6 +37,7 @@ function MortgageContextProvider(props) {
     const handleChangeCampaignsLeads = (event) => {
         const {name, value} = event.target
         setCampaignLeads(prevL => ({...prevL, [name]: value}))
+        console.log(`campaigns leads: ${value}`)
     }
     const handleSubmitCampaignsLeads = () => {
         axios.post("/campaigns", campaignsLeads)
@@ -46,6 +47,7 @@ function MortgageContextProvider(props) {
     const handleChangeCampaignsRealtors = (event) => {
         const {name, value} = event.target
         setCampaignRealtors(prevR => ({...prevR, [name]: value}))
+        console.log(`campaigns realtors: ${value}`)
     }
     const handleSubmitCampaignsRealtors = () => {
         axios.post("/campaigns", campaignsRealtors)

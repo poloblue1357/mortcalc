@@ -8,7 +8,7 @@ function Campaigns() {
 
     const c = context.getCampaignsLeads.map(c1 => <CampaignsdisplayL c1={c1} key={c1._id}/>)
     const d = context.getCampaignsRealtors.map(d1 => <CampaignsdisplayR d1={d1} key={d1._id}/>)
-    
+    console.log(context.getCampaignsLeads)
     return (
         <div>
             <>
