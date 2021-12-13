@@ -1,8 +1,22 @@
-import React, {useContext} from "react"
+import React, {useContext, useEffect} from "react"
 import {MortgageContext} from "../ContextProvider"
+import axios from "axios"
 
 function Realtors() {
+
     const context = useContext(MortgageContext)
+
+    useEffect(() => {
+        axios.get("/campaigns")
+            .then(res => context.setGetCampaignsRealtors(res.data))
+            .catch(err => console.log(err))
+    }, [])
+    useEffect(() => {
+        axios.get("/status")
+            .then(res => context.setGetStatusRealtors(res.data))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <div>
             <h1>Realtors</h1>

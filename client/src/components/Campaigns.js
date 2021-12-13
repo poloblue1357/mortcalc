@@ -1,23 +1,39 @@
-import React, {useContext} from "react"
+import React, {useContext, useEffect} from "react"
 import {MortgageContext} from "../ContextProvider"
 import CampaignsdisplayL from "./CampaignsdisplayL"
 import CampaignsdisplayR from "./CampaignsdisplayR.js"
+import axios from 'axios'
 
 function Campaigns() {
-    const context = useContext(MortgageContext)
+    const {setGetCampaignsRealtors, setGetCampaignsLeads, getCampaignsLeads, getCampaignsRealtors, handleSubmitCampaignsLeads, handleSubmitCampaignsRealtors, handleChangeCampaignsLeads, handleChangeCampaignsRealtors} = useContext(MortgageContext)
 
-    const c = context.getCampaignsLeads.map(c1 => <CampaignsdisplayL c1={c1} key={c1._id}/>)
-    const d = context.getCampaignsRealtors.map(d1 => <CampaignsdisplayR d1={d1} key={d1._id}/>)
-    console.log(context.getCampaignsLeads)
+    const a = getCampaignsLeads.filter(lead => lead.campaignsLeads && lead)
+    const b = getCampaignsRealtors.filter(lead => lead.campaignsRealtors && lead)
+
+    const c = a.map(c1 => <CampaignsdisplayL c1={c1} key={c1._id}/>)
+    const d = b.map(d1 => <CampaignsdisplayR d1={d1} key={d1._id}/>)
+
+    useEffect(() => {
+        axios.get("/campaigns")
+            .then(res => setGetCampaignsRealtors(res.data))
+            .catch(err => console.log(err))
+    }, [])
+
+    useEffect(() => {
+        axios.get("/campaigns")
+            .then(res => setGetCampaignsLeads(res.data))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <div>
             <>
                 <h1>List of Campaigns (Leads)</h1>
                 <form onSubmit={(event) => {
                     event.preventDefault()
-                    context.handleSubmitCampaignsLeads()
+                    handleSubmitCampaignsLeads()
                 }}>
-                    <input placeholder="New Campaign (Leads)" type="text" name="campaignsLeads" onChange={context.handleChangeCampaignsLeads} />
+                    <input placeholder="New Campaign (Leads)" type="text" name="campaignsLeads" onChange={handleChangeCampaignsLeads} />
                     <button>Submit</button>
                 </form>
                 {c}
@@ -26,9 +42,9 @@ function Campaigns() {
                 <h1>List of Campaigns (Realtors)</h1>
                 <form onSubmit={(event) => {
                     event.preventDefault()
-                    context.handleSubmitCampaignsRealtors()
+                    handleSubmitCampaignsRealtors()
                 }}>
-                    <input placeholder="New Campaign (Realtors)" type="text" name="campaignsRealtors" onChange={context.handleChangeCampaignsRealtors} />
+                    <input placeholder="New Campaign (Realtors)" type="text" name="campaignsRealtors" onChange={handleChangeCampaignsRealtors} />
                     <button>Submit</button>
                 </form>
                 {d}

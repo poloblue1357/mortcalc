@@ -1,13 +1,54 @@
-import React from "react"
+import React, {useContext, useEffect} from "react"
+import {MortgageContext} from "../ContextProvider"
+import StatusdisplayL from "./StatusdisplayL"
+import StatusdisplayR from "./StatusdisplayR.js"
+import axios from 'axios'
 
 function Status() {
+    const {setGetStatusRealtors, setGetStatusLeads, getStatusLeads, getStatusRealtors, handleSubmitStatusLeads, handleSubmitStatusRealtors, handleChangeStatusLeads, handleChangeStatusRealtors} = useContext(MortgageContext)
+
+    const a = getStatusLeads.filter(status => status.statusLeads && status)
+    const b = getStatusRealtors.filter(status => status.statusRealtors && status)
+
+    const c = a.map(c1 => <StatusdisplayL c1={c1} key={c1._id}/>)
+    const d = b.map(d1 => <StatusdisplayR d1={d1} key={d1._id}/>)
+
+    useEffect(() => {
+        axios.get("/status")
+            .then(res => setGetStatusRealtors(res.data))
+            .catch(err => console.log(err))
+    }, [])
+
+    useEffect(() => {
+        axios.get("/status")
+            .then(res => setGetStatusLeads(res.data))
+            .catch(err => console.log(err))
+    }, [])
+
     return (
         <div>
-            <h1>Status</h1>
-            <h3>Clients</h3>
-            
-            <h3>New</h3>
-
+            <>
+                <h1>List of Status (Leads)</h1>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    handleSubmitStatusLeads()
+                }}>
+                    <input placeholder="New Status (Leads)" type="text" name="statusLeads" onChange={handleChangeStatusLeads} />
+                    <button>Submit</button>
+                </form>
+                {c}
+            </>
+            <>
+                <h1>List of Status (Realtors)</h1>
+                <form onSubmit={(event) => {
+                    event.preventDefault()
+                    handleSubmitStatusRealtors()
+                }}>
+                    <input placeholder="New Status (Realtors)" type="text" name="statusRealtors" onChange={handleChangeStatusRealtors} />
+                    <button>Submit</button>
+                </form>
+                {d}
+            </>
         </div>
     )
 }

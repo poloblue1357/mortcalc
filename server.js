@@ -21,6 +21,7 @@ mongoose.connect("mongodb://localhost:27017/mortcalcdb",
 )
 app.use("/leads", require("./routes/leadRouter.js"))
 app.use("/realtors", require("./routes/realtorRouter.js"))
+app.use("/status", require("./routes/statusRouter.js"))
 app.use("/campaigns", require("./routes/campaignRouter.js"))
 // app.use("/api", expressJwt({secret: process.env.SECRET, algorithms: ["HS256"]}))
 // app.use("/api/todo", require("./routes/todoRouter.js"))
