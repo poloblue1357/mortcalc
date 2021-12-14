@@ -5,7 +5,7 @@ import StatusdisplayR from "./StatusdisplayR.js"
 import axios from 'axios'
 
 function Status() {
-    const {setGetStatusRealtors, setGetStatusLeads, getStatusLeads, getStatusRealtors, handleSubmitStatusLeads, handleSubmitStatusRealtors, handleChangeStatusLeads, handleChangeStatusRealtors} = useContext(MortgageContext)
+    const {statusLeads, statusRealtors, setGetStatusRealtors, setGetStatusLeads, getStatusLeads, getStatusRealtors, handleSubmitStatusLeads, handleSubmitStatusRealtors, handleChangeStatusLeads, handleChangeStatusRealtors} = useContext(MortgageContext)
 
     const a = getStatusLeads.filter(status => status.statusLeads && status)
     const b = getStatusRealtors.filter(status => status.statusRealtors && status)
@@ -33,7 +33,7 @@ function Status() {
                     event.preventDefault()
                     handleSubmitStatusLeads()
                 }}>
-                    <input placeholder="New Status (Leads)" type="text" name="statusLeads" onChange={handleChangeStatusLeads} />
+                    <input placeholder="New Status (Leads)" type="text" name="statusLeads" value={statusLeads} onChange={handleChangeStatusLeads} />
                     <button>Submit</button>
                 </form>
                 {c}
@@ -44,7 +44,7 @@ function Status() {
                     event.preventDefault()
                     handleSubmitStatusRealtors()
                 }}>
-                    <input placeholder="New Status (Realtors)" type="text" name="statusRealtors" onChange={handleChangeStatusRealtors} />
+                    <input placeholder="New Status (Realtors)" type="text" name="statusRealtors" value={statusRealtors} onChange={handleChangeStatusRealtors} />
                     <button>Submit</button>
                 </form>
                 {d}

@@ -5,23 +5,22 @@ function Leadsdisplay(props) {
 
     const context = useContext(MortgageContext)
 
-    const [editedLead, setEditedLead] = useState([{
+    const [editedLead, setEditedLead] = useState({
         date: props.l.date,
-        campaign: "",
-        status: "",
-        loanType: "",
-        loanPurpose: "",
-        firstName: "",
-        lastName: "",
-        coBorrower: "",
-        phone: "",
-        email: "",
-        currentRate: "",
-        googleReview: "",
-        lastContact: "",
-        notes: ""
-    }])
-    console.log(props.l.date)
+        campaign: props.l.campaign,
+        status: props.l.status,
+        loanType: props.l.loanType,
+        loanPurpose: props.l.loanPurpose,
+        firstName: props.l.firstName,
+        lastName: props.l.lastName,
+        coBorrower: props.l.coBorrower,
+        phone: props.l.phone,
+        email: props.l.email,
+        currentRate: props.l.currentRate,
+        googleReview: props.l.googleReview,
+        lastContact: props.l.lastContact,
+        notes: props.l.notes
+    })
     const [isEdit, setIsEdit] = useState(false)
 
     const toggleEdit = () => {
@@ -38,13 +37,27 @@ function Leadsdisplay(props) {
                 <div>
                     <form onSubmit={(event) => {
                         event.preventDefault()
-                        context.editLeads()
                         toggleEdit()
+                        context.editLeads(props.l._id, {date: editedLead.date, 
+                                                        campaign: editedLead.campaign, 
+                                                        status: editedLead.status,
+                                                        loanType: editedLead.loanType,
+                                                        loanPurpose: editedLead.loanPurpose,
+                                                        firstName: editedLead.firstName,
+                                                        lastName: editedLead.lastName,
+                                                        coBorrower: editedLead.coBorrower,
+                                                        phone: editedLead.phone,
+                                                        email: editedLead.email,
+                                                        currentRate: editedLead.currentRate,
+                                                        googleReview: editedLead.googleReview,
+                                                        lastContact: editedLead.lastContact,
+                                                        notes: editedLead.notes
+                                                        })
                     }}>
                         <input placeholder="Date" type="text" name="date" value={editedLead.date} onChange={handleChange} style={{backgroundColor: "lightblue"}}/>
-                        <input placeholder="Campaign" type="text" name="campaign" onChange={handleChange} value={props.l.campaign} style={{backgroundColor: "lightblue"}}/>
-                        <input placeholder="Status" type="text" name="status" onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <select id="loanType" name="loanType" onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}>
+                        <input placeholder="Campaign" type="text" name="campaign" onChange={handleChange} value={editedLead.campaign} style={{backgroundColor: "lightblue"}}/>
+                        <input placeholder="Status" type="text" name="status" onChange={handleChange} value={editedLead.status} style={{backgroundColor: "lightblue"}}/>
+                        <select id="loanType" name="loanType" onChange={handleChange} value={editedLead.loanType} style={{backgroundColor: "lightblue"}}>
                             <option value={""}>Loan Type: </option>
                             <option>Conventional</option>
                             <option>1% Down</option>
@@ -54,25 +67,25 @@ function Leadsdisplay(props) {
                             <option>Commercial</option>
                             <option>Construction</option>
                         </select>
-                        <select id="loanPurpose" name="loanPurpose" onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}>
+                        <select id="loanPurpose" name="loanPurpose" onChange={handleChange} value={editedLead.loanPurpose} style={{backgroundColor: "lightblue"}}>
                             <option value={""}>Loan Purpose: </option>
                             <option>Purchase</option>
                             <option>Lower Rate / Term</option>
                             <option>Cashout</option>
                         </select>
-                        <input placeholder="First Name" type="text" name="firstName" value={context.firstName} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <input placeholder="Last Name" type="text" name="lastName" value={context.lastName} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <input placeholder="Co-Borrower" type="text" name="coBorrower" value={context.coBorrower} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <input pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone (801-456-7890)" type="text" name="phone" value={context.phone} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <input placeholder="Email" type="text" name="email" value={context.email} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <input placeholder="Current Rate" type="text" name="currentRate" value={context.currentRate} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <select id="googleReview" name="googleReview" onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}>
+                        <input placeholder="First Name" type="text" name="firstName" value={context.firstName} onChange={handleChange} value={editedLead.firstName} style={{backgroundColor: "lightblue"}}/>
+                        <input placeholder="Last Name" type="text" name="lastName" value={context.lastName} onChange={handleChange} value={editedLead.lastName} style={{backgroundColor: "lightblue"}}/>
+                        <input placeholder="Co-Borrower" type="text" name="coBorrower" value={editedLead.coBorrower} onChange={handleChange} style={{backgroundColor: "lightblue"}}/>
+                        <input pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Phone (801-456-7890)" type="text" name="phone" value={editedLead.phone} onChange={handleChange} style={{backgroundColor: "lightblue"}}/>
+                        <input placeholder="Email" type="text" name="email" value={editedLead.email} onChange={handleChange} style={{backgroundColor: "lightblue"}}/>
+                        <input placeholder="Current Rate" type="text" name="currentRate" value={editedLead.currentRate} onChange={handleChange} style={{backgroundColor: "lightblue"}}/>
+                        <select id="googleReview" name="googleReview" onChange={handleChange} value={editedLead.googleReview} style={{backgroundColor: "lightblue"}}>
                             <option value={""}>Google Review:</option>
                             <option>Requested</option>
                             <option>Reviewed</option>
                         </select>
-                        <input placeholder="Last Contact" type="text" name="lastContact" value={context.lastContact} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
-                        <input placeholder="Notes" type="text" name="notes" value={context.notes} onChange={context.handleChangeLeads} style={{backgroundColor: "lightblue"}}/>
+                        <input placeholder="Last Contact" type="text" name="lastContact" value={editedLead.lastContact} onChange={handleChange} style={{backgroundColor: "lightblue"}}/>
+                        <input placeholder="Notes" type="text" name="notes" value={editedLead.notes} onChange={handleChange} style={{backgroundColor: "lightblue"}}/>
                         <button type="submit" style={{backgroundColor: "lightblue"}}>Submit</button>
                     </form>
                     <button onClick={() => toggleEdit()} style={{backgroundColor: "lightblue"}}>Cancel Edit</button>

@@ -5,7 +5,7 @@ import CampaignsdisplayR from "./CampaignsdisplayR.js"
 import axios from 'axios'
 
 function Campaigns() {
-    const {setGetCampaignsRealtors, setGetCampaignsLeads, getCampaignsLeads, getCampaignsRealtors, handleSubmitCampaignsLeads, handleSubmitCampaignsRealtors, handleChangeCampaignsLeads, handleChangeCampaignsRealtors} = useContext(MortgageContext)
+    const {campaignsLeads, campaignsRealtors, setGetCampaignsRealtors, setGetCampaignsLeads, getCampaignsLeads, getCampaignsRealtors, handleSubmitCampaignsLeads, handleSubmitCampaignsRealtors, handleChangeCampaignsLeads, handleChangeCampaignsRealtors} = useContext(MortgageContext)
 
     const a = getCampaignsLeads.filter(lead => lead.campaignsLeads && lead)
     const b = getCampaignsRealtors.filter(lead => lead.campaignsRealtors && lead)
@@ -24,7 +24,7 @@ function Campaigns() {
             .then(res => setGetCampaignsLeads(res.data))
             .catch(err => console.log(err))
     }, [])
-
+    
     return (
         <div>
             <>
@@ -33,7 +33,7 @@ function Campaigns() {
                     event.preventDefault()
                     handleSubmitCampaignsLeads()
                 }}>
-                    <input placeholder="New Campaign (Leads)" type="text" name="campaignsLeads" onChange={handleChangeCampaignsLeads} />
+                    <input placeholder="New Campaign (Leads)" type="text" name="campaignsLeads" value={campaignsLeads} onChange={handleChangeCampaignsLeads} />
                     <button>Submit</button>
                 </form>
                 {c}
@@ -44,7 +44,7 @@ function Campaigns() {
                     event.preventDefault()
                     handleSubmitCampaignsRealtors()
                 }}>
-                    <input placeholder="New Campaign (Realtors)" type="text" name="campaignsRealtors" onChange={handleChangeCampaignsRealtors} />
+                    <input placeholder="New Campaign (Realtors)" type="text" name="campaignsRealtors" value={campaignsRealtors} onChange={handleChangeCampaignsRealtors} />
                     <button>Submit</button>
                 </form>
                 {d}

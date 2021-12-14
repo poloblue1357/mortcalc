@@ -5,7 +5,7 @@ const MortgageContext = React.createContext()
 
 function MortgageContextProvider(props) {
 
-    const [lead, setLead] = useState([{
+    const initInputs = {
         date: "",
         campaign: "",
         status: "",
@@ -20,31 +20,34 @@ function MortgageContextProvider(props) {
         googleReview: "",
         lastContact: "",
         notes: ""
-    }])
+    }
+
+    const [lead, setLead] = useState(initInputs)
     const [getLeads, setGetLeads] = useState([])
 
     const [realtor, setRealtor] = useState([])
-    const [getRealtors, setGetRealtors] = useState([])
+    const [getRealtors, setGetRealtors] = useState([])   
 
-    const initInputs = ''   
-
-    const [campaignsLeads, setCampaignLeads] = useState(initInputs)
+    const [campaignsLeads, setCampaignLeads] = useState()
     const [getCampaignsLeads, setGetCampaignsLeads] = useState([])
-    const [campaignsRealtors, setCampaignRealtors] = useState(initInputs)
+    const [campaignsRealtors, setCampaignRealtors] = useState()
     const [getCampaignsRealtors, setGetCampaignsRealtors] = useState([])
 
-    const [statusLeads, setStatusLeads] = useState(initInputs)
+    const [statusLeads, setStatusLeads] = useState()
     const [getStatusLeads, setGetStatusLeads] = useState([])
-    const [statusRealtors, setStatusRealtors] = useState(initInputs)
+    const [statusRealtors, setStatusRealtors] = useState()
     const [getStatusRealtors, setGetStatusRealtors] = useState([])
 
     const handleChangeLeads = (event) => {
         const {name, value} = event.target
-        setLead(prevInputs => ({...prevInputs, [name]: value}))
+        setLead(prevLead => ({...prevLead, [name]: value}))
     }
     const handleSubmitLeads = () => {
         axios.post("/leads", lead)
-            .then(res => setGetLeads(prevLead => [res.data, ...prevLead]))
+            .then(res => {
+                setGetLeads(prevLead => [res.data, ...prevLead])
+                setLead(initInputs)
+            })
             .catch(err => console.log(err))
     }
     const deleteLeads = (leadsId) => {
@@ -75,25 +78,27 @@ function MortgageContextProvider(props) {
     }
     const handleChangeCampaignsLeads = (event) => {
         const {name, value} = event.target
-        setCampaignLeads(prevL => ({...prevL, [name]: value}))
-        console.log(`campaigns leads: ${value}`)
+        setCampaignLeads(value)
     }
     const handleSubmitCampaignsLeads = () => {
-        axios.post("/campaigns", campaignsLeads)
-            .then(res => setGetCampaignsLeads(prevCampaignL => [res.data, ...prevCampaignL]))
+        axios.post("/campaigns", {campaignsLeads})
+            .then(res => {
+                setGetCampaignsLeads(prevCampaignL => [res.data, ...prevCampaignL])
+                setCampaignLeads('')
+            })
             .catch(err => console.log(err))
-            setCampaignLeads(initInputs)
     }
     const handleChangeCampaignsRealtors = (event) => {
         const {name, value} = event.target
-        setCampaignRealtors(prevR => ({...prevR, [name]: value}))
-        console.log(`campaigns realtors: ${value}`)
+        setCampaignRealtors(value)
     }
     const handleSubmitCampaignsRealtors = () => {
-        axios.post("/campaigns", campaignsRealtors)
-            .then(res => setGetCampaignsRealtors(prevCampaignR => [res.data, ...prevCampaignR]))
+        axios.post("/campaigns", {campaignsRealtors})
+            .then(res => {
+                setGetCampaignsRealtors(prevCampaignR => [res.data, ...prevCampaignR])
+                setCampaignRealtors('')
+            })
             .catch(err => console.log(err))
-            setCampaignRealtors(initInputs)
     }
     const deleteCampaignsL = (campaignId) => {
         axios.delete(`http://localhost:7000/campaigns/${campaignId}`)
@@ -114,23 +119,27 @@ function MortgageContextProvider(props) {
 
     const handleChangeStatusLeads = (event) => {
         const {name, value} = event.target
-        setStatusLeads(prevL => ({...prevL, [name]: value}))
+        setStatusLeads(value)
     }
     const handleSubmitStatusLeads = () => {
-        axios.post("/status", statusLeads)
-            .then(res => setGetStatusLeads(prevStatusL => [res.data, ...prevStatusL]))
+        axios.post("/status", {statusLeads})
+            .then(res => {
+                setGetStatusLeads(prevStatusL => [res.data, ...prevStatusL])
+                setStatusLeads('')
+            })
             .catch(err => console.log(err))
-            setStatusLeads(initInputs)
     }
     const handleChangeStatusRealtors = (event) => {
         const {name, value} = event.target
-        setStatusRealtors(prevR => ({...prevR, [name]: value}))
+        setStatusRealtors(value)
     }
     const handleSubmitStatusRealtors = () => {
-        axios.post("/status", statusRealtors)
-            .then(res => setGetStatusRealtors(prevStatusR => [res.data, ...prevStatusR]))
+        axios.post("/status", {statusRealtors})
+            .then(res => {
+                setGetStatusRealtors(prevStatusR => [res.data, ...prevStatusR])
+                setStatusRealtors('')
+            })
             .catch(err => console.log(err))
-            setStatusRealtors(initInputs)
     }
     const deleteStatusL = (statusId) => {
         axios.delete(`http://localhost:7000/status/${statusId}`)
