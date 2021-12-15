@@ -5,7 +5,7 @@ const MortgageContext = React.createContext()
 
 function MortgageContextProvider(props) {
 
-    const initInputs = {
+    const initInputsLeads = {
         date: "",
         campaign: "",
         status: "",
@@ -21,11 +21,25 @@ function MortgageContextProvider(props) {
         lastContact: "",
         notes: ""
     }
+    const initInputsRealtors = {
+        date: '',
+        campaign: '',
+        status: '',
+        firstName: '',
+        lastName: '',
+        brokerage: '',
+        phone: '',
+        email: '',
+        numberOfContacts: '',
+        golfer: '',
+        lastContact: '',
+        notes: '',
+    }
 
-    const [lead, setLead] = useState(initInputs)
+    const [lead, setLead] = useState(initInputsLeads)
     const [getLeads, setGetLeads] = useState([])
 
-    const [realtor, setRealtor] = useState([])
+    const [realtor, setRealtor] = useState(initInputsRealtors)
     const [getRealtors, setGetRealtors] = useState([])   
 
     const [campaignsLeads, setCampaignLeads] = useState()
@@ -46,7 +60,7 @@ function MortgageContextProvider(props) {
         axios.post("/leads", lead)
             .then(res => {
                 setGetLeads(prevLead => [res.data, ...prevLead])
-                setLead(initInputs)
+                setLead(initInputsLeads)
             })
             .catch(err => console.log(err))
     }
@@ -59,22 +73,52 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err))
     }
     const editLeads = (_id, editedLead) => {
-        axios.put(`https://localhost:7000/leads/${_id}`, editedLead)
+        axios.put(`http://localhost:7000/leads/${_id}`, editedLead)
             .then(res => {
-                setGetLeads(prevLead => {
-                    let arrayOfLeads = prevLead.getLeads.map(lead => lead._id === _id ? res.data : lead)
-                    return {arrayOfLeads}
+                setGetLeads(prevLead1 => {
+                    let getLeads1 = prevLead1.getLeads.map(lead1 => lead1._id === _id ? res.data : lead1)
+                    console.log(getLeads1)
+                    return {getLeads1}
                 })
             })
     }
+    // const editLeads = (_id, editedLead) => {
+    //     axios.put(`http://localhost:7000/leads/${_id}`, editedLead)
+    //         .then(res => {
+    //             setGetLeads(prevLead1 => {
+    //                 prevLead1.map(lead1 => lead1._id === _id ? res.data : lead1)
+    //             })
+    //         })
+    // }
     const handleChangeRealtors = (event) => {
         const {name, value} = event.target
-        setRealtor(prevRealtors => ({...prevRealtors, [name]: value}))
+        setRealtor(prevRealtor => ({...prevRealtor, [name]: value}))
     }
     const handleSubmitRealtors = () => {
         axios.post("/realtors", realtor)
-            .then(res => setGetRealtors(prevRealtor => [...prevRealtor, res.data]))
+            .then(res => {
+                setGetRealtors(prevRealtor => [res.data, ...prevRealtor])
+                setRealtor(initInputsRealtors)
+            })
             .catch(err => console.log(err))
+    }
+    const deleteRealtors = (realtorsId) => {
+        axios.delete(`http://localhost:7000/realtors/${realtorsId}`)
+            .then(res => {
+                let filterRealtors = getRealtors.filter(getRealtor => getRealtor._id !== realtorsId)
+                setGetRealtors(filterRealtors)
+            })
+            .catch(err => console.log(err))
+    }
+    const editRealtors = (_id, editedRealtor) => {
+        axios.put(`http://localhost:7000/realtors/${_id}`, editedRealtor)
+            .then(res => {
+                setGetRealtors(prevRealtor1 => {
+                    let getRealtors1 = prevRealtor1.getLeads.map(realtor1 => realtor1._id === _id ? res.data : realtor1)
+                    console.log(getRealtors1)
+                    return {getRealtors1}
+                })
+            })
     }
     const handleChangeCampaignsLeads = (event) => {
         const {name, value} = event.target
@@ -161,7 +205,7 @@ function MortgageContextProvider(props) {
     return (
         <MortgageContext.Provider value={{
             handleChangeLeads, handleSubmitLeads, deleteLeads, editLeads,
-            handleChangeRealtors, handleSubmitRealtors, 
+            handleChangeRealtors, handleSubmitRealtors, deleteRealtors, editRealtors, 
             handleChangeCampaignsLeads, handleSubmitCampaignsLeads, deleteCampaignsL, deleteCampaignsR,
             handleChangeCampaignsRealtors, handleSubmitCampaignsRealtors,
             lead,getLeads, setGetLeads,
