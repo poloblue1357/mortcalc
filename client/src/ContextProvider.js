@@ -76,20 +76,12 @@ function MortgageContextProvider(props) {
         axios.put(`http://localhost:7000/leads/${_id}`, editedLead)
             .then(res => {
                 setGetLeads(prevLead1 => {
-                    let getLeads1 = prevLead1.getLeads.map(lead1 => lead1._id === _id ? res.data : lead1)
+                    let getLeads1 = prevLead1.map(lead1 => lead1._id === _id ? res.data : lead1)
                     console.log(getLeads1)
-                    return {getLeads1}
+                    return getLeads1
                 })
             })
     }
-    // const editLeads = (_id, editedLead) => {
-    //     axios.put(`http://localhost:7000/leads/${_id}`, editedLead)
-    //         .then(res => {
-    //             setGetLeads(prevLead1 => {
-    //                 prevLead1.map(lead1 => lead1._id === _id ? res.data : lead1)
-    //             })
-    //         })
-    // }
     const handleChangeRealtors = (event) => {
         const {name, value} = event.target
         setRealtor(prevRealtor => ({...prevRealtor, [name]: value}))
