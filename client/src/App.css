@@ -1,0 +1,65 @@
+* {
+    background-color: lightsteelblue;
+}
+.navbarHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+/* .navbarlinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+.navbartop {
+    border: 2px black solid;
+    
+}
+.quotes {
+    display: flex;
+    justify-content: center;
+}
+.toplinks {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+.navbarbottom {
+    border: 2px black solid;;
+}
+.MLMD {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.bottomlinks {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 18px;
+}
+.navbaritems {
+    padding: 10px;
+    color: blue;
+}
+.navbaritems:hover {
+    color: red;
+}
+.homeButton:hover {
+    color: red;
+}
+.homeButton {
+    padding: 10px;
+    color: blue;
+}
+/* .auth-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+} */
+.auth-container {
+    display: grid;
+    place-items: center;
+    min-height: 40vh;
+}
+
