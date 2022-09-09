@@ -129,7 +129,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     function deleteLeads(leadsId) {
-        userAxios.delete(`http://localhost:7000/api/leads/${leadsId}`)
+        userAxios.delete(`/api/leads/${leadsId}`)
             .then(res => {
                 let filterLeads = getLeads.filter(getLead => getLead._id !== leadsId)
                 setGetLeads(filterLeads)
@@ -137,7 +137,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     function editLeads(_id, editedLead) {
-        userAxios.put(`http://localhost:7000/api/leads/${_id}`, editedLead)
+        userAxios.put(`/api/leads/${_id}`, editedLead)
             .then(res => {
                 setGetLeads(prevLead1 => {
                     let getLeads1 = prevLead1.map(lead1 => lead1._id === _id ? res.data : lead1)
@@ -159,7 +159,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     function deleteRealtors(realtorsId) {
-        userAxios.delete(`http://localhost:7000/api/realtors/${realtorsId}`)
+        userAxios.delete(`/api/realtors/${realtorsId}`)
             .then(res => {
                 let filterRealtors = getRealtors.filter(getRealtor => getRealtor._id !== realtorsId)
                 setGetRealtors(filterRealtors)
@@ -167,7 +167,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     function editRealtors(_id, editedRealtor) {
-        userAxios.put(`http://localhost:7000/api/realtors/${_id}`, editedRealtor)
+        userAxios.put(`/api/realtors/${_id}`, editedRealtor)
             .then(res => {
                 setGetRealtors(prevRealtor1 => {
                     let getRealtors1 = prevRealtor1.map(realtor1 => realtor1._id === _id ? res.data : realtor1)
@@ -202,7 +202,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     function deleteCampaignsL(campaignId) {
-        userAxios.delete(`http://localhost:7000/api/campaigns/${campaignId}`)
+        userAxios.delete(`/api/campaigns/${campaignId}`)
             .then(res => {
                 let filterCampaigns = getCampaignsLeads.filter(getCampaign => getCampaign._id !== campaignId)
                 setGetCampaignsLeads(filterCampaigns)
@@ -210,7 +210,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     function deleteCampaignsR(campaignId) {
-        userAxios.delete(`http://localhost:7000/api/campaigns/${campaignId}`)
+        userAxios.delete(`/api/campaigns/${campaignId}`)
             .then(res => {
                 let filterCampaigns = getCampaignsRealtors.filter(getCampaign => getCampaign._id !== campaignId)
                 setGetCampaignsRealtors(filterCampaigns)
@@ -243,7 +243,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     function deleteStatusL(statusId) {
-        userAxios.delete(`http://localhost:7000/api/status/${statusId}`)
+        userAxios.delete(`/api/status/${statusId}`)
             .then(res => {
                 let filterStatus = getStatusLeads.filter(getStatus => getStatus._id !== statusId)
                 setGetStatusLeads(filterStatus)
@@ -251,7 +251,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
     const deleteStatusR = (statusId) => {
-        userAxios.delete(`http://localhost:7000/api/status/${statusId}`)
+        userAxios.delete(`/api/status/${statusId}`)
             .then(res => {
                 let filterStatus = getStatusRealtors.filter(getStatus => getStatus._id !== statusId)
                 setGetStatusRealtors(filterStatus)
