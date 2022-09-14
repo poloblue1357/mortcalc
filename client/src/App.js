@@ -30,7 +30,7 @@ function App() {
                     redirectTo="/"
                     token={token}
                 />
-                <ProtectedRoute 
+                {/* <ProtectedRoute 
                     path="/payoffcalc"
                     component={PayoffCalc}
                     redirectTo="/"
@@ -47,7 +47,7 @@ function App() {
                     component={LPS}
                     redirectTo="/"
                     token={token}
-                />
+                /> */}
                 <ProtectedRoute 
                     path="/leads"
                     component={Leads}

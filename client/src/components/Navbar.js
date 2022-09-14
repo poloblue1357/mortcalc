@@ -12,14 +12,14 @@ function Navbar(props) {
                     <button onClick={logout} style={{fontSize: "15px"}}>Logout</button>
                 </div>
                 <br></br>
-                <div className="navbartop">
+                {/* <div className="navbartop">
                     <h3 className="quotes">Quotes</h3>
                     <div className="toplinks">
                         <Link to="/payoffcalc" className="navbaritems">Payoff Calculator</Link>
                         <Link to="/feesetup" className="navbaritems">Fee Setup</Link>
                         <Link to="/lps" className="navbaritems">Lender's Policy Schedule</Link>
                     </div> 
-                </div>
+                </div> */}
                 <br />
                 <div className="navbarbottom">
                     <h3 className="MLMD">Mortgage Lead Management Document</h3>
