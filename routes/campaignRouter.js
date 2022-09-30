@@ -19,7 +19,7 @@ campaignRouter.post("/", (req, res, next) => {
     // console.log("body", req.body)
     req.body.user = req.user._id
     const newCampaign = new Campaign(req.body)
-    newCampaign.user = req.user._id
+    // newCampaign.user = req.user._id
     newCampaign.save((err, savedCampaign) => {
         if(err) {
             res.status(500)

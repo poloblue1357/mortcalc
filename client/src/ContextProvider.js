@@ -131,7 +131,7 @@ function MortgageContextProvider(props) {
     function deleteLeads(leadsId) {
         userAxios.delete(`/api/leads/${leadsId}`)
             .then(res => {
-                let filterLeads = getLeads.filter(getLead => getLead._id !== leadsId)
+                let filterLeads = getLeads?.filter(getLead => getLead._id !== leadsId)
                 setGetLeads(filterLeads)
             })
             .catch(err => console.log(err.response.data.errMsg))
@@ -146,6 +146,7 @@ function MortgageContextProvider(props) {
                 })
             })
     }
+
     const handleChangeRealtors = (event) => {
         const {name, value} = event.target
         setRealtor(prevRealtor => ({...prevRealtor, [name]: value}))
@@ -161,7 +162,7 @@ function MortgageContextProvider(props) {
     function deleteRealtors(realtorsId) {
         userAxios.delete(`/api/realtors/${realtorsId}`)
             .then(res => {
-                let filterRealtors = getRealtors.filter(getRealtor => getRealtor._id !== realtorsId)
+                let filterRealtors = getRealtors?.filter(getRealtor => getRealtor._id !== realtorsId)
                 setGetRealtors(filterRealtors)
             })
             .catch(err => console.log(err.response.data.errMsg))

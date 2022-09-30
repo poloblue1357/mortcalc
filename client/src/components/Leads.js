@@ -28,7 +28,7 @@ function Leads() {
 
     const l = context.getLeads.map(l => <Leadsdisplay l={l} key={l._id}/>)
 
-    const filterC = context.getCampaignsLeads.filter(lead => lead.campaignsLeads)
+    const filterC = context.getCampaignsLeads.filter(status => status.campaignsLeads)
     const listCampaigns = filterC.map(lead => {
         return <option key={lead.campaignsLeads} value={lead.campaignsLeads}>{lead.campaignsLeads}</option>
     })

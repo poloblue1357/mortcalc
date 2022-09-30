@@ -19,8 +19,8 @@ realtorRouter.post("/", (req, res, next) => {
     // console.log("body", req.body)
     req.body.user = req.user._id
     const newRealtor = new Realtor(req.body)
-    newRealtor.user = req.user._id
-    newRealtor.save((err, savedRealtor) => {
+    // newRealtor.user = req.user._id
+    newRealtor.save(function(err, savedRealtor) {
         if(err) {
             res.status(500)
             return next(err)
@@ -38,7 +38,7 @@ realtorRouter.delete("/:realtorId", (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-            return res.status(200).send(`Successfully deleted  ${deletedRealtor.firstName} ${deletedRealtor.lastName} from the database!`)
+            return res.status(200).send(`Successfully deleted ${deletedRealtor}.`)
         }
     )
 })

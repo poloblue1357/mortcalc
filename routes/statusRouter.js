@@ -19,7 +19,7 @@ statusRouter.post("/", (req, res, next) => {
     // console.log("body", req.body)
     req.body.user = req.user._id
     const newStatus = new Status(req.body)
-    newStatus.user = req.user._id
+    // newStatus.user = req.user._id
     newStatus.save((err, savedStatus) => {
         if(err) {
             res.status(500)
@@ -38,7 +38,7 @@ statusRouter.delete("/:statusId", (req, res, next) => {
                 res.status(500)
                 return next(err)
             }
-            return res.status(200).send(`Successfully deleted status from the database!`)
+            return res.status(200).send(`Successfully deleted ${deletedStatus} from the database!`)
         }
     )
 })

@@ -2,9 +2,9 @@ import React, {useContext} from "react"
 import "./App.css"
 import { Link, Route, Switch, Redirect } from "react-router-dom"
 import Home from "./components/Home"
-import PayoffCalc from "./components/PayoffCalc"
-import FeeSetup from "./components/FeeSetup"
-import LPS from "./components/LPS"
+import PayoffCalc from "./quoteComponents/PayoffCalc"
+import FeeSetup from "./quoteComponents/FeeSetup"
+import LPS from "./quoteComponents/LPS"
 import Leads from "./components/Leads"
 import Realtors from "./components/Realtors"
 import Status from "./components/Status"
@@ -35,19 +35,19 @@ function App() {
                     component={PayoffCalc}
                     redirectTo="/"
                     token={token}
-                />
-                <ProtectedRoute 
+                /> */}
+                {/* <ProtectedRoute 
                     path="/feesetup"
                     component={FeeSetup}
                     redirectTo="/"
                     token={token}
-                />
+                /> */}
                 <ProtectedRoute 
                     path="/lps"
                     component={LPS}
                     redirectTo="/"
                     token={token}
-                /> */}
+                />
                 <ProtectedRoute 
                     path="/leads"
                     component={Leads}
