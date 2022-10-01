@@ -46,7 +46,7 @@ leadRouter.delete("/:leadId", (req, res, next) => {
 //Update Todo
 leadRouter.put("/:leadId", (req, res, next) => {
     Lead.findOneAndUpdate(
-        {_id: req.params.realtorId},
+        {_id: req.params.leadId, user: req.user._id},
         req.body,
         {new: true},
         (err, updatedLead) => {

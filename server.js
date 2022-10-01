@@ -32,6 +32,7 @@ app.use("/api/leads", require("./routes/leadRouter.js"))
 app.use("/api/realtors", require("./routes/realtorRouter.js"))
 app.use("/api/status", require("./routes/statusRouter.js"))
 app.use("/api/campaigns", require("./routes/campaignRouter.js"))
+app.use("/api/lps", require("./routes/lpsrouter.js"))
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use((err, req, res, next) => {

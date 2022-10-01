@@ -259,25 +259,15 @@ function MortgageContextProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
+///////////  quoteComponents ////////////////
 
-    // function getLeads1() {
-    //     userAxios.get("/api/leads")
-    //         .then(res => {
-    //             setGetLeads(res.data)
-    //             console.log(res.data)
-    //         })
-    //         .catch(err => console.log(err.response.data.errMsg))
-    // }
-    // function getStatusLeads1() {
-    //     userAxios.get("/api/status")
-    //         .then(res => setGetStatusLeads(res.data))
-    //         .catch(err => console.log(err.response.data.errMsg))
-    // }
-    // function getCampaignsLeads1() {
-    //     userAxios.get("/api/campaigns")
-    //         .then(res => setGetCampaignsLeads(res.data))
-    //         .catch(err => console.log(err.response.data.errMsg))
-    // }
+
+
+    const handleChangeLPS =(event) => {
+        const {name, value} = event.target
+
+    }
+
 
     return (
         <MortgageContext.Provider value={{

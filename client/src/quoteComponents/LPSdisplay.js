@@ -1,6 +1,9 @@
 import React from "react"
 
-function LPSdisplay() {
+function LPSdisplay(props) {
+
+
+
     return (
         <div>
             <table>
@@ -15,18 +18,18 @@ function LPSdisplay() {
                             border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
-                            width: "134px"}}>$100</td>
+                            width: "134px"}}>$</td>
                         <td style={{
                             border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
                             width: "134px",
-                            backgroundColor: "#4B9CD3"}}>$200</td>
+                            backgroundColor: "#4B9CD3"}}>$</td>
                         <td style={{
                             border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
-                            width: "134px"}}>$100</td>
+                            width: "134px"}}>$</td>
                     </tr>
                 </tbody>
             </table>
