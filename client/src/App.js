@@ -36,12 +36,12 @@ function App() {
                     redirectTo="/"
                     token={token}
                 /> */}
-                {/* <ProtectedRoute 
+                <ProtectedRoute 
                     path="/feesetup"
                     component={FeeSetup}
                     redirectTo="/"
                     token={token}
-                /> */}
+                />
                 <ProtectedRoute 
                     path="/lps"
                     component={LPS}

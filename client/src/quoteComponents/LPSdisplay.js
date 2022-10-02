@@ -1,35 +1,32 @@
-import React from "react"
+import React, {useContext} from "react"
+import {MortgageContext} from "../ContextProvider"
 
 function LPSdisplay(props) {
 
-
+    const context = useContext(MortgageContext)
 
     return (
         <div>
             <table>
                 <tbody>
-                    <tr >
-                        <td style={{backgroundColor: "#4F97A3", textAlign: "center"}}>Loan Amount</td>
-                        <td style={{backgroundColor: "#4F97A3", textAlign: "center"}}>Refinance</td>
-                        <td style={{backgroundColor: "#4F97A3", textAlign: "center"}}>Purchases</td>
-                    </tr>
                     <tr>
                         <td style={{
                             border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
-                            width: "134px"}}>$</td>
+                            width: "134px"}}>$ {props.item.loanAmount.toLocaleString()}</td>
                         <td style={{
                             border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
                             width: "134px",
-                            backgroundColor: "#4B9CD3"}}>$</td>
+                            backgroundColor: "#4B9CD3"}}>$ {props.item.refinance.toLocaleString()}</td>
                         <td style={{
                             border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
-                            width: "134px"}}>$</td>
+                            width: "134px"}}>$ {props.item.purchases.toLocaleString()}</td>
+                        <button onClick={() => context.deleteLPS(props.item._id)}>Delete</button>
                     </tr>
                 </tbody>
             </table>

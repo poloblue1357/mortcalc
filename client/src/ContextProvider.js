@@ -259,15 +259,32 @@ function MortgageContextProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
-///////////  quoteComponents ////////////////
+///////////  quoteComponents ////////////////////////////////////////////////////////
 
+    const initLpsData = {loanAmount: '', purchases: "", refinance: ""}
+    const [lpsData, setLpsData] = useState(initLpsData)
+    const [getLpsData, setGetLpsData] = useState([])
 
-
-    const handleChangeLPS =(event) => {
+    const handleChangeLPS = (event) => {
         const {name, value} = event.target
-
+        const a = value.toLocaleString()
+        setLpsData(prevInfo => ({...prevInfo, [name]: a}))
     }
-
+    const handleSubmitLPS = () => {
+        userAxios.post("/api/lps", lpsData)
+            .then(res => {
+                setGetLpsData(prevInfo => [...prevInfo, res.data])
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    function deleteLPS(lpsId) {
+        userAxios.delete(`/api/lps/${lpsId}`)
+            .then(res => {
+                let filterLPS = getLpsData.filter(item => item._id !== lpsId)
+                setGetLpsData(filterLPS)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
 
     return (
         <MortgageContext.Provider value={{
@@ -283,7 +300,8 @@ function MortgageContextProvider(props) {
             handleChangeStatusRealtors, handleSubmitStatusRealtors, deleteStatusR,
             statusLeads, getStatusLeads, statusRealtors, getStatusRealtors,
             setGetStatusLeads, setGetStatusRealtors,
-            ...userState, signup, login, logout, handleAuthErr, resetAuthErr, userAxios
+            ...userState, signup, login, logout, handleAuthErr, resetAuthErr, userAxios,
+            handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData
         }}>
             {props.children}
         </MortgageContext.Provider>
