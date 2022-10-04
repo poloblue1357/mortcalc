@@ -285,6 +285,51 @@ function MortgageContextProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
+    const [feeSetupData, setFeeSetupData] = useState()
+    const [getFeeSetupData, setGetFeeSetupData] = useState([])
+
+    const handleChangeFeeSetup = (event) => {
+        const {name, value} = event.target
+        setFeeSetupData(prevInfo => ({...prevInfo, [name]: value}))
+    }
+    const handleSubmitFeeSetup = () => {
+        userAxios.post("/api/feesetup", feeSetupData)
+            .then(res => {
+                setGetFeeSetupData(prevInfo => [...prevInfo, res.data])
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    function deleteFeeSetup(feeSetupId) {
+        userAxios.delete(`/api/feesetup/${feeSetupId}`)
+            .then(res => {
+                let filterFeeSetup = getFeeSetupData.filter(feeSetup => feeSetup._id !== feeSetupId)
+                setGetFeeSetupData(filterFeeSetup)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    const [titleFeesData, setTitleFeesData] = useState()
+    const [getTitleFeesData, setGetTitleFeesData] = useState([])
+
+    const handleChangeTitleFees = (event) => {
+        const {name, value} = event.target
+        setTitleFeesData(prevInfo => ({...prevInfo, [name]: value}))
+    }
+    const handleSubmitTitleFees = () => {
+        userAxios.post("/api/feesetup", feeSetupData)
+            .then(res => {
+                setGetTitleFeesData(prevInfo => [...prevInfo, res.data])
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    function deleteTitleFees(titleFeesId) {
+        userAxios.delete(`/api/feesetup/${titleFeesId}`)
+            .then(res => {
+                let filterTitleFees = getTitleFeesData.filter(titleFees => titleFees._id !== titleFeesId)
+                setGetTitleFeesData(filterTitleFees)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+
 
     return (
         <MortgageContext.Provider value={{
@@ -301,7 +346,9 @@ function MortgageContextProvider(props) {
             statusLeads, getStatusLeads, statusRealtors, getStatusRealtors,
             setGetStatusLeads, setGetStatusRealtors,
             ...userState, signup, login, logout, handleAuthErr, resetAuthErr, userAxios,
-            handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData
+            handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData,
+            handleChangeFeeSetup, handleSubmitFeeSetup, deleteFeeSetup, feeSetupData, setFeeSetupData, getFeeSetupData, setGetFeeSetupData,
+            handleChangeTitleFees, handleSubmitTitleFees, deleteTitleFees, titleFeesData, setTitleFeesData, getTitleFeesData, setGetTitleFeesData 
         }}>
             {props.children}
         </MortgageContext.Provider>

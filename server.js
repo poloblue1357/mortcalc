@@ -24,7 +24,7 @@ app.use(morgan("dev"))
 //     },
 //     () => console.log("Connected to the DB.")    
 // )
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true,  useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true,  useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
 
 app.use("/auth", require("./routes/auth.js"))
 app.use("/api", expressJwt({ secret: secret, algorithms: ["HS256"]}))
@@ -33,6 +33,7 @@ app.use("/api/realtors", require("./routes/realtorRouter.js"))
 app.use("/api/status", require("./routes/statusRouter.js"))
 app.use("/api/campaigns", require("./routes/campaignRouter.js"))
 app.use("/api/lps", require("./routes/lpsrouter.js"))
+app.use("/api/feesetup", require("./routes/feesetup.js"))
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use((err, req, res, next) => {
