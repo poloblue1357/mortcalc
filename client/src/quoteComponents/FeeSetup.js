@@ -4,23 +4,23 @@ import FeeSetupdisplay from "./FeeSetupdisplay"
 
 function FeeSetup() {
 
-    const {setGetFeeSetupData, handleChangeFeeSetup, userAxios, handleSubmitFeeSetup} = useContext(MortgageContext)
     const context = useContext(MortgageContext)
+    const {setGetFeeSetupData, handleChangeFeeSetup, userAxios, handleSubmitFeeSetup} = useContext(MortgageContext)
     const {handleChangeTitleFees, handleSubmitTitleFees, setGetTitleFeesData} = useContext(MortgageContext)
 
     const a = context?.getFeeSetupData.map(f => <FeeSetupdisplay f={f} key={f._id}/>)
-    const b = context?.getTitleFeesData.map(f => <FeeSetupdisplay f={f} key={f._id}/>)
+    const b = context?.getTitleFeesData.map(g => <FeeSetupdisplay g={g} key={g._id}/>)
 
-    useEffect(() => {
-        userAxios.get("/api/feesetup")
-            .then(res => setGetFeeSetupData(res.data))
-            .catch(err => console.log(err))
-    }, [])
-    useEffect(() => {
-        userAxios.get("/api/feesetup")
-            .then(res => setGetTitleFeesData(res.data))
-            .catch(err => console.log(err))
-    }, [])
+    // useEffect(() => {
+    //     userAxios.get("/api/feesetup")
+    //         .then(res => setGetFeeSetupData(res.data))
+    //         .catch(err => console.log(err))
+    // }, [])
+    // useEffect(() => {
+    //     userAxios.get("/api/feesetup")
+    //         .then(res => setGetTitleFeesData(res.data))
+    //         .catch(err => console.log(err))
+    // }, [])
 
     return (
         <div>
@@ -62,8 +62,8 @@ function FeeSetup() {
                 {a}
             </div>
             <hr />
-            <span style={{display: "flex", justifyContent: "center"}}>
-                <h3>Title Fees</h3>
+            <span>
+                <h3> Add Title Fees</h3>
             </span>
             <div style={{display: "flex"}}>
                 <form style={{display: "grid", margin: "10px"}} onSubmit={(event) => {

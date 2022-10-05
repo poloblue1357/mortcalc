@@ -1,29 +1,23 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const feeSetupSchema = ({
-    feeScenario: {
-        type: String
-    },
-    origination: {
+const titleFeesSchema = ({
+    closingFee: {
         type: Number
     },
-    underwriting: {
+    cpl: {
         type: Number
     },
-    taxService: {
+    cplBorrower: {
         type: Number
     },
-    creditReport: {
+    endorsements: {
         type: Number
     },
-    floodCertificate: {
+    recordingServices: {
         type: Number
     },
-    appraisal: {
-        type: Number
-    },
-    pestInspection: {
+    recording: {
         type: Number
     },
     user: {
@@ -33,4 +27,4 @@ const feeSetupSchema = ({
     }
 })
 
-module.exports = mongoose.model("FeeSetup", feeSetupSchema)
+module.exports = mongoose.model("TitleFees", titleFeesSchema)

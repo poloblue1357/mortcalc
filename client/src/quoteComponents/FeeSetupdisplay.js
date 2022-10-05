@@ -25,13 +25,13 @@ function FeeSetupdisplay(props) {
             <table>
                 <tbody>
                     <tr>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.closingFee}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.cpl}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.cplBorrower}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.endorsements}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.recordingServices}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.recording}</td>
-                        <button onClick={() => context.deleteTitleFees(props.f._id)}>Delete</button>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.g.closingFee}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.g.cpl}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.g.cplBorrower}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.g.endorsements}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.g.recordingServices}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.g.recording}</td>
+                        <button onClick={() => context.deleteTitleFees(props.g._id)}>Delete</button>
                     </tr>
                 </tbody>
             </table>
