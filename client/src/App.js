@@ -2,6 +2,7 @@ import React, {useContext} from "react"
 import "./App.css"
 import { Link, Route, Switch, Redirect } from "react-router-dom"
 import Home from "./components/Home"
+import LoanInput from "./quoteComponents/LoanInput"
 import PayoffCalc from "./quoteComponents/PayoffCalc"
 import FeeSetup from "./quoteComponents/FeeSetup"
 import LPS from "./quoteComponents/LPS"
@@ -36,6 +37,12 @@ function App() {
                     redirectTo="/"
                     token={token}
                 /> */}
+                <ProtectedRoute 
+                    path="/loaninput"
+                    component={LoanInput}
+                    redirectTo="/"
+                    token={token}
+                />
                 <ProtectedRoute 
                     path="/feesetup"
                     component={FeeSetup}

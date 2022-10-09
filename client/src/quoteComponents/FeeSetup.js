@@ -1,6 +1,7 @@
 import React, {useContext, useEffect} from "react"
 import {MortgageContext} from "../ContextProvider"
 import FeeSetupdisplay from "./FeeSetupdisplay"
+import TitleFeesdisplay from './TitleFeesdisplay'
 
 function FeeSetup() {
 
@@ -8,19 +9,25 @@ function FeeSetup() {
     const {setGetFeeSetupData, handleChangeFeeSetup, userAxios, handleSubmitFeeSetup} = useContext(MortgageContext)
     const {handleChangeTitleFees, handleSubmitTitleFees, setGetTitleFeesData} = useContext(MortgageContext)
 
-    const a = context?.getFeeSetupData.map(f => <FeeSetupdisplay f={f} key={f._id}/>)
-    const b = context?.getTitleFeesData.map(g => <FeeSetupdisplay g={g} key={g._id}/>)
+    // const y = Object.entries(context?.getFeeSetupData?.feeSetup)
+    // const z = Object.entries(context?.getTitleFeesData?.titleFees)
 
-    // useEffect(() => {
-    //     userAxios.get("/api/feesetup")
-    //         .then(res => setGetFeeSetupData(res.data))
-    //         .catch(err => console.log(err))
-    // }, [])
-    // useEffect(() => {
-    //     userAxios.get("/api/feesetup")
-    //         .then(res => setGetTitleFeesData(res.data))
-    //         .catch(err => console.log(err))
-    // }, [])
+    const c = context?.getFeeSetupData?.filter(item => item.feeSetup && item)
+    const d = context?.getTitleFeesData?.filter(item => item.titleFees && item)
+
+    const a = c?.map(f => <FeeSetupdisplay f={f} key={f._id}/>)
+    const b = d?.map(f => <TitleFeesdisplay f={f} key={f._id}/>)
+
+    useEffect(() => {
+        userAxios.get("/api/feesetup")
+            .then(res => setGetFeeSetupData(res.data))
+            .catch(err => console.log(err))
+    }, [])
+    useEffect(() => {
+        userAxios.get("/api/feesetup")
+            .then(res => setGetTitleFeesData(res.data))
+            .catch(err => console.log(err))
+    }, [])
 
     return (
         <div>
