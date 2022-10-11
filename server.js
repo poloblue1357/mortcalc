@@ -16,12 +16,12 @@ app.use(cors())
 app.use(morgan("dev"))
 
 // mongoose.connect("mongodb://localhost:27017/mortcalcdb",
-//     {
-//         useNewUrlParser: true,
-//         useUnifiedTopology: true,
-//         useCreateIndex: true,
-//         useFindAndModify: false,
-//     },
+    // {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true,
+    //     useCreateIndex: true,
+    //     useFindAndModify: false,
+    // },
 //     () => console.log("Connected to the DB.")    
 // )
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true,  useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
