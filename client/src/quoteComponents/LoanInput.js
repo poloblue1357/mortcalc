@@ -1,55 +1,87 @@
-import React from "react"
+import React, {useContext, useEffect} from "react"
+import {MortgageContext} from "../ContextProvider"
 
 function LoanInput() {
+
+    const context = useContext(MortgageContext)
+
     return (
         <div style={{display: "grid"}}>
             <h1 style={{display: "flex", justifyContent: "center"}}>Loan Input</h1>
             <h2>Client Info</h2>
-            <form>
-                <input placeholder="name"/>
-                <br/>
-                <input placeholder="address"/>
-                <br/>
-                <input placeholder="phone"/>
-                <br/>
-                <input placeholder="email"/>
-                <br/>
-                <select name="loanPurpose">
-                    <option value="purchase">Purchase</option>
-                    <option value="refinance">Refinance</option>
-                </select>
+            <form >
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>
+                        Name <input name="name" value={context.name} onChange={context.handleChangeLoanInput}/></td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>
+                        Street Address<input name="address" value={context.address} onChange={context.handleChangeLoanInput}/></td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>
+                        Phone<input name="phone" value={context.phone} onChange={context.handleChangeLoanInput}/></td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>
+                        Email<input name="email" value={context.email} onChange={context.handleChangeLoanInput}/></td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>
+                        Loan Purpose
+                        <select name="loanPurpose" value={context.loanPurpose} onChange={context.handleChangeLoanInput}>
+                            <option value="purchase">Purchase</option>
+                            <option value="refinance">Refinance</option>
+                        </select>
+                    </td>
+                </tr>
                 <br/>
                 <h2>Current Loan / Housing Info (If Applicable)</h2>
-                <div style={{display: "flex"}}>
-                    <input placeholder="Current Rate"/><p style={{margin: "5px"}}>5%</p>
-                    <input placeholder="Current Escrow"/><p style={{margin: "5px"}}>10%</p>
-                </div>
-                <br />
-                <div style={{display: "flex"}}>
-                    <input placeholder="Rent/House Pymnt"/><p style={{margin: "5px"}}></p>
-                    <input placeholder="Current MI"/><p style={{margin: "5px"}}></p>
-                </div>
-                <br />
-                <div style={{display: "flex"}}>
-                    <h4>Term</h4>
-                    <select name="term" style={{margin: "5px"}}>
-                        <option value="360">360</option>
-                        <option value="240">240</option>
-                        <option value="180">180</option>
-                        <option value="120">120</option>
-                    </select>
-                    <input placeholder="1st Loan Balance" style={{margin: "5px"}}/><p style={{margin: "5px"}}></p>
-                </div>
-                <br />
-                <div style={{display: "flex"}}>
-                    <input placeholder="Last Appraised (If Applicable)"/><p style={{margin: "5px"}}></p>
-                    <input placeholder="Other Debt to be Paid Off"/><p style={{margin: "5px"}}></p>
-                </div>
-                <br />
-                <div style={{display: "flex"}}>
-                    <input placeholder="Adtnl Principal Pmnts / Mos"/><p style={{margin: "5px"}}></p>
-                    <h4>Estimated Payoff:</h4><p style={{margin: "5px"}}></p>
-                </div>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>Current Rate
+                        <input name="currentRate" value={context.currentRate} onChange={context.handleChangeLoanInput}/>
+                    </td>
+                    <td style={{border: "1px solid black"}}>Current Escrow
+                        <input name="currentEscrow" value={context.currentEscrow} onChange={context.handleChangeLoanInput}/>
+                    </td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>Rent/House Pymnt
+                        <input name="rentPayment" value={context.rentPayment} onChange={context.handleChangeLoanInput}/>
+                    </td>
+                    <td style={{border: "1px solid black"}}>Current MI
+                        <input name="currentMI" value={context.currentMI} onChange={context.handleChangeLoanInput}/>
+                    </td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>Term
+                        <select name="term" style={{margin: "5px"}} value={context.term} onChange={context.handleChangeLoanInput}>
+                            <option value="360">360</option>
+                            <option value="240">240</option>
+                            <option value="180">180</option>
+                            <option value="120">120</option>
+                        </select>
+                    </td>
+                    <td style={{border: "1px solid black"}}>1st Loan Balance
+                        <input name="firstLoanBalance" value={context.firstLoanBalance} onChange={context.handleChangeLoanInput}/>
+                    </td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>Last Appraised (If Available)
+                        
+                    </td>
+                    <td style={{border: "1px solid black"}}>Other Debt to be Paid Off
+                        
+                    </td>
+                </tr>
+                <tr style={{textAlign: "right"}}>
+                    <td style={{border: "1px solid black"}}>Adtnl Principal Pmnts / Mos
+                        
+                    </td>
+                    <td style={{border: "1px solid black"}}>Estimated Payoff
+                        
+                    </td>
+                </tr>
                 <h2>Loan Terms</h2>
                 {/* <div style={{display: "flex"}}>
                     <h4>Loan Type</h4>
@@ -88,7 +120,7 @@ function LoanInput() {
                             <tr>
                                 <td style={{border: "1px solid black"}}>Loan Type:</td>
                                 <td style={{border: "1px solid black"}}>
-                                    <select>
+                                    <select name="loanType" value={context.loanType} onChange={context.handleChangeLoanInput}>
                                         <option value="conventional">Conventional</option>
                                         <option value="fha">FHA</option>
                                         <option value="va">VA</option>
@@ -96,20 +128,20 @@ function LoanInput() {
                                     </select>
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <select>
+                                    {/* <select>
                                         <option value="conventional">Conventional</option>
                                         <option value="fha">FHA</option>
                                         <option value="va">VA</option>
                                         <option value="usda">USDA</option>
-                                    </select>
+                                    </select> */}
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <select>
+                                    {/* <select>
                                         <option value="conventional">Conventional</option>
                                         <option value="fha">FHA</option>
                                         <option value="va">VA</option>
                                         <option value="usda">USDA</option>
-                                    </select>
+                                    </select> */}
                                 </td>
                             </tr>
                             <tr style={{border: "1px solid black"}}>
@@ -155,38 +187,38 @@ function LoanInput() {
                             <tr>
                                 <td style={{border: "1px solid black"}}>Appraised Value</td>
                                 <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Purchase Price</td>
                                 <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Base Loan Amount</td>
                                 <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>UFMIP / Funding Fee %</td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}></td>
+                                <td style={{border: "1px solid black"}}></td>
+                                <td style={{border: "1px solid black"}}></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>UFMIP / Funding Fee $</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Final Loan Amount</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Loan Term</td>
@@ -200,47 +232,47 @@ function LoanInput() {
                                     </select>
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <select>
+                                    {/* <select>
                                         <option>360</option>
                                         <option>300</option>
                                         <option>240</option>
                                         <option>180</option>
                                         <option>120</option>
-                                    </select>
+                                    </select> */}
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <select>
+                                    {/* <select>
                                         <option>360</option>
                                         <option>300</option>
                                         <option>240</option>
                                         <option>180</option>
                                         <option>120</option>
-                                    </select>
+                                    </select> */}
                                 </td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Monthly MI Factor</td>
                                 <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}></td>
+                                <td style={{border: "1px solid black"}}></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Monthly MI Premium</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>LTV (FYI)</td>
-                                <td style={{border: "1px solid black"}}><input />%</td>
-                                <td style={{border: "1px solid black"}}><input />%</td>
-                                <td style={{border: "1px solid black"}}><input />%</td>
+                                <td style={{border: "1px solid black"}}>%</td>
+                                <td style={{border: "1px solid black"}}>%</td>
+                                <td style={{border: "1px solid black"}}>%</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>P&I Payment</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Adtnl Monthly Pymnts</td>
@@ -249,12 +281,167 @@ function LoanInput() {
                                 <td style={{border: "1px solid black"}}><input /></td>
                             </tr>
                             <tr>
-                                <td style={{border: "1px solid black"}}>Cash to CLose</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>Cash to Close</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <h2>Closing Costs</h2>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Total</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <h3 style={{display: "flex", justifyContent: "center"}}>Lender Costs</h3>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Total</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Origination</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Lender Credit / Discount</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Underwriting</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Tax Service</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Credit Report</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Flood Certificate</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Appraisal</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <h3>Title Costs</h3>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Total</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Title Insurance</td>
+                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Closing Fee</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>CPL</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>CPL Borrower</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Endorsements</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Recording Services</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <h2>Escrow and Prepaids</h2>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Total</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <h3 style={{display: "flex", justifyContent: "center"}}>Taxes & Insurance</h3>
+                            <tr>
+                                <td style={{border: "1px solid black"}}></td>
+                                <td style={{border: "1px solid black"}}>Monthly</td>
+                                <td style={{border: "1px solid black"}}>Monthly Reserves</td>
+                                <td style={{border: "1px solid black"}}>Total</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Taxes</td>
+                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Insurance</td>
+                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Total</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                {/* <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$<input /></td> */}
+                            </tr>
+                            <h3 style={{display: "flex", justifyContent: "center"}}>Prepaid Interest</h3>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Daily Amount</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Days Required</td>
+                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}><input /></td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black"}}>Total</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                                <td style={{border: "1px solid black"}}>$</td>
+                            </tr>
                     </tbody>
                 </table>
             </form>

@@ -331,6 +331,40 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    const [loanInput, setLoanInput] = useState()
+    const [getLoanInput, setGetLoanInput] = useState([])
+
+    const handleChangeLoanInput = (event) => {
+        const {name, value} = event.target
+        setLoanInput(prevLoanInput => ({...prevLoanInput, [name]: value}))
+    }
+    const handleSubmitLoanInput = () => {
+        userAxios.post("/api/loaninput", loanInput)
+            .then(res => {
+                setGetLoanInput(prevLoanInput => [res.data, ...prevLoanInput])
+                // setRealtor(initInputsRealtors)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    function deleteLoanInput(loanInputId) {
+        userAxios.delete(`/api/loaninput/${loanInputId}`)
+            .then(res => {
+                let filterLoanInput = getLoanInput?.filter(getLoanInput => getLoanInput._id !== loanInputId)
+                setGetLoanInput(filterLoanInput)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    function editLoanInput(_id, editedLoanInput) {
+        userAxios.put(`/api/loaninput/${_id}`, editedLoanInput)
+            .then(res => {
+                setGetLoanInput(prevLoanInput1 => {
+                    let getLoanInput1 = prevLoanInput1.map(loanInput1 => loanInput1._id === _id ? res.data : loanInput1)
+                    // console.log(getRealtors1)
+                    return getLoanInput1
+                })
+            })
+    }
+
 
     return (
         <MortgageContext.Provider value={{
@@ -349,7 +383,8 @@ function MortgageContextProvider(props) {
             ...userState, signup, login, logout, handleAuthErr, resetAuthErr, userAxios,
             handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData,
             handleChangeFeeSetup, handleSubmitFeeSetup, deleteFeeSetup, feeSetupData, setFeeSetupData, getFeeSetupData, setGetFeeSetupData,
-            handleChangeTitleFees, handleSubmitTitleFees, deleteTitleFees, titleFeesData, setTitleFeesData, getTitleFeesData, setGetTitleFeesData 
+            handleChangeTitleFees, handleSubmitTitleFees, deleteTitleFees, titleFeesData, setTitleFeesData, getTitleFeesData, setGetTitleFeesData,
+            loanInput, setLoanInput, getLoanInput, setGetLoanInput, handleChangeLoanInput, handleSubmitLoanInput, deleteLoanInput, editLoanInput 
         }}>
             {props.children}
         </MortgageContext.Provider>
