@@ -1,0 +1,277 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    position: relative;
+}
+.one {
+    background-color: #334960;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    height: 170px;
+}
+.oneYellow {
+    background-color: #fbbc04;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.two {
+    grid-column: 1 / 6;
+    grid-row: 2 / 3;
+}
+.twoOne {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.twoTwo {
+    background-color: #d9ead3;
+    width: 100%;
+    height: 100%;
+}
+.twoThree {
+    background-color: #cfe2f3;
+    width: 100%;
+    height: 100%;
+}
+.twoFour {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.twoFive {
+    background-color: #334960;
+    width: 100%;
+    height: 100%;
+}
+.twoVertical {
+    background-color: #7e9fce;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    z-index: 999999;
+}
+.twoHorizontal {
+    background-color: #7e9fce;
+    grid-column: 1 / 6;
+    grid-row: 2 / 3;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.three {
+    grid-column: 1 / 6;
+    grid-row: 3 / 4;
+}
+.threeOne {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.threeTwo {
+    background-color: #d9ead3;
+    width: 100%;
+    height: 100%;
+}
+.threeThree {
+    background-color: #cfe2f3;
+    width: 100%;
+    height: 100%;
+}
+.threeFour {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.threeFive {
+    background-color: #334960;
+    width: 100%;
+    height: 100%;
+}
+.threeVertical {
+    background-color: #0b5394;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    z-index: 999999;
+}
+.threeHorizontal {
+    background-color: #0b5394;
+    grid-column: 1 / 6;
+    grid-row: 3 / 4;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.four {
+    grid-column: 1 / 6;
+    grid-row: 4 / 5;
+}
+.fourOne {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.fourTwo {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.fourThree {
+    background-color: #cfe2f3;
+    width: 100%;
+    height: 100%;
+}
+.fourFour {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.fourFive {
+    background-color: #334960;
+    width: 100%;
+    height: 100%;
+}
+.fourVertical {
+    background-color: #6fa8dc;
+    grid-column: 1 / 2;
+    grid-row: 4 / 5;
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    z-index: 999999;
+}
+.fourHorizontal {
+    background-color: #6fa8dc;
+    grid-column: 1 / 6;
+    grid-row: 4 / 5;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.five {
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+}
+.fiveOne {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.fiveTwo {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.fiveThree {
+    background-color: #cfe2f3;
+    width: 100%;
+    height: 100%;
+}
+.fiveFour {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.fiveFive {
+    background-color: #334960;
+    width: 100%;
+    height: 100%;
+}
+.fiveVertical {
+    background-color: #073763;
+    grid-column: 1 / 2;
+    grid-row: 5 / 6;
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+    z-index: 99999;
+}
+.fiveHorizontal {
+    background-color: #073763;
+    grid-column: 1 / 6;
+    grid-row: 5 / 6;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    color: white;
+}
+.six {
+    grid-column: 1 / 6;
+    grid-row: 6 / 7;
+    background-color: white;
+}
+/* .sixOne {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.sixTwo {
+    background-color: #d9ead3;
+    width: 100%;
+    height: 100%;
+}
+.sixThree {
+    background-color: #cfe2f3;
+    width: 100%;
+    height: 100%;
+}
+.sixFour {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+}
+.sixFive {
+    background-color: #334960;
+    width: 100%;
+    height: 100%;
+}
+.sixVertical {
+    background-color: #7e9fce;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: white;
+}
+.sixHorizontal {
+    background-color: #7e9fce;
+    grid-column: 1 / 6;
+    grid-row: 2 / 3;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    color: white;
+} */

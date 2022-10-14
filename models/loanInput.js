@@ -80,6 +80,15 @@ const loanInputSchema = new Schema ({
     monthlyMIFactor: {
         type: Number
     },
+    additionalMonthlyBest: {
+        type: Number
+    },
+    additionalMonthlyBetter: {
+        type: Number
+    },
+    additionalMonthlyGood: {
+        type: Number
+    },
     titleInsurance: {
         type: Number
     },
@@ -105,4 +114,4 @@ const loanInputSchema = new Schema ({
     }
 })
 
-module.export = mongoose.model("LoanInput", loanInputSchema)
+module.exports = mongoose.model("LoanInput", loanInputSchema)

@@ -2,8 +2,12 @@ import React, {useContext} from "react"
 import "./App.css"
 import { Link, Route, Switch, Redirect } from "react-router-dom"
 import Home from "./components/Home"
+import PurchaseQuote from "./quoteComponents/PurchaseQuote"
+import RefinanceQuote from "./quoteComponents/RefinanceQuote"
+import AmortizationTables from "./quoteComponents/AmortizationTables"
+import QuickDTI from "./quoteComponents/QuickDTI"
 import LoanInput from "./quoteComponents/LoanInput"
-import PayoffCalc from "./quoteComponents/PayoffCalc"
+import PayoffCalculator from "./quoteComponents/PayoffCalculator"
 import FeeSetup from "./quoteComponents/FeeSetup"
 import LPS from "./quoteComponents/LPS"
 import Leads from "./components/Leads"
@@ -31,12 +35,36 @@ function App() {
                     redirectTo="/"
                     token={token}
                 />
-                {/* <ProtectedRoute 
-                    path="/payoffcalc"
-                    component={PayoffCalc}
+                <ProtectedRoute 
+                    path="/purchasequote"
+                    component={PurchaseQuote}
                     redirectTo="/"
                     token={token}
-                /> */}
+                />
+                <ProtectedRoute 
+                    path="/refinancequote"
+                    component={RefinanceQuote}
+                    redirectTo="/"
+                    token={token}
+                />
+                <ProtectedRoute 
+                    path="/amortizationtables"
+                    component={AmortizationTables}
+                    redirectTo="/"
+                    token={token}
+                />
+                <ProtectedRoute 
+                    path="/quickdti"
+                    component={QuickDTI}
+                    redirectTo="/"
+                    token={token}
+                />
+                <ProtectedRoute 
+                    path="/payoffcalculator"
+                    component={PayoffCalculator}
+                    redirectTo="/"
+                    token={token}
+                />
                 <ProtectedRoute 
                     path="/loaninput"
                     component={LoanInput}

@@ -157,48 +157,48 @@ function LoanInput() {
                                     <h4>Rate</h4> 
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <input placeholder="Rate %"/>%
+                                    <input placeholder="Rate %" name="bestRate" value={context.bestRate} onChange={context.handleChangeLoanInput}/>%
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <input placeholder="Rate %"/>%
+                                    <input placeholder="Rate %" name="betterRate" value={context.betterRate} onChange={context.handleChangeLoanInput}/>%
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <input placeholder="Rate %"/>%
+                                    <input placeholder="Rate %" name="goodRate" value={context.goodRate} onChange={context.handleChangeLoanInput}/>%
                                 </td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Credit(-) / Discount(+) %</td>
                                 <td style={{border: "1px solid black"}}>
-                                    <input />
+                                    <input name="creditDiscountBest" value={context.creditDiscountBest} onChange={context.handleChangeLoanInput}/>
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <input />
+                                    <input name="creditDiscountBetter" value={context.creditDiscountBetter} onChange={context.handleChangeLoanInput}/>
                                 </td>
                                 <td style={{border: "1px solid black"}}>
-                                    <input />
+                                    <input name="creditDiscountGood" value={context.creditDiscountGood} onChange={context.handleChangeLoanInput}/>
                                 </td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Additional Credit / Discount</td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}><input name="additionalBest" value={context.additionalBest} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="additionalBetter" value={context.additionalBetter} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="additionalGood" value={context.additionalGood} onChange={context.handleChangeLoanInput}/></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Appraised Value</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$<input name="appraisedValue" value={context.appraisedValue} onChange={context.handleChangeLoanInput}/></td>
                                 <td style={{border: "1px solid black"}}>$</td>
                                 <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Purchase Price</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$<input name="purchasePrice" value={context.purchasePrice} onChange={context.handleChangeLoanInput}/></td>
                                 <td style={{border: "1px solid black"}}>$</td>
                                 <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Base Loan Amount</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$<input name="baseLoanAmount" value={context.baseLoanAmount} onChange={context.handleChangeLoanInput}/></td>
                                 <td style={{border: "1px solid black"}}>$</td>
                                 <td style={{border: "1px solid black"}}>$</td>
                             </tr>
@@ -223,7 +223,7 @@ function LoanInput() {
                             <tr>
                                 <td style={{border: "1px solid black"}}>Loan Term</td>
                                 <td style={{border: "1px solid black"}}>
-                                    <select>
+                                    <select name="loanTerm" value={context.loanTerm} onChange={context.handleChangeLoanInput}>
                                         <option>360</option>
                                         <option>300</option>
                                         <option>240</option>
@@ -252,7 +252,7 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Monthly MI Factor</td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}><input name="monthlyMIFactor" value={context.monthlyMIFactor} onChange={context.handleChangeLoanInput}/></td>
                                 <td style={{border: "1px solid black"}}></td>
                                 <td style={{border: "1px solid black"}}></td>
                             </tr>
@@ -276,9 +276,9 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Adtnl Monthly Pymnts</td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}><input name="additionalMonthlyBest" value={context.additionalMonthlyBest} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="additionalMonthlyBetter" value={context.additionalMonthlyBetter} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="additionalMonthlyGood" value={context.additionalMonthlyGood} onChange={context.handleChangeLoanInput}/></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Cash to Close</td>
@@ -351,7 +351,7 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Title Insurance</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
+                                <td style={{border: "1px solid black"}}>$<input name="titleInsurance" value={context.titleInsurance} onChange={context.handleChangeLoanInput}/></td>
                                 <td style={{border: "1px solid black"}}>$</td>
                                 <td style={{border: "1px solid black"}}>$</td>
                             </tr>
@@ -407,14 +407,14 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Taxes</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}>$<input name="monthlyTaxes" value={context.monthlyTaxes} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="reservesTaxes" value={context.reservesTaxes} onChange={context.handleChangeLoanInput}/></td>
                                 <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Insurance</td>
-                                <td style={{border: "1px solid black"}}>$<input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}>$<input name="monthlyInsurance" value={context.monthlyInsurance} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="reservesInsurance" value={context.reservesInsurance} onChange={context.handleChangeLoanInput}/></td>
                                 <td style={{border: "1px solid black"}}>$</td>
                             </tr>
                             <tr>
@@ -432,9 +432,9 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Days Required</td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
-                                <td style={{border: "1px solid black"}}><input /></td>
+                                <td style={{border: "1px solid black"}}><input name="daysRequired" value={context.daysRequired} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="daysRequired" value={context.daysRequired} onChange={context.handleChangeLoanInput}/></td>
+                                <td style={{border: "1px solid black"}}><input name="daysRequired" value={context.daysRequired} onChange={context.handleChangeLoanInput}/></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Total</td>

@@ -34,7 +34,10 @@ app.use("/api/status", require("./routes/statusRouter.js"))
 app.use("/api/campaigns", require("./routes/campaignRouter.js"))
 app.use("/api/lps", require("./routes/lpsrouter.js"))
 app.use("/api/feesetup", require("./routes/feesetup.js"))
-app.use("/api/loaninput", require("./routes/loaninputRouter.js"))
+app.use("/api/loaninput", require("./routes/loanInputRouter.js"))
+app.use("/api/payoffcalculator", require("./routes/payoffcalculatorRouter.js"))
+app.use("/api/quickdti", require("./routes/quickDTIRouter.js"))
+app.use("/api/amortizationtables", require("./routes/amortizationTablesRouter.js"))
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 app.use((err, req, res, next) => {
