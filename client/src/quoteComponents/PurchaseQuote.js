@@ -10,8 +10,8 @@ const context = useContext(MortgageContext)
         <div>
             <h1>Purchase Quote</h1>
             <div class="parent">
-                <div class="one">
-                    <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                <div class="one" style={{display: "flex"}}>
+                    <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>
                         Comparing Your Current Loan With Our Loan Offers
                     </div>
                 </div>
@@ -52,8 +52,11 @@ const context = useContext(MortgageContext)
                     <div class="fiveHorizontal"></div>
                 </div>
                 <div class="six" style={{display: "flex"}}>
-                    <div class="sixOne"></div>
-                    <div class="sixTwo"></div>
+                    <div class="sixOne" style={{fontSize: "12px"}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.
+                        <br />
+                        *The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.
+                    </div>
+                    <div class="sixTwo">Notes:</div>
                     <div class="sixThree"></div> 
                     <div class="sixFour"></div>
                     <div class="sixFive"></div>

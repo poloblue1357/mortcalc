@@ -11,30 +11,17 @@ function FeeSetupdisplay(props) {
                 <tbody>
                     <tr style={{display: "grid"}}>
                         <td style={{textAlign: "center", border: "solid 1px black", backgroundColor: "navy", color: "white"}}>{props.f.feeScenario}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.origination}%</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.underwriting}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.taxService}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.creditReport}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.floodCertificate}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.appraisal}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f.pestInspection}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.origination}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.underwriting}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.taxService}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.creditReport}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.floodCertificate}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.appraisal}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.pestInspection}</td>
                         <button onClick={() => context.deleteFeeSetup(props.f._id)} style={{margin: "10px", backgroundColor: "black", color: "white"}}>Delete</button>
                     </tr>
                 </tbody>
             </table>
-            {/* <table>
-                <tbody>
-                    <tr>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f?.titleFees?.closingFee}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f?.titleFees?.cpl}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f?.titleFees?.cplBorrower}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f?.titleFees?.endorsements}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f?.titleFees?.recordingServices}</td>
-                        <td style={{textAlign: "center", border: "solid 1px black"}}>${props.f?.titleFees?.recording}</td>
-                        <button onClick={() => context.deleteTitleFees(props.f?.titleFees._id)}>Delete</button>
-                    </tr>
-                </tbody>
-            </table> */}
         </div>
     )
 }

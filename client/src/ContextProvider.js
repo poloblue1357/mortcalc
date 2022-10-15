@@ -286,17 +286,21 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
 
+    const initFeeSetup = {feeScenario: "", origination: "", underwriting: "", taxService: "", creditReport: "", floodCertificate: "", appraisal: "", pestInspection: ""}
     const [feeSetupData, setFeeSetupData] = useState()
     const [getFeeSetupData, setGetFeeSetupData] = useState([])
 
     const handleChangeFeeSetup = (event) => {
         const {name, value} = event.target
-        setFeeSetupData(prevInfo => ({...prevInfo, [name]: value}))
+        setFeeSetupData(prevInfo => ({
+            ...prevInfo, [name]: value
+        }))
     }
     const handleSubmitFeeSetup = () => {
         userAxios.post("/api/feesetup", feeSetupData)
             .then(res => {
-                setGetFeeSetupData(prevInfo => [...prevInfo, res.data])
+                setGetFeeSetupData(prevInfo =>  [...prevInfo, res.data])
+                setFeeSetupData(initFeeSetup)
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
@@ -308,7 +312,8 @@ function MortgageContextProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
-    const [titleFeesData, setTitleFeesData] = useState()
+    const initTitleFees = {closingFee: "", cpl: "", cplBorrower: "", endorsements: "", recordingServices: "", recording: ""}
+    const [titleFeesData, setTitleFeesData] = useState(initTitleFees)
     const [getTitleFeesData, setGetTitleFeesData] = useState([])
 
     const handleChangeTitleFees = (event) => {
@@ -319,6 +324,7 @@ function MortgageContextProvider(props) {
         userAxios.post("/api/feesetup", feeSetupData)
             .then(res => {
                 setGetTitleFeesData(prevInfo => [...prevInfo, res.data])
+                setTitleFeesData(initTitleFees)
             })
             .catch(err => console.log(err.response.data.errMsg))
     }

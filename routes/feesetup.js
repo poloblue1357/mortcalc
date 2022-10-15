@@ -8,6 +8,7 @@ feeSetupRouter.get("/", (req, res, next) => {
             res.status(500)
             return next(err)
         }
+        console.log(feeSetup)
         return res.status(200).send(feeSetup)
     })
 })

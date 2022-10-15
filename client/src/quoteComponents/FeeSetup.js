@@ -1,9 +1,12 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import {MortgageContext} from "../ContextProvider"
 import FeeSetupdisplay from "./FeeSetupdisplay"
 import TitleFeesdisplay from './TitleFeesdisplay'
 
 function FeeSetup() {
+
+    const {disable, setDisable} = useState(true)
+    
 
     const context = useContext(MortgageContext)
     const {setGetFeeSetupData, handleChangeFeeSetup, userAxios, handleSubmitFeeSetup} = useContext(MortgageContext)
@@ -12,7 +15,7 @@ function FeeSetup() {
     // const y = Object.entries(context?.getFeeSetupData?.feeSetup)
     // const z = Object.entries(context?.getTitleFeesData?.titleFees)
 
-    const c = context?.getFeeSetupData?.filter(item => item.feeSetup && item)
+    const c = context?.getFeeSetupData?.filter(item => item.titleFees ? null : item)
     const d = context?.getTitleFeesData?.filter(item => item.titleFees && item)
 
     const a = c?.map(f => <FeeSetupdisplay f={f} key={f._id}/>)
@@ -39,8 +42,9 @@ function FeeSetup() {
                 <form style={{display: "grid"}} onSubmit={(event) => {
                     event.preventDefault()
                     handleSubmitFeeSetup()
-                    event.target.reset()
+                   event.target.reset()
                 }}>
+                 {/* res.data[0].titleFees.closingFee */}
                     <input placeholder="Fee Scenario" name="feeScenario" value={context.feeScenario} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Origination" name="origination" value={context.origination} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Underwriting" name="underwriting" value={context.underwriting} onChange={handleChangeFeeSetup}/>
@@ -49,7 +53,7 @@ function FeeSetup() {
                     <input placeholder="Flood Certificate" name="floodCertificate" value={context.floodCertificate} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Appraisal" name="appraisal" value={context.appraisal} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Pest Inspection" name="pestInspection" value={context.pestInspection} onChange={handleChangeFeeSetup}/>
-                    <button type="submit" style={{margin: "10px", backgroundColor: "black", color: "white"}}>Submit</button>
+                    <button  type="submit" style={{margin: "10px", backgroundColor: "black", color: "white"}}>Submit</button>
                 </form>
                 <h3 style={{writingMode: "vertical-rl", textOrientation: "upright", fontSize: "20px"}}>Fee Type</h3>
                 <table>

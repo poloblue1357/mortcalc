@@ -2,7 +2,6 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const feeSetupSchema = ({
-    feeSetup: {
         feeScenario: {
             type: String
         },
@@ -27,7 +26,6 @@ const feeSetupSchema = ({
         pestInspection: {
             type: Number
         },
-    },
     titleFees: {
         closingFee: {
             type: Number
