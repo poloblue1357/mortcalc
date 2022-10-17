@@ -53,9 +53,9 @@ function FeeSetup() {
                     <input placeholder="Flood Certificate" name="floodCertificate" value={context.floodCertificate} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Appraisal" name="appraisal" value={context.appraisal} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Pest Inspection" name="pestInspection" value={context.pestInspection} onChange={handleChangeFeeSetup}/>
-                    <button  type="submit" style={{margin: "10px", backgroundColor: "black", color: "white"}}>Submit</button>
+                    <button  disabled={disable} style={{margin: "8px", backgroundColor: "black", color: "white"}}>Submit</button>
                 </form>
-                <h3 style={{writingMode: "vertical-rl", textOrientation: "upright", fontSize: "20px"}}>Fee Type</h3>
+                <h3 style={{ textOrientation: "upright", fontSize: "25px", padding: "10px"}}>Fee <br /> Type</h3>
                 <table>
                     <tbody>
                         <tr style={{display: "grid"}}>
@@ -77,7 +77,7 @@ function FeeSetup() {
                 <h3> Add Title Fees</h3>
             </span>
             <div style={{display: "flex"}}>
-                <form style={{display: "grid", margin: "10px"}} onSubmit={(event) => {
+                <form style={{display: "grid"}} onSubmit={(event) => {
                     event.preventDefault()
                     handleSubmitTitleFees()
                     event.target.reset()
@@ -88,11 +88,12 @@ function FeeSetup() {
                     <input placeholder="Endorsements" name="endorsements" value={context.endorsements} onChange={handleChangeTitleFees}/>
                     <input placeholder="Recording Services" name="recordingServices" value={context.recordingServices} onChange={handleChangeTitleFees}/>
                     <input placeholder="Recording" name="recording" value={context.recording} onChange={handleChangeTitleFees}/>
-                    <button type="submit" style={{margin: "10px", backgroundColor: "black", color: "white"}}>Submit</button>
+                    <button type="submit" style={{margin: "8px", backgroundColor: "black", color: "white"}}>Submit</button>
                 </form>
+                <h3 style={{ textOrientation: "upright", fontSize: "25px", padding: "10px"}}>Title <br /> Fees</h3>
                 <table>
                     <tbody>
-                        <tr style={{display: "grid", margin: "10px"}}>
+                        <tr style={{display: "grid", margin: "1px"}}>
                             <td style={{border: "solid 1px black"}}>Closing Fees</td>
                             <td style={{border: "solid 1px black"}}>CPL</td>
                             <td style={{border: "solid 1px black"}}>CPL Borrower</td>
