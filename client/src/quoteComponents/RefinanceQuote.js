@@ -39,7 +39,7 @@ const context = useContext(MortgageContext)
                     <div class="fourThree"></div> 
                     <div class="fourFour"></div>
                     <div class="fourFive"></div>
-                    <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "15px"}}>Closing Cost Breakdown</div>
+                    <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Long Term Savings</div>
                     <div class="fourHorizontal"></div>
                 </div>
                 <div class="five" style={{display: "flex"}}>

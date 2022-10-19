@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from "react"
 import {MortgageContext} from "../ContextProvider"
-import AmortizationTablesdisplay from "./AmortizationTablescurrent.js"
+import AmortizationTablescurrent from "./AmortizationTablescurrent.js"
 import "./AmortizationTables.css"
 
 
@@ -48,7 +48,7 @@ const context = useContext(MortgageContext)
                 </table>
                 <table class="bodyHeader">
                     <tbody class="bodyHeader">
-                        <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-evenly"}}>
+                        <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-between"}}>
                             <td class="bodyHeader" style={{fontWeight: "bold"}}>Balance</td>
                             <td class="bodyHeader" style={{fontWeight: "bold"}}>Interest</td>
                             <td class="bodyHeader" style={{fontWeight: "bold"}}>Principle</td>
@@ -66,10 +66,9 @@ const context = useContext(MortgageContext)
                         </tr>
                     </tbody>
                 </table>
-                <div class="body">
-                    Amort Table
-                </div>
+                {/* <hr /> */}
             </div>
+                {/* <AmortizationTablescurrent /> */}
             <div class="container" style={{float: "left"}}>
                 <div class="header">
                     Best Rate / Higher Cost
@@ -127,7 +126,7 @@ const context = useContext(MortgageContext)
                     </tbody>
                 </table>
                 <div class="body">
-                    Amort Table
+                    {/* <AmortizationTablescurrent /> */}
                 </div>
             </div>
             <div class="container">
@@ -187,7 +186,7 @@ const context = useContext(MortgageContext)
                     </tbody>
                 </table>
                 <div class="body">
-                    Amort Table
+                    {/* <AmortizationTablescurrent /> */}
                 </div>
             </div>
             <div class="container">
@@ -246,9 +245,7 @@ const context = useContext(MortgageContext)
                         </tr>
                     </tbody>
                 </table>
-                <div class="body">
-                    Amort Table
-                </div>
+                {/* <AmortizationTablescurrent /> */}
             </div>
         </div>
     )

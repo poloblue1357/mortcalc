@@ -287,7 +287,7 @@ function MortgageContextProvider(props) {
     }
 
     const initFeeSetup = {feeScenario: "", origination: "", underwriting: "", taxService: "", creditReport: "", floodCertificate: "", appraisal: "", pestInspection: ""}
-    const [feeSetupData, setFeeSetupData] = useState()
+    const [feeSetupData, setFeeSetupData] = useState(initFeeSetup)
     const [getFeeSetupData, setGetFeeSetupData] = useState([])
 
     const handleChangeFeeSetup = (event) => {
@@ -297,7 +297,7 @@ function MortgageContextProvider(props) {
         }))
     }
     const handleSubmitFeeSetup = () => {
-        userAxios.post("/api/feesetup", feeSetupData)
+        userAxios.post("/api/feesetup", {...feeSetupData, titleFees: {...feeSetupData}})
             .then(res => {
                 setGetFeeSetupData(prevInfo =>  [...prevInfo, res.data])
                 setFeeSetupData('')
@@ -312,9 +312,9 @@ function MortgageContextProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
-    const initTitleFees = {closingFee: "", cpl: "", cplBorrower: "", endorsements: "", recordingServices: "", recording: ""}
-    const [titleFeesData, setTitleFeesData] = useState()
-    const [getTitleFeesData, setGetTitleFeesData] = useState([])
+    // const initTitleFees = {closingFee: "", cpl: "", cplBorrower: "", endorsements: "", recordingServices: "", recording: ""}
+    // const [titleFeesData, setTitleFeesData] = useState(initTitleFees)
+    // const [getTitleFeesData, setGetTitleFeesData] = useState([])
 
     // const handleChangeTitleFees = (event) => {
     //     const {name, value} = event.target
@@ -327,20 +327,21 @@ function MortgageContextProvider(props) {
     // const handleChangeTitleFees = (event) => {
     //     const {name, value} = event.target
     //     setTitleFeesData(prevInfo => ({
-    //         ...prevInfo,
+    //         ...prevInfo, [name]: value
     //         titleFees: {
     //             ...prevInfo.titleFees,
     //             [name]: value
     //         }
+            
     //     }))
     // }
-const handleChangeTitleFees = (event) => {
-    const {name, value} = event.target
-    setTitleFeesData(prevInfo => ({
-        ...prevInfo,
-        [name]: value 
-    }))
-}
+// const handleChangeTitleFees = (event) => {
+//     const {name, value} = event.target
+//     setTitleFeesData(prevInfo => ({
+//         ...prevInfo,
+//         [name]: value 
+//     }))
+// }
 
     // const handleChangeTitleFees = (event) => {
     //     const {name, value} = event.target
@@ -348,22 +349,22 @@ const handleChangeTitleFees = (event) => {
     //         ...prevInfo, [name]: value
     //     }))
     // }
-    const handleSubmitTitleFees = () => {
-        userAxios.post("/api/feesetup", feeSetupData)
-            .then(res => {
-                setGetTitleFeesData(prevInfo => [...prevInfo, res.data])
-                setTitleFeesData('')
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-    }
-    function deleteTitleFees(titleFeesId) {
-        userAxios.delete(`/api/feesetup/${titleFeesId}`)
-            .then(res => {
-                let filterTitleFees = getTitleFeesData.filter(titleFees => titleFees._id !== titleFeesId)
-                setGetTitleFeesData(filterTitleFees)
-            })
-            .catch(err => console.log(err.response.data.errMsg))
-    }
+    // const handleSubmitTitleFees = () => {
+    //     userAxios.post("/api/feesetup", {...feeSetupData, titleFees: {...titleFeesData}})
+    //         .then(res => {
+    //             setGetTitleFeesData(prevInfo => [...prevInfo, res.data])
+    //             setTitleFeesData('')
+    //         })
+    //         .catch(err => console.log(err.response.data.errMsg))
+    // }
+    // function deleteTitleFees(titleFeesId) {
+    //     userAxios.delete(`/api/feesetup/${titleFeesId}`)
+    //         .then(res => {
+    //             let filterTitleFees = getTitleFeesData.filter(titleFees => titleFees._id !== titleFeesId)
+    //             setGetTitleFeesData(filterTitleFees)
+    //         })
+    //         .catch(err => console.log(err.response.data.errMsg))
+    // }
 
     const [loanInput, setLoanInput] = useState()
     const [getLoanInput, setGetLoanInput] = useState([])
@@ -417,7 +418,6 @@ const handleChangeTitleFees = (event) => {
             ...userState, signup, login, logout, handleAuthErr, resetAuthErr, userAxios,
             handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData,
             handleChangeFeeSetup, handleSubmitFeeSetup, deleteFeeSetup, feeSetupData, setFeeSetupData, getFeeSetupData, setGetFeeSetupData,
-            handleChangeTitleFees, handleSubmitTitleFees, deleteTitleFees, titleFeesData, setTitleFeesData, getTitleFeesData, setGetTitleFeesData,
             loanInput, setLoanInput, getLoanInput, setGetLoanInput, handleChangeLoanInput, handleSubmitLoanInput, deleteLoanInput, editLoanInput 
         }}>
             {props.children}

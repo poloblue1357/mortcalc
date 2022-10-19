@@ -1,24 +1,30 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import {MortgageContext} from "../ContextProvider"
+import "./AmortizationTables.css"
 
 
 function AmortizationTablesdisplay(props) {
 
 const context = useContext(MortgageContext)
 
+const [count, setCount] = useState(0)
+
+function countOne() {
+    setCount(prevCount => +prevCount + 1)
+}
+
     return (
-        <div>
-            <h1>Amortization Tables</h1>
-            <table>
+        <div class="currentContainer">
+            <p class="number">1</p>
+            <table class="tableNumber">
                 <tbody>
-                    <tr>
-                        <td style={{border: "solid 1px black"}}></td>
-                        <td style={{border: "solid 1px black"}}>$</td>
-                        <td style={{border: "solid 1px black"}}>$</td>
-                        <td style={{border: "solid 1px black"}}>$</td>
-                        <td style={{border: "solid 1px black"}}>$</td>
-                        <td style={{border: "solid 1px black"}}>$</td>
-                        <td style={{border: "solid 1px black"}}>$</td>
+                    <tr class="tableNumber" style={{display: "flex", justifyContent: "space-around"}}>
+                        <td class="tableNumber">Balance</td>
+                        <td class="tableNumber">Interest</td>
+                        <td class="tableNumber">Principle</td>
+                        <td class="tableNumber">Payment</td>
+                        <td class="tableNumber">MI</td>
+                        <td class="tableNumber">Extra</td>
                     </tr>
                 </tbody>
             </table>
