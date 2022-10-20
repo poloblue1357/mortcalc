@@ -15,7 +15,12 @@ function Navbar(props) {
                 {/* <div className="navbartop">
                     <h3 className="quotes">Quotes</h3>
                     <div className="toplinks">
-                        <Link to="/payoffcalc" className="navbaritems">Payoff Calculator</Link>
+                        <Link to="/loaninput" className="navbaritems">Loan Input</Link>
+                        <Link to="/purchasequote" className="navbaritems">Purchase Quote</Link>
+                        <Link to="/refinancequote" className="navbaritems">Refinance Quote</Link>
+                        <Link to="/amortizationtables" className="navbaritems">Amortization Tables</Link>
+                        <Link to="/quickdti" className="navbaritems">Quick DTI</Link>
+                        <Link to="/payoffcalculator" className="navbaritems">Payoff Calculator</Link>
                         <Link to="/feesetup" className="navbaritems">Fee Setup</Link>
                         <Link to="/lps" className="navbaritems">Lender's Policy Schedule</Link>
                     </div> 
