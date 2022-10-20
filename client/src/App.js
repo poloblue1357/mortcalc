@@ -35,54 +35,54 @@ function App() {
                     redirectTo="/"
                     token={token}
                 />
-                {/* <ProtectedRoute 
+                <ProtectedRoute 
                     path="/purchasequote"
                     component={PurchaseQuote}
                     redirectTo="/"
                     token={token}
-                /> */}
-                {/* <ProtectedRoute 
+                />
+                <ProtectedRoute 
                     path="/refinancequote"
                     component={RefinanceQuote}
                     redirectTo="/"
                     token={token}
-                /> */}
-                {/* <ProtectedRoute 
+                />
+                <ProtectedRoute 
                     path="/amortizationtables"
                     component={AmortizationTables}
                     redirectTo="/"
                     token={token}
-                /> */}
-                {/* <ProtectedRoute 
+                />
+                <ProtectedRoute 
                     path="/quickdti"
                     component={QuickDTI}
                     redirectTo="/"
                     token={token}
-                /> */}
-                {/* <ProtectedRoute 
+                />
+                <ProtectedRoute 
                     path="/payoffcalculator"
                     component={PayoffCalculator}
                     redirectTo="/"
                     token={token}
-                /> */}
-                {/* <ProtectedRoute 
+                />
+                <ProtectedRoute 
                     path="/loaninput"
                     component={LoanInput}
                     redirectTo="/"
                     token={token}
-                /> */}
-                {/* <ProtectedRoute 
+                />
+                <ProtectedRoute 
                     path="/feesetup"
                     component={FeeSetup}
                     redirectTo="/"
                     token={token}
-                /> */}
-                {/* <ProtectedRoute 
+                />
+                <ProtectedRoute 
                     path="/lps"
                     component={LPS}
                     redirectTo="/"
                     token={token}
-                /> */}
+                />
                 <ProtectedRoute 
                     path="/leads"
                     component={Leads}
