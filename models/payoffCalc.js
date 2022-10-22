@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
-const payoffCalculatorSchema = new Schema ({
+const payoffCalcSchema = new Schema ({
     howManyPayment: {
         type: Number
     },
@@ -15,4 +15,4 @@ const payoffCalculatorSchema = new Schema ({
     }
 })
 
-module.exports = mongoose.model("PayoffCalculator", payoffCalculatorSchema)
+module.exports = mongoose.model("PayoffCalc", payoffCalcSchema)

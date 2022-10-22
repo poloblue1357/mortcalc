@@ -60,7 +60,7 @@ function App() {
                     token={token}
                 />
                 <ProtectedRoute 
-                    path="/payoffcalculator"
+                    path="/payoffcalc"
                     component={PayoffCalculator}
                     redirectTo="/"
                     token={token}
