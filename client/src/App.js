@@ -48,7 +48,7 @@ function App() {
                     token={token}
                 />
                 <ProtectedRoute 
-                    path="/amortizationtables"
+                    path="/amorttables"
                     component={AmortizationTables}
                     redirectTo="/"
                     token={token}

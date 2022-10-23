@@ -1,9 +1,9 @@
 const express = require("express")
-const payoffcalcRouter = express.Router()
+const payoffCalcRouter = express.Router()
 const PayoffCalculator = require("../models/payoffCalc")
 
 // Get All leads
-payoffcalcRouter.get("/", (req, res, next) => {
+payoffCalcRouter.get("/", (req, res, next) => {
     PayoffCalculator.find((err, payoffCalculators) => {
         if(err) {
             res.status(500)
@@ -14,7 +14,7 @@ payoffcalcRouter.get("/", (req, res, next) => {
 })
 
 // Add new lead
-payoffcalcRouter.post("/", (req, res, next) => {
+payoffCalcRouter.post("/", (req, res, next) => {
     // console.log("User", req.user)
     // console.log("body", req.body)
     req.body.user = req.user._id
@@ -30,7 +30,7 @@ payoffcalcRouter.post("/", (req, res, next) => {
 })
 
 // Delete Todo
-payoffcalcRouter.delete("/:payoffCalculatorId", (req, res, next) => {
+payoffCalcRouter.delete("/:payoffCalculatorId", (req, res, next) => {
     PayoffCalculator.findOneAndDelete(
         {_id: req.params.payoffCalculatorId, user: req.user._id},
         (err, deletedPayoffCalculator) => {
@@ -44,7 +44,7 @@ payoffcalcRouter.delete("/:payoffCalculatorId", (req, res, next) => {
 })
 
 //Update Todo
-payoffcalcRouter.put("/:payoffCalculatorId", (req, res, next) => {
+payoffCalcRouter.put("/:payoffCalculatorId", (req, res, next) => {
     PayoffCalculator.findOneAndUpdate(
         {_id: req.params.payoffCalculatorId, user: req.user._id},
         req.body,
@@ -59,4 +59,4 @@ payoffcalcRouter.put("/:payoffCalculatorId", (req, res, next) => {
     )
 })
 
-module.exports = payoffcalcRouter
+module.exports = payoffCalcRouter

@@ -1,9 +1,9 @@
 const express = require("express")
-const amortizationTablesRouter = express.Router()
+const amortTablesRouter = express.Router()
 const AmortizationTables = require("../models/amortizationTables")
 
 // Get All leads
-amortizationTablesRouter.get("/", (req, res, next) => {
+amortTablesRouter.get("/", (req, res, next) => {
     Realtor.find((err, amortizationTables) => {
         if(err) {
             res.status(500)
@@ -14,7 +14,7 @@ amortizationTablesRouter.get("/", (req, res, next) => {
 })
 
 // Add new lead
-amortizationTablesRouter.post("/", (req, res, next) => {
+amortTablesRouter.post("/", (req, res, next) => {
     // console.log("User", req.user)
     // console.log("body", req.body)
     req.body.user = req.user._id
@@ -30,7 +30,7 @@ amortizationTablesRouter.post("/", (req, res, next) => {
 })
 
 // Delete Todo
-amortizationTablesRouter.delete("/:amortizationTablesId", (req, res, next) => {
+amortTablesRouter.delete("/:amortizationTablesId", (req, res, next) => {
     AmortizationTables.findOneAndDelete(
         {_id: req.params.amortizationTablesId, user: req.user._id},
         (err, deletedAmortizationTables) => {
@@ -44,7 +44,7 @@ amortizationTablesRouter.delete("/:amortizationTablesId", (req, res, next) => {
 })
 
 //Update Todo
-amortizationTablesRouter.put("/:amortizationTablesId", (req, res, next) => {
+amortTablesRouter.put("/:amortizationTablesId", (req, res, next) => {
     AmortizationTables.findOneAndUpdate(
         {_id: req.params.amortizationTablesId, user: req.user._id},
         req.body,
@@ -59,4 +59,4 @@ amortizationTablesRouter.put("/:amortizationTablesId", (req, res, next) => {
     )
 })
 
-module.exports = amortizationTablesRouter
+module.exports = amortTablesRouter
