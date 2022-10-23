@@ -1,8 +1,8 @@
 const express = require("express")
-const feesetupRouter = express.Router()
+const feeSetupRouter = express.Router()
 const FeeSetup = require("../models/feesetup")
 
-feesetupRouter.get("/", (req, res, next) => {
+feeSetupRouter.get("/", (req, res, next) => {
     FeeSetup.find((err, feeSetup) => {
         if(err) {
             res.status(500)
@@ -13,7 +13,7 @@ feesetupRouter.get("/", (req, res, next) => {
     })
 })
 
-feesetupRouter.post("/", (req, res, next) => {
+feeSetupRouter.post("/", (req, res, next) => {
     req.body.user = req.user._id
     const newFeeSetup = new FeeSetup(req.body)
     newFeeSetup.save(function(err, savedFeeSetup) {
@@ -26,7 +26,7 @@ feesetupRouter.post("/", (req, res, next) => {
     })
 })
 
-feesetupRouter.delete("/:feeSetupId", (req, res, next) => {
+feeSetupRouter.delete("/:feeSetupId", (req, res, next) => {
     FeeSetup.findOneAndDelete(
         {_id: req.params.feeSetupId, user: req.user._id},
         (err, deletedFeeSetup) => {
@@ -39,7 +39,7 @@ feesetupRouter.delete("/:feeSetupId", (req, res, next) => {
     )
 })
 
-feesetupRouter.put(":feeSetupId", (req, res, next) => {
+feeSetupRouter.put(":feeSetupId", (req, res, next) => {
     FeeSetup.findOneAndUpdate(
         {_id: req.params.feeSetupId, user: req.user._id},
         req.body,
@@ -54,4 +54,4 @@ feesetupRouter.put(":feeSetupId", (req, res, next) => {
     )
 })
 
-module.exports = feesetupRouter
+module.exports = feeSetupRouter
