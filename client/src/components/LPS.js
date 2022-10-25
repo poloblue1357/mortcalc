@@ -30,7 +30,7 @@ function LPS() {
             </form>
             <br />
             <br />
-            <table>
+            <table style={{borderCollapse: "collapse"}}>
                 <tbody>
                     <tr >
                         <td style={{backgroundColor: "#4a86e8", textAlign: "center",border: "1px solid black", 

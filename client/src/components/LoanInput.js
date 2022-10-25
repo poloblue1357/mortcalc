@@ -115,7 +115,7 @@ function LoanInput() {
                         Low Cost</p>
                 </div>
                 <br /> */}
-                <table>
+                <table style={{borderCollapse: "collapse"}}>
                     <tbody>
                             <tr>
                                 <td style={{border: "1px solid black"}}>Loan Type:</td>
