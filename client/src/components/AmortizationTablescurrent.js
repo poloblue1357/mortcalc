@@ -15,16 +15,16 @@ function countOne() {
 
     return (
         <div class="currentContainer">
-            <p class="number">1</p>
-            <table class="tableNumber">
-                <tbody>
-                    <tr class="tableNumber" style={{display: "flex", justifyContent: "space-around"}}>
-                        <td class="tableNumber">Balance</td>
-                        <td class="tableNumber">Interest</td>
-                        <td class="tableNumber">Principle</td>
-                        <td class="tableNumber">Payment</td>
-                        <td class="tableNumber">MI</td>
-                        <td class="tableNumber">Extra</td>
+            <p class="number" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>1</p>
+            <table class="tableNumber" style={{display: "flex", justifyContent: "space-evenly", alignItems: "center"}}>
+                <tbody class="tableNumber" style={{display: "flex", justifyContent: "space-evenly", alignItems: "center"}}>
+                    <tr class="tableNumber" style={{display: "flex", justifyContent: "space-evenly", alignItems: "center"}}>
+                        <td class="tableNumber" style={{display: "flex", justifyContent: "space-evenly"}}>$ Balance</td>
+                        <td class="tableNumber" style={{display: "flex", justifyContent: "space-around", width: "90%"}}>$ Interest</td>
+                        <td class="tableNumber" style={{display: "flex", justifyContent: "center"}}>$ Principle</td>
+                        <td class="tableNumber" style={{display: "flex", justifyContent: "center"}}>$ Payment</td>
+                        <td class="tableNumber" style={{display: "flex", justifyContent: "space-evenly", width: '50%'}}>MI</td>
+                        <td class="tableNumber" style={{display: "flex", justifyContent: "space-evenly", width: "75%"}}>Extra</td>
                     </tr>
                 </tbody>
             </table>

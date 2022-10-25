@@ -8,6 +8,9 @@ const payoffCalcSchema = new Schema ({
     skipTwoPayments: {
         type: Boolean
     },
+    typicalFees: {
+        type: Number
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",

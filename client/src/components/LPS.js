@@ -33,18 +33,21 @@ function LPS() {
             <table>
                 <tbody>
                     <tr >
-                        <td style={{backgroundColor: "#4F97A3", textAlign: "center",border: "1px solid black", 
+                        <td style={{backgroundColor: "#4a86e8", textAlign: "center",border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
-                            width: "134px"}}>Loan Amount</td>
-                        <td style={{backgroundColor: "#4F97A3", textAlign: "center", border: "1px solid black", 
+                            width: "134px",
+                            color: "white"}}>Loan Amount</td>
+                        <td style={{backgroundColor: "#4a86e8", textAlign: "center", border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
-                            width: "134px"}}>Refinance</td>
-                        <td style={{backgroundColor: "#4F97A3", textAlign: "center", border: "1px solid black", 
+                            width: "134px",
+                            color: "white"}}>Refinance</td>
+                        <td style={{backgroundColor: "#4a86e8", textAlign: "center", border: "1px solid black", 
                             padding: "5px", 
                             height: "18px", 
-                            width: "134px"}}>Purchases</td>
+                            width: "134px",
+                            color: "white"}}>Purchases</td>
                     </tr>
                 </tbody>
             </table>

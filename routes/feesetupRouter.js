@@ -21,7 +21,7 @@ feesetupRouter.post("/", (req, res, next) => {
             res.status(500)
             return next(err)
         }
-        console.log(savedFeeSetup)
+        // console.log(savedFeeSetup)
         return res.status(200).send(savedFeeSetup)
     })
 })

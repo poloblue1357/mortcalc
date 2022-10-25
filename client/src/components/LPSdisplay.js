@@ -20,7 +20,7 @@ function LPSdisplay(props) {
                             padding: "5px", 
                             height: "18px", 
                             width: "134px",
-                            backgroundColor: "#4B9CD3"}}>$ {props.item.refinance.toLocaleString()}</td>
+                            backgroundColor: "#cfe2f3"}}>$ {props.item.refinance.toLocaleString()}</td>
                         <td style={{
                             border: "1px solid black", 
                             padding: "5px", 
