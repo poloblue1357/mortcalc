@@ -54,10 +54,10 @@ function FeeSetup() {
                     <button  disabled={disable} style={{margin: "8px", backgroundColor: "black", color: "white"}}>Submit</button>
                 </form>
                 <h3 style={{ textOrientation: "upright", fontSize: "25px", padding: "10px"}}>Fee <br /> Type</h3>
-                <table>
+                <table style={{borderCollapse: "collapse"}}>
                     <tbody>
                         <tr style={{display: "grid"}}>
-                            <td style={{border: "solid 1px black", backgroundColor: "navy", color: "white"}}>Fee Scenario</td>
+                            <td style={{border: "solid 1px black", backgroundColor: "#334960", color: "white"}}>Fee Scenario</td>
                             <td style={{border: "solid 1px black"}}>Origination</td>
                             <td style={{border: "solid 1px black"}}>Underwriting</td>
                             <td style={{border: "solid 1px black"}}>Tax Service</td>
@@ -89,9 +89,9 @@ function FeeSetup() {
                     <button type="submit" style={{margin: "8px", backgroundColor: "black", color: "white"}}>Submit</button>
                 </form>
                 <h3 style={{ textOrientation: "upright", fontSize: "25px", padding: "10px"}}>Title <br /> Fees</h3>
-                <table>
+                <table style={{borderCollapse: "collapse"}}>
                     <tbody>
-                        <tr style={{display: "grid", margin: "1px"}}>
+                        <tr style={{display: "grid"}}>
                             <td style={{border: "solid 1px black"}}>Closing Fees</td>
                             <td style={{border: "solid 1px black"}}>CPL</td>
                             <td style={{border: "solid 1px black"}}>CPL Borrower</td>

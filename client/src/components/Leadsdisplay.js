@@ -30,7 +30,7 @@ function Leadsdisplay(props) {
         const {name, value} = event.target
         setEditedLead(prevInput => ({...prevInput, [name]: value}))
     }
-
+// isEdit ? <form> : inputs 
     return (
         <div>
             {isEdit ? 

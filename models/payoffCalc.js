@@ -2,11 +2,12 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const payoffCalcSchema = new Schema ({
-    howManyPayment: {
+    howManyPayments: {
         type: Number
     },
     skipTwoPayments: {
-        type: Boolean
+        type: Boolean,
+        default: false
     },
     typicalFees: {
         type: Number

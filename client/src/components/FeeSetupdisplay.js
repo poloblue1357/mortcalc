@@ -7,10 +7,10 @@ function FeeSetupdisplay(props) {
 
     return (
         <div>
-            <table>
+            <table style={{borderCollapse: "collapse"}}>
                 <tbody>
                     <tr style={{display: "grid"}}>
-                        <td style={{textAlign: "center", border: "solid 1px black", backgroundColor: "navy", color: "white"}}>{props.f.feeScenario}</td>
+                        <td style={{textAlign: "center", border: "solid 1px black", backgroundColor: "#334960", color: "white"}}>{props.f.feeScenario}</td>
                         <td style={{textAlign: "center", border: "solid 1px black"}}>{props.f.origination} %</td>
                         <td style={{textAlign: "center", border: "solid 1px black"}}>$ {props.f.underwriting}</td>
                         <td style={{textAlign: "center", border: "solid 1px black"}}>$ {props.f.taxService}</td>

@@ -51,20 +51,20 @@ const context = useContext(MortgageContext)
                 <table class="bodyHeader">
                     <tbody class="bodyHeader">
                         <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>Balance</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>Interest</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>Principle</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>Payment</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>MI</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>Extra</td>
+                            <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Balance</td>
+                            <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Interest</td>
+                            <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Principle</td>
+                            <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Payment</td>
+                            <td class="bodyHeader" style={{fontWeight: "bold", flex: .5, textAlign: "center", width: "60px", padding: "0px 0px"}}>MI</td>
+                            <td class="bodyHeader" style={{fontWeight: "bold", flex: .75, textAlign: "center", width: "60px", padding: "0px 0px"}}>Extra</td>
                         </tr>
-                        <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-between"}}>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}>0</td>
-                            <td class="bodyHeader" style={{fontWeight: "bold"}}></td>
+                        <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "0px 0px"}}>0</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .75, justifyContent: "center", width: "60px", padding: "0px 0px"}}></td>
                         </tr>
                     </tbody>
                 </table>
@@ -113,20 +113,20 @@ const context = useContext(MortgageContext)
     <table class="bodyHeader">
         <tbody class="bodyHeader">
             <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Balance</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Interest</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Principle</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Payment</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>MI</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Extra</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Balance</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Interest</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Principle</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Payment</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: .5, textAlign: "center", width: "60px", padding: "0px 0px"}}>MI</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: .75, textAlign: "center", width: "60px", padding: "0px 0px"}}>Extra</td>
             </tr>
-            <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-between"}}>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>0</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}></td>
+            <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "0px 0px"}}>0</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .75, justifyContent: "center", width: "60px", padding: "0px 0px"}}></td>
             </tr>
         </tbody>
     </table>
@@ -175,20 +175,20 @@ const context = useContext(MortgageContext)
     <table class="bodyHeader">
         <tbody class="bodyHeader">
             <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Balance</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Interest</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Principle</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Payment</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>MI</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Extra</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Balance</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Interest</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Principle</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Payment</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: .5, textAlign: "center", width: "60px", padding: "0px 0px"}}>MI</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: .75, textAlign: "center", width: "60px", padding: "0px 0px"}}>Extra</td>
             </tr>
-            <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-between"}}>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>0</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}></td>
+            <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "0px 0px"}}>0</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .75, justifyContent: "center", width: "60px", padding: "0px 0px"}}></td>
             </tr>
         </tbody>
     </table>
@@ -237,27 +237,28 @@ const context = useContext(MortgageContext)
     <table class="bodyHeader">
         <tbody class="bodyHeader">
             <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Balance</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Interest</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Principle</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Payment</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>MI</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>Extra</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Balance</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 1px"}}>Interest</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Principle</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: 1, textAlign: "center", width: "60px", padding: "0px 2px"}}>Payment</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: .5, textAlign: "center", width: "60px", padding: "0px 0px"}}>MI</td>
+                <td class="bodyHeader" style={{fontWeight: "bold", flex: .75, textAlign: "center", width: "60px", padding: "0px 0px"}}>Extra</td>
             </tr>
-            <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-between"}}>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>$</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}>0</td>
-                <td class="bodyHeader" style={{fontWeight: "bold"}}></td>
+            <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "0px 0px"}}>0</td>
+                <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .75, justifyContent: "center", width: "60px", padding: "0px 0px"}}></td>
             </tr>
         </tbody>
     </table>
     {/* <hr class="hr"/> */}
     <AmortizationTablescurrent />
+    <div class="rightSide"></div>
 </div>
-</div>        </div>
+</div></div>
     )
 }
 

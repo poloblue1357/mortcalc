@@ -7,7 +7,7 @@ function TitleFeesdisplay(props) {
 
     return (
         <div>
-            <table>
+            <table style={{borderCollapse: "collapse"}}>
                 <tbody>
                     <tr style={{display: "grid"}}>
                         <td style={{textAlign: "center", border: "solid 1px black"}}>$ {props.f.titleFees.closingFee}</td>
