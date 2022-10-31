@@ -400,6 +400,59 @@ function MortgageContextProvider(props) {
             })
     }
 
+    const initPCInputs = {typicalFees: "", howManyPayments: "", checked: false}
+    const [checked, setChecked] = useState('')
+    const [pcInput, setPCInput] = useState(initPCInputs)
+    const [getPCInput, setGetPCInput] = useState([])
+
+    const handleChangePayoffCalc = (event) => {
+        const {name, value} = event.target
+        setPCInput(prevInput => ({...prevInput, [name]: value})) 
+    }
+    const handleChangeCheckbox = () => {
+        setChecked(!checked)
+        // console.log(pcInput)
+    }
+    const handleSubmitPayoffCalc = () => {
+        userAxios.post("/api/payoffcalc", {...pcInput, checked})
+            .then(res => {
+                setPCInput(res.data)
+                alert("Changes Saved")
+                console.log(res.data)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    function editPayoffCalc(_id, editedPCInputs) {
+        // console.log(_id, editedPCInputs)
+        userAxios.put(`/api/payoffcalc/${_id}`, editedPCInputs)
+            .then(res => {
+                // setPCInput(prevPCInputs => {
+                //     let getPCInput1 = prevPCInputs.map(pcInput1 => pcInput1._id === _id ? res.data : pcInput1)
+                //     return getPCInput1
+                // })
+                // console.log(res.data, "put request")
+                setPCInput(res.data)
+                alert("Updates Saved")
+            })
+    }
+    function getPayoffCalc() {
+        userAxios.get("/api/payoffcalc")
+            .then(res => {
+                console.log(res.data, "get req")
+                setPCInput(res.data[0])
+            })
+            .catch(err => console.log(err))
+    }
+    // function editLoanInput(_id, editedLoanInput) {
+    //     userAxios.put(`/api/loaninput/${_id}`, editedLoanInput)
+    //         .then(res => {
+    //             setGetLoanInput(prevLoanInput1 => {
+    //                 let getLoanInput1 = prevLoanInput1.map(loanInput1 => loanInput1._id === _id ? res.data : loanInput1)
+    //                 // console.log(getRealtors1)
+    //                 return getLoanInput1
+    //             })
+    //         })
+    // }
 
     return (
         <MortgageContext.Provider value={{
@@ -418,7 +471,8 @@ function MortgageContextProvider(props) {
             ...userState, signup, login, logout, handleAuthErr, resetAuthErr, userAxios,
             handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData,
             handleChangeFeeSetup, handleSubmitFeeSetup, deleteFeeSetup, feeSetupData, setFeeSetupData, getFeeSetupData, setGetFeeSetupData,
-            loanInput, setLoanInput, getLoanInput, setGetLoanInput, handleChangeLoanInput, handleSubmitLoanInput, deleteLoanInput, editLoanInput 
+            loanInput, setLoanInput, getLoanInput, setGetLoanInput, handleChangeLoanInput, handleSubmitLoanInput, deleteLoanInput, editLoanInput,
+            pcInput, setPCInput, checked, setChecked, getPCInput, setGetPCInput, handleChangePayoffCalc, handleChangeCheckbox, handleSubmitPayoffCalc, editPayoffCalc, getPayoffCalc 
         }}>
             {props.children}
         </MortgageContext.Provider>

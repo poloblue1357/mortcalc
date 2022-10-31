@@ -5,9 +5,8 @@ const payoffCalcSchema = new Schema ({
     howManyPayments: {
         type: Number
     },
-    skipTwoPayments: {
-        type: Boolean,
-        default: false
+    checked: {
+        type: Boolean
     },
     typicalFees: {
         type: Number

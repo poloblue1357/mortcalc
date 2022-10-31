@@ -53,7 +53,7 @@ function QuickDTI() {
                                     onChange={handleChangeDTI}
                                 />
                             </td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{d3}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>${d3}</td>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
                         </tr>
                         <tr>
@@ -81,8 +81,8 @@ function QuickDTI() {
                                 />
                             </td>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{d5}</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{e5}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>${d5}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>${e5}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
@@ -100,7 +100,7 @@ function QuickDTI() {
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" style={{backgroundColor: "#c9daf8", margin: "5px", padding: "5px"}}>Submit Changes</button>
+                {/* <button type="submit" style={{backgroundColor: "#c9daf8", margin: "5px", padding: "5px"}}>Submit Changes</button> */}
             </form>
         </div>
     )

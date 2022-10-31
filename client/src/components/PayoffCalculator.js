@@ -1,34 +1,41 @@
 import React, {useContext, useEffect, useState} from "react"
 import {MortgageContext} from "../ContextProvider"
 
-function PayoffCalculator() {
+function PayoffCalculator(props) {
 
     const context = useContext(MortgageContext)
+    const {editPayoffCalc, userAxios, handleSubmitPayoffCalc, checked, getPayoffCalc, pcInput} = useContext(MortgageContext)
 
-    const initPCInputs = {typicalFees: "", howManyPayments: ""}
-    const [pcInput, setPCInput] = useState(initPCInputs)
-    const [checked, setChecked] = useState(false)
+    useEffect(() => {
+        getPayoffCalc()
+    }, [])
+    useEffect(() => {
+        setPCInputInput(pcInput)
+    }, [pcInput])
+
+    // const testing = () => {
+    //     console.log(
+    //             pcInput[0]._id, 
+    //             pcInput, 
+    //             pcInput[0].checked,
+    //             checked
+    //     )
+    // }
+    // const initPCInputs = {typicalFees: context.typicalFees, howManyPayments: context.howManyPayments, checked: checked}
+    // const [checked, setChecked] = useState()
+    const [pcInputInput, setPCInputInput] = useState({typicalFees: pcInput.typicalFees, checked: pcInput.checked, howManyPayments: pcInput.howManyPayments})
     const [getPCInput, setGetPCInput] = useState([])
 
     const handleChangePayoffCalc = (event) => {
-        const {name, value} = event.target
-        setPCInput(prevInput => ({...prevInput, [name]: value}))
+        const {name, value, type, checked} = event.target
+        setPCInputInput(prevInput => {
+            if(type === "checkbox")
+                return ({...prevInput, [name]: checked})
+            return ({...prevInput, [name]: value})
+        }) 
     }
-    const handleChangeCheckbox = () => {
-        setChecked(!checked)
-    }
-    const handleSubmitPayoffCalc = () => {
-        setGetPCInput([checked, pcInput])
-        alert("Changes Saved")
-        // console.log(getPCInput)
-    }
-    // const handleSubmitLeads = () => {
-    //     userAxios.post("/api/leads", lead)
-    //         .then(res => {
-    //             setGetLeads(prevLead => [res.data, ...prevLead])
-    //             setLead(initInputsLeads)
-    //         })
-    //         .catch(err => console.log(err.response.data.errMsg))
+    // const handleChangeCheckbox = () => {
+    //     setChecked(!checked)
     // }
 
     return (
@@ -53,9 +60,10 @@ function PayoffCalculator() {
                                 <select 
                                     style={{backgroundColor: "white", textAlign: "center"}}
                                     name="howManyPayments"
-                                    value={pcInput.howManyPayments}
+                                    value={pcInputInput.howManyPayments}
                                     onChange={handleChangePayoffCalc}    
                                 >
+                                    <option></option>
                                     <option>0</option>
                                     <option>1</option>
                                     <option>2</option>
@@ -84,10 +92,9 @@ function PayoffCalculator() {
                                 <input 
                                     type="checkbox" 
                                     style={{backgroundColor: "#c9daf8"}}
-                                    name="skipTwoPayments"
-                                    checked={checked} 
-                                    value={checked.checked}                                   
-                                    onChange={handleChangeCheckbox}
+                                    name="checked"
+                                    checked={pcInputInput.checked}                              
+                                    onChange={handleChangePayoffCalc}
                                 />
                             </td>
                         </tr>
@@ -105,7 +112,7 @@ function PayoffCalculator() {
                                 <input placeholder="Fee Amount" 
                                     style={{backgroundColor: "white"}} 
                                     name="typicalFees"
-                                    value={pcInput.typicalFees} 
+                                    value={pcInputInput.typicalFees} 
                                     onChange={handleChangePayoffCalc}
                                 />
                             </td>
@@ -116,8 +123,16 @@ function PayoffCalculator() {
                         </tr>
                     </tbody>
                 </table>
-                <button type="submit" style={{backgroundColor: "#c9daf8", margin: "5px", padding: "5px"}}>Save Changes</button>
+                <div style={{display: "flex"}}>
+                    <button type="submit" style={{backgroundColor: "#c9daf8", margin: "5px", padding: "5px"}}>Submit Inputs</button>
+                    <p>(Submit is only for initial inputs)</p>
+                </div>
             </form>
+            <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}} onClick={() => 
+                editPayoffCalc(pcInput._id, {howManyPayments: pcInputInput.howManyPayments, checked: pcInputInput.checked, typicalFees: pcInputInput.typicalFees})}
+            >Update</button>
+
+            {/* <button type="button" onClick={() => testing()}>testing</button> */}
         </div>
     )
 }
