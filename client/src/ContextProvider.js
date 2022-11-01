@@ -316,13 +316,14 @@ function MortgageContextProvider(props) {
     // const [titleFeesData, setTitleFeesData] = useState(initTitleFees)
     // const [getTitleFeesData, setGetTitleFeesData] = useState([])
 
-    // const handleChangeTitleFees = (event) => {
+    // const handleChangeInfo = (event) => {
     //     const {name, value} = event.target
     //     setTitleFeesData(prevInfo => ({
     //         ...prevInfo,
     //         titleFees: {
     //             ...prevInfo,
-    //             [name]: value}}))
+    //             [name]: value},       
+    //     }))
     // }
     // const handleChangeTitleFees = (event) => {
     //     const {name, value} = event.target

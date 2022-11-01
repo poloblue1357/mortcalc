@@ -5,6 +5,8 @@ function LoanInput() {
 
     const context = useContext(MortgageContext)
 
+    const {getFeeSetupData} = useContext(MortgageContext)
+
     return (
         <div style={{display: "grid"}}>
             <h1 style={{display: "flex", justifyContent: "center"}}>Loan Input</h1>
@@ -227,6 +229,7 @@ function LoanInput() {
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Loan Term</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
                                     <select name="loanTerm" value={context.loanTerm} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}>
+                                        <option></option>
                                         <option>360</option>
                                         <option>300</option>
                                         <option>240</option>
@@ -345,7 +348,7 @@ function LoanInput() {
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
-                            <h3>Title Costs</h3>
+                            <h3 style={{display: "flex", justifyContent: "center"}}>Title Costs</h3>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Total</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>

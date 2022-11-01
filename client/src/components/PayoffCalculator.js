@@ -123,14 +123,14 @@ function PayoffCalculator(props) {
                         </tr>
                     </tbody>
                 </table>
+            <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}} onClick={() => 
+                editPayoffCalc(pcInput._id, {howManyPayments: pcInputInput.howManyPayments, checked: pcInputInput.checked, typicalFees: pcInputInput.typicalFees})}
+            >Update</button>
                 <div style={{display: "flex"}}>
                     <button type="submit" style={{backgroundColor: "#c9daf8", margin: "5px", padding: "5px"}}>Submit Inputs</button>
                     <p>(Submit is only for initial inputs)</p>
                 </div>
             </form>
-            <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}} onClick={() => 
-                editPayoffCalc(pcInput._id, {howManyPayments: pcInputInput.howManyPayments, checked: pcInputInput.checked, typicalFees: pcInputInput.typicalFees})}
-            >Update</button>
 
             {/* <button type="button" onClick={() => testing()}>testing</button> */}
         </div>
