@@ -23,7 +23,7 @@ function FeeSetup() {
     useEffect(() => {
         userAxios.get("/api/feesetup")
             .then(res => {
-                // console.log("feesetup response", res.data)
+                console.log("feesetup response", res.data)
                 setGetFeeSetupData(res.data)
                 // setGetTitleFeesData(res.data)
             })
@@ -48,10 +48,10 @@ function FeeSetup() {
                     <input placeholder="Underwriting" name="underwriting" value={context.underwriting} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Tax Service" name="taxService" value={context.taxService} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Credit Report" name="creditReport" value={context.creditReport} onChange={handleChangeFeeSetup}/>
-                    <input placeholder="Flood Certificate" name="floodCertificate" value={context.floodCertificate} onChange={handleChangeFeeSetup}/>
+                    <input placeholder="Flood Certificate" name="flood" value={context.flood} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Appraisal" name="appraisal" value={context.appraisal} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Pest Inspection" name="pestInspection" value={context.pestInspection} onChange={handleChangeFeeSetup}/>
-                    <button  disabled={disable} style={{margin: "8px", backgroundColor: "black", color: "white"}}>Submit</button>
+                    <button type="submit" style={{margin: "8px", backgroundColor: "black", color: "white"}}>Submit</button>
                 </form>
                 <h3 style={{ textOrientation: "upright", fontSize: "25px", padding: "10px"}}>Fee <br /> Type</h3>
                 <table style={{borderCollapse: "collapse"}}>

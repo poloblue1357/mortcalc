@@ -286,7 +286,7 @@ function MortgageContextProvider(props) {
             .catch(err => console.log(err.response.data.errMsg))
     }
 
-    const initFeeSetup = {feeScenario: "", origination: "", underwriting: "", taxService: "", creditReport: "", floodCertificate: "", appraisal: "", pestInspection: ""}
+    const initFeeSetup = {feeScenario: "", origination: "", underwriting: "", taxService: "", creditReport: "", flood: "", appraisal: "", pestInspection: ""}
     const [feeSetupData, setFeeSetupData] = useState(initFeeSetup)
     const [getFeeSetupData, setGetFeeSetupData] = useState([])
 

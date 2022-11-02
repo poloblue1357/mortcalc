@@ -17,7 +17,7 @@ const feeSetupSchema = ({
         creditReport: {
             type: Number
         },
-        floodCertificate: {
+        flood: {
             type: Number
         },
         appraisal: {

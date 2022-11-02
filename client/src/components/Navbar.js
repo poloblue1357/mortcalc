@@ -12,7 +12,7 @@ function Navbar(props) {
                     <button onClick={logout} style={{fontSize: "15px"}}>Logout</button>
                 </div>
                 <br></br>
-                {/* <div className="navbartop">
+                <div className="navbartop">
                     <h3 className="quotes">Quotes</h3>
                     <div className="toplinks">
                         <Link to="/loaninput" className="navbaritems">Loan Input</Link>
@@ -20,11 +20,11 @@ function Navbar(props) {
                         <Link to="/refinancequote" className="navbaritems">Refinance Quote</Link>
                         <Link to="/amortizationtables" className="navbaritems">Amortization Tables</Link>
                         <Link to="/quickdti" className="navbaritems">Quick DTI</Link>
-                        <Link to="/payoffcalculator" className="navbaritems">Payoff Calculator</Link>
+                        <Link to="/payoffcalc" className="navbaritems">Payoff Calculator</Link>
                         <Link to="/feesetup" className="navbaritems">Fee Setup</Link>
                         <Link to="/lps" className="navbaritems">Lender's Policy Schedule</Link>
                     </div> 
-                </div> */}
+                </div>
                 <br />
                 <div className="navbarbottom">
                     <h3 className="MLMD">Mortgage Lead Management Document</h3>
