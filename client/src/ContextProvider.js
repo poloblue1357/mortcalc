@@ -300,7 +300,7 @@ function MortgageContextProvider(props) {
         userAxios.post("/api/feesetup", {...feeSetupData, titleFees: {...feeSetupData}})
             .then(res => {
                 setGetFeeSetupData(prevInfo =>  [...prevInfo, res.data])
-                setFeeSetupData('')
+                setFeeSetupData(initFeeSetup)
             })
             .catch(err => console.log(err.response.data.errMsg))
     }

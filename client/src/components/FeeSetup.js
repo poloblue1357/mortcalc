@@ -38,7 +38,7 @@ function FeeSetup() {
             </span>
             <div style={{display: "flex"}}>
                 <form style={{display: "grid"}} onSubmit={(event) => {
-                    event.preventDefault()
+                    {/* event.preventDefault() */}
                     handleSubmitFeeSetup()
                    event.target.reset()
                 }}>

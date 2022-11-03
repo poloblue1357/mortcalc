@@ -3,6 +3,9 @@ import {MortgageContext} from "../ContextProvider"
 import AmortizationTablescurrent from "./AmortizationTablescurrent.js"
 import "./AmortizationTables.css"
 
+// overflow: scroll. needs fixed height and width
+// => div around mapped component
+// carousel library
 
 function AmortizationTables() {
 

@@ -11,6 +11,9 @@ const payoffCalcSchema = new Schema ({
     typicalFees: {
         type: Number
     },
+    estimatedPayoff: {
+        type: Number
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",
