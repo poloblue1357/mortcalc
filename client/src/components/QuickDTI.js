@@ -29,7 +29,7 @@ function QuickDTI() {
         const items = JSON.parse(localStorage.getItem('items'));
         if (items) {
          setItems(items);
-         console.log(items)
+        //  console.log(items)
         }
       }, []);
 

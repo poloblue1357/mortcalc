@@ -26,26 +26,6 @@ const feeSetupSchema = ({
         pestInspection: {
             type: Number
         },
-    titleFees: {
-        closingFee: {
-            type: Number
-        },
-        cpl: {
-            type: Number
-        },
-        cplBorrower: {
-            type: Number
-        },
-        endorsements: {
-            type: Number
-        },
-        recordingServices: {
-            type: Number
-        },
-        recording: {
-            type: Number
-        }
-    },
     user: {
         type: Schema.Types.ObjectId,
         ref: "User",

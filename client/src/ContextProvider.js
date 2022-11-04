@@ -312,60 +312,33 @@ function MortgageContextProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
-    // const initTitleFees = {closingFee: "", cpl: "", cplBorrower: "", endorsements: "", recordingServices: "", recording: ""}
-    // const [titleFeesData, setTitleFeesData] = useState(initTitleFees)
-    // const [getTitleFeesData, setGetTitleFeesData] = useState([])
 
-    // const handleChangeInfo = (event) => {
-    //     const {name, value} = event.target
-    //     setTitleFeesData(prevInfo => ({
-    //         ...prevInfo,
-    //         titleFees: {
-    //             ...prevInfo,
-    //             [name]: value},       
-    //     }))
-    // }
-    // const handleChangeTitleFees = (event) => {
-    //     const {name, value} = event.target
-    //     setTitleFeesData(prevInfo => ({
-    //         ...prevInfo, [name]: value
-    //         titleFees: {
-    //             ...prevInfo.titleFees,
-    //             [name]: value
-    //         }
-            
-    //     }))
-    // }
-// const handleChangeTitleFees = (event) => {
-//     const {name, value} = event.target
-//     setTitleFeesData(prevInfo => ({
-//         ...prevInfo,
-//         [name]: value 
-//     }))
-// }
+    const initTitleFees = {closingFee: "", cpl: "", cplBorrower: "", endorsements: "", recordingServices: "", recording: ""}
+    const [titleFeesData, setTitleFeesData] = useState(initTitleFees)
+    const [getTitleFeesData, setGetTitleFeesData] = useState([])
 
-    // const handleChangeTitleFees = (event) => {
-    //     const {name, value} = event.target
-    //     setTitleFeesData(prevInfo => ({
-    //         ...prevInfo, [name]: value
-    //     }))
-    // }
-    // const handleSubmitTitleFees = () => {
-    //     userAxios.post("/api/feesetup", {...feeSetupData, titleFees: {...titleFeesData}})
-    //         .then(res => {
-    //             setGetTitleFeesData(prevInfo => [...prevInfo, res.data])
-    //             setTitleFeesData('')
-    //         })
-    //         .catch(err => console.log(err.response.data.errMsg))
-    // }
-    // function deleteTitleFees(titleFeesId) {
-    //     userAxios.delete(`/api/feesetup/${titleFeesId}`)
-    //         .then(res => {
-    //             let filterTitleFees = getTitleFeesData.filter(titleFees => titleFees._id !== titleFeesId)
-    //             setGetTitleFeesData(filterTitleFees)
-    //         })
-    //         .catch(err => console.log(err.response.data.errMsg))
-    // }
+    const handleChangeTitleFees = (event) => {
+        const {name, value} = event.target
+        setTitleFeesData(prevInfo => ({
+            ...prevInfo, [name]: value
+        }))
+    }
+    const handleSubmitTitleFees = () => {
+        userAxios.post("/api/titlefees", titleFeesData)
+            .then(res => {
+                setGetTitleFeesData(prevInfo => [...prevInfo, res.data])
+                setTitleFeesData(initTitleFees)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
+    function deleteTitleFees(titleFeesId) {
+        userAxios.delete(`/api/titlefees/${titleFeesId}`)
+            .then(res => {
+                let filterTitleFees = getTitleFeesData.filter(titleFees => titleFees._id !== titleFeesId)
+                setGetTitleFeesData(filterTitleFees)
+            })
+            .catch(err => console.log(err.response.data.errMsg))
+    }
 
     const [loanInput, setLoanInput] = useState()
     const [getLoanInput, setGetLoanInput] = useState([])
@@ -439,21 +412,11 @@ function MortgageContextProvider(props) {
     function getPayoffCalc() {
         userAxios.get("/api/payoffcalc")
             .then(res => {
-                console.log(res.data, "get req")
+                // console.log(res.data, "get req")
                 setPCInput(res.data[0])
             })
             .catch(err => console.log(err))
     }
-    // function editLoanInput(_id, editedLoanInput) {
-    //     userAxios.put(`/api/loaninput/${_id}`, editedLoanInput)
-    //         .then(res => {
-    //             setGetLoanInput(prevLoanInput1 => {
-    //                 let getLoanInput1 = prevLoanInput1.map(loanInput1 => loanInput1._id === _id ? res.data : loanInput1)
-    //                 // console.log(getRealtors1)
-    //                 return getLoanInput1
-    //             })
-    //         })
-    // }
 
     return (
         <MortgageContext.Provider value={{
@@ -473,7 +436,8 @@ function MortgageContextProvider(props) {
             handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData,
             handleChangeFeeSetup, handleSubmitFeeSetup, deleteFeeSetup, feeSetupData, setFeeSetupData, getFeeSetupData, setGetFeeSetupData,
             loanInput, setLoanInput, getLoanInput, setGetLoanInput, handleChangeLoanInput, handleSubmitLoanInput, deleteLoanInput, editLoanInput,
-            pcInput, setPCInput, checked, setChecked, getPCInput, setGetPCInput, handleChangePayoffCalc, handleChangeCheckbox, handleSubmitPayoffCalc, editPayoffCalc, getPayoffCalc 
+            pcInput, setPCInput, checked, setChecked, getPCInput, setGetPCInput, handleChangePayoffCalc, handleChangeCheckbox, handleSubmitPayoffCalc, editPayoffCalc, getPayoffCalc,
+            handleChangeTitleFees, handleSubmitTitleFees, deleteTitleFees, titleFeesData, setTitleFeesData, getTitleFeesData, setGetTitleFeesData 
         }}>
             {props.children}
         </MortgageContext.Provider>

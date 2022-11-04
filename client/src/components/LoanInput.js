@@ -5,12 +5,12 @@ function LoanInput() {
 
     const context = useContext(MortgageContext)
 
-    const {getFeeSetupData, userAxios, setGetFeeSetupData} = useContext(MortgageContext)
+    const {getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData} = useContext(MortgageContext)
 
     const testing = () => {
         console.log(
             "testing",
-            getFeeSetupData[3].titleFees
+            getTitleFeesData
         )
     }
     useEffect(() => {
@@ -18,12 +18,19 @@ function LoanInput() {
             .then(res => {
                 console.log("feesetup response", res.data)
                 setGetFeeSetupData(res.data)
-                // setGetTitleFeesData(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+    useEffect(() => {
+        userAxios.get("/api/titlefees")
+            .then(res => {
+                console.log("titlefees", res.data)
+                setGetTitleFeesData(res.data)
             })
             .catch(err => console.log(err))
     }, [])
 
-    
+
 
     return (
         <div style={{display: "grid"}}>
@@ -382,37 +389,37 @@ function LoanInput() {
                             <button type="button" onClick={() => testing()}>testing</button>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Closing Fee</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getFeeSetupData[4]?.titleFees.closingFee}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].closingFee}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>CPL</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getFeeSetupData[4]?.titleFees.cpl}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].cpl}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>CPL Borrower</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getFeeSetupData[4]?.titleFees.cplBorrower}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].cplBorrower}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Endorsements</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getFeeSetupData[4]?.titleFees.endorsements}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].endorsements}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Recording Services</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getFeeSetupData[4]?.titleFees.recordingServices}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].recordingServices}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Recording</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getFeeSetupData[4]?.titleFees.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].recording}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>

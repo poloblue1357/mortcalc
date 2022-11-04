@@ -8,14 +8,11 @@ function FeeSetup() {
     const {disable, setDisable} = useState(true)
 
     const context = useContext(MortgageContext)
-    const {setGetFeeSetupData, handleChangeFeeSetup, userAxios, handleSubmitFeeSetup} = useContext(MortgageContext)
-    const {handleChangeTitleFees, handleSubmitTitleFees, setGetTitleFeesData} = useContext(MortgageContext)
-
-    // const y = Object.entries(context?.getFeeSetupData?.feeSetup)
-    // const z = Object.entries(context?.getTitleFeesData?.titleFees)
+    const {setGetFeeSetupData, handleChangeFeeSetup, userAxios, handleSubmitFeeSetup, getFeeSetupData} = useContext(MortgageContext)
+    const {handleChangeTitleFees, handleSubmitTitleFees, setGetTitleFeesData, getTitleFeesData} = useContext(MortgageContext)
 
     const c = context?.getFeeSetupData?.filter(item => item.titleFees ? null : item)
-    const d = context?.getFeeSetupData?.filter(item => item.titleFees && item)
+    const d = context?.getTitleFeesData?.filter(item => item && item)
 
     const a = c?.map(f => <FeeSetupdisplay f={f} key={f._id}/>)
     const b = d?.map(f => <TitleFeesdisplay f={f} key={f._id}/>)
@@ -23,9 +20,14 @@ function FeeSetup() {
     useEffect(() => {
         userAxios.get("/api/feesetup")
             .then(res => {
-                console.log("feesetup response", res.data)
                 setGetFeeSetupData(res.data)
-                // setGetTitleFeesData(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+    useEffect(() => {
+        userAxios.get("/api/titlefees")
+            .then(res => {
+                setGetTitleFeesData(res.data)
             })
             .catch(err => console.log(err))
     }, [])
@@ -42,7 +44,6 @@ function FeeSetup() {
                     handleSubmitFeeSetup()
                    event.target.reset()
                 }}>
-                 {/* res.data[0].titleFees.closingFee */}
                     <input placeholder="Fee Scenario" name="feeScenario" value={context.feeScenario} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Origination" name="origination" value={context.origination} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Underwriting" name="underwriting" value={context.underwriting} onChange={handleChangeFeeSetup}/>
@@ -77,15 +78,15 @@ function FeeSetup() {
             <div style={{display: "flex"}}>
                 <form style={{display: "grid"}} onSubmit={(event) => {
                     event.preventDefault()
-                    handleSubmitFeeSetup()
+                    handleSubmitTitleFees()
                     event.target.reset()
                 }}>
-                    <input placeholder="Closing Fee" name="closingFee" value={context.closingFee} onChange={handleChangeFeeSetup}/>
-                    <input placeholder="CPL" name="cpl" value={context.cpl} onChange={handleChangeFeeSetup}/>
-                    <input placeholder="CPL Borrower" name="cplBorrower" value={context.cplBorrower} onChange={handleChangeFeeSetup}/>
-                    <input placeholder="Endorsements" name="endorsements" value={context.endorsements} onChange={handleChangeFeeSetup}/>
-                    <input placeholder="Recording Services" name="recordingServices" value={context.recordingServices} onChange={handleChangeFeeSetup}/>
-                    <input placeholder="Recording" name="recording" value={context.recording} onChange={handleChangeFeeSetup}/>
+                    <input placeholder="Closing Fee" name="closingFee" value={context.closingFee} onChange={handleChangeTitleFees}/>
+                    <input placeholder="CPL" name="cpl" value={context.cpl} onChange={handleChangeTitleFees}/>
+                    <input placeholder="CPL Borrower" name="cplBorrower" value={context.cplBorrower} onChange={handleChangeTitleFees}/>
+                    <input placeholder="Endorsements" name="endorsements" value={context.endorsements} onChange={handleChangeTitleFees}/>
+                    <input placeholder="Recording Services" name="recordingServices" value={context.recordingServices} onChange={handleChangeTitleFees}/>
+                    <input placeholder="Recording" name="recording" value={context.recording} onChange={handleChangeTitleFees}/>
                     <button type="submit" style={{margin: "8px", backgroundColor: "black", color: "white"}}>Submit</button>
                 </form>
                 <h3 style={{ textOrientation: "upright", fontSize: "25px", padding: "10px"}}>Title <br /> Fees</h3>

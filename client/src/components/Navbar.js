@@ -18,7 +18,7 @@ function Navbar(props) {
                         <Link to="/loaninput" className="navbaritems">Loan Input</Link>
                         <Link to="/purchasequote" className="navbaritems">Purchase Quote</Link>
                         <Link to="/refinancequote" className="navbaritems">Refinance Quote</Link>
-                        <Link to="/amorttables" className="navbaritems">Amortization Tables</Link>
+                        <Link to="/amortables" className="navbaritems">Amortization Tables</Link>
                         <Link to="/quickdti" className="navbaritems">Quick DTI</Link>
                         <Link to="/payoffcalc" className="navbaritems">Payoff Calculator</Link>
                         <Link to="/feesetup" className="navbaritems">Fee Setup</Link>
