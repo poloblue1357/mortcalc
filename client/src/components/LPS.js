@@ -4,16 +4,20 @@ import LPSdisplay from "./LPSdisplay"
 
 function LPS() {
 
-    const {handleSubmitLPS, userAxios, setGetLpsData} = useContext(MortgageContext)
+    const {handleSubmitLPS, userAxios, setGetLpsData, getLpsData} = useContext(MortgageContext)
     const context = useContext(MortgageContext)
-
-    const z = context?.getLpsData.map(item => <LPSdisplay item={item} key={item._id}/>)
+    
+    const y = [...getLpsData].sort((a, b) => a.loanAmount - b.loanAmount)
+    const z = y.map(item => <LPSdisplay item={item} key={item._id}/>)
 
     useEffect(() => {
         userAxios.get("/api/lps")
-            .then(res => setGetLpsData(res.data))
+            .then(res => {
+                setGetLpsData(res.data)
+            })
             .catch(err => console.log(err))
     }, [])
+
 
     return (
         <div>
