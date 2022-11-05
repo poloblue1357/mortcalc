@@ -13,16 +13,6 @@ function PayoffCalculator(props) {
         setPCInputInput(pcInput)
     }, [pcInput])
 
-    // const testing = () => {
-    //     console.log(
-    //             pcInput[0]._id, 
-    //             pcInput, 
-    //             pcInput[0].checked,
-    //             checked
-    //     )
-    // }
-    // const initPCInputs = {typicalFees: context.typicalFees, howManyPayments: context.howManyPayments, checked: checked}
-    // const [checked, setChecked] = useState()
     const [pcInputInput, setPCInputInput] = useState({typicalFees: pcInput.typicalFees, checked: pcInput.checked, howManyPayments: pcInput.howManyPayments})
     const [getPCInput, setGetPCInput] = useState([])
 

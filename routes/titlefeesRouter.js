@@ -37,7 +37,7 @@ titleFeesRouter.delete("/:titleFeesId", (req, res, next) => {
     )
 })
 
-titleFeesRouter.put(":titleFeesId", (req, res, next) => {
+titleFeesRouter.put("/:titleFeesId", (req, res, next) => {
     TitleFees.findOneAndUpdate(
         {_id: req.params.titleFeesId, user: req.user._id},
         req.body,

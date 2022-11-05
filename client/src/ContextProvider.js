@@ -339,8 +339,8 @@ function MortgageContextProvider(props) {
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
-
-    const [loanInput, setLoanInput] = useState()
+    const initLI = {name: "", address: "", phone: "", email: "", loanPurpose: "", currentRate: "", currentEscrow: "", rentPayment: "", currentMI: "", term: "", firstLoanBalance: "", loanType: "", bestRate: "", betterRate: "", goodRate: "", creditDiscountBest: "", creditDiscountBetter: "", creditDiscountGood: "", additionaBest: "", additionalBetter: "", additionalGood: "", appraisedValue: "", purchasePrice: "", baseLoanAmount: "", loanTerm: "", monthlyMIFactor: "", additionalMonthlyBest: "", additionalMonthlyBetter: "", additionalMonthlyGood: "", titleInsurance: "", monthlyTaxes: "", reservesTaxes: "", monthlyInsurance: "", reservesInsurance: "", daysRequired: ""}
+    const [loanInput, setLoanInput] = useState(initLI)
     const [getLoanInput, setGetLoanInput] = useState([])
 
     const handleChangeLoanInput = (event) => {
@@ -348,10 +348,10 @@ function MortgageContextProvider(props) {
         setLoanInput(prevLoanInput => ({...prevLoanInput, [name]: value}))
     }
     const handleSubmitLoanInput = () => {
-        userAxios.post("/api/loaninput", loanInput)
+        userAxios.post("/api/loaninput", {...loanInput})
             .then(res => {
-                setGetLoanInput(prevLoanInput => [res.data, ...prevLoanInput])
-                // setRealtor(initInputsRealtors)
+                setLoanInput(res.data)
+                alert("Info Submitted")
             })
             .catch(err => console.log(err.response.data.errMsg))
     }
@@ -366,12 +366,21 @@ function MortgageContextProvider(props) {
     function editLoanInput(_id, editedLoanInput) {
         userAxios.put(`/api/loaninput/${_id}`, editedLoanInput)
             .then(res => {
-                setGetLoanInput(prevLoanInput1 => {
-                    let getLoanInput1 = prevLoanInput1.map(loanInput1 => loanInput1._id === _id ? res.data : loanInput1)
-                    // console.log(getRealtors1)
-                    return getLoanInput1
-                })
+                // setGetLoanInput(prevLoanInput1 => {
+                //     let getLoanInput1 = prevLoanInput1.map(loanInput1 => loanInput1._id === _id ? res.data : loanInput1)
+                //     return getLoanInput1
+                // })
+                setLoanInput(res.data)
+                alert("Updates Saved")
             })
+    }
+    function getLoanInputs() {
+        userAxios.get("/api/loaninput")
+            .then(res => {
+                // console.log(res.data, "get req")
+                setLoanInput(res.data[0])
+            })
+            .catch(err => console.log(err))
     }
 
     const initPCInputs = {typicalFees: "", howManyPayments: "", checked: false}
@@ -391,7 +400,7 @@ function MortgageContextProvider(props) {
         userAxios.post("/api/payoffcalc", {...pcInput, checked})
             .then(res => {
                 setPCInput(res.data)
-                alert("Changes Saved")
+                alert("Info Submitted")
                 console.log(res.data)
             })
             .catch(err => console.log(err.response.data.errMsg))
@@ -435,7 +444,7 @@ function MortgageContextProvider(props) {
             ...userState, signup, login, logout, handleAuthErr, resetAuthErr, userAxios,
             handleChangeLPS, handleSubmitLPS, deleteLPS, lpsData, setLpsData, getLpsData, setGetLpsData,
             handleChangeFeeSetup, handleSubmitFeeSetup, deleteFeeSetup, feeSetupData, setFeeSetupData, getFeeSetupData, setGetFeeSetupData,
-            loanInput, setLoanInput, getLoanInput, setGetLoanInput, handleChangeLoanInput, handleSubmitLoanInput, deleteLoanInput, editLoanInput,
+            loanInput, setLoanInput, getLoanInput, setGetLoanInput, handleChangeLoanInput, handleSubmitLoanInput, deleteLoanInput, editLoanInput, getLoanInputs,
             pcInput, setPCInput, checked, setChecked, getPCInput, setGetPCInput, handleChangePayoffCalc, handleChangeCheckbox, handleSubmitPayoffCalc, editPayoffCalc, getPayoffCalc,
             handleChangeTitleFees, handleSubmitTitleFees, deleteTitleFees, titleFeesData, setTitleFeesData, getTitleFeesData, setGetTitleFeesData 
         }}>

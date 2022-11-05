@@ -1,11 +1,11 @@
-import React, {useContext, useEffect} from "react"
+import React, {useContext, useEffect, useState} from "react"
 import {MortgageContext} from "../ContextProvider"
 
 function LoanInput() {
 
     const context = useContext(MortgageContext)
 
-    const {getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData} = useContext(MortgageContext)
+    const {editLoanInput, getLoanInputs, loanInput, getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData, setGetLoanInput, handleSubmitLoanInput} = useContext(MortgageContext)
 
     const testing = () => {
         console.log(
@@ -30,33 +30,51 @@ function LoanInput() {
             .catch(err => console.log(err))
     }, [])
 
+    
+    const [localLI, setLocalLI] = useState({name: loanInput.name, address: loanInput.address, phone: loanInput.phone, email: loanInput.email, loanPurpose: loanInput.loanPurpose, currentRate: loanInput.currentRate, currentEscrow: loanInput.currentEscrow, rentPayment: loanInput.rentPayment, currentMI: loanInput.currentMI, term: loanInput.term, firstLoanBalance: loanInput.firstLoanBalance, loanType: loanInput.loanType, bestRate: loanInput.bestRate, betterRate: loanInput.betterRate, goodRate: loanInput.goodRate, creditDiscountBest: loanInput.creditDiscountBest, creditDiscountBetter: loanInput.creditDiscountBetter, creditDiscountGood: loanInput.creditDiscountGood, additionalBest: loanInput.additionalBest, additionalBetter: loanInput.additionalBetter, additionalGood: loanInput.additionalGood, appraisedValue: loanInput.appraisedValue, purchasePrice: loanInput.purchasePrice, baseLoanAmount: loanInput.baseLoanAmount, loanTerm: loanInput.loanTerm, monthlyMIFactor: loanInput.monthlyMIFactor, additionalMonthlyBest: loanInput.additionalMonthlyBest, additionalMonthlyBetter: loanInput.additionalMonthlyBetter, additionalMonthlyGood: loanInput.additionalMonthlyGood, titleInsurance: loanInput.titleInsurance, monthlyTaxes: loanInput.monthlyTaxes, reservesTaxes: loanInput.reservesTaxes, monthlyInsurance: loanInput.monthlyInsurance, reservesInsurance: loanInput.reservesInsurance, daysRequired: loanInput.daysRequired})
+    const [getLocalLI, setGetLocalLI] = useState([])
+    const handleChangeLoanInput = (event) => {
+        const {name, value} = event.target
+        setLocalLI(prevLoanInput => ({...prevLoanInput, [name]: value}))
+    }
+    useEffect(() => {
+        getLoanInputs()
+    }, [])
+    useEffect(() => {
+        setLocalLI(loanInput)
+    }, [loanInput])
+
 
 
     return (
         <div style={{display: "grid"}}>
             <h1 style={{display: "flex", justifyContent: "center"}}>Loan Input</h1>
             <h2>Client Info</h2>
-            <form >
+            <form onSubmit={(e) => {
+                e.preventDefault()
+                editLoanInput()
+            }}>
+                <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}}>Update</button>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
-                        Name <input name="name" value={context.name} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                        Name <input name="name" value={localLI.name} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                 </tr>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
-                        Street Address<input name="address" value={context.address} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                        Street Address<input name="address" value={localLI.address} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                 </tr>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
-                        Phone<input name="phone" value={context.phone} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                        Phone<input name="phone" value={localLI.phone} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                 </tr>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
-                        Email<input name="email" value={context.email} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                        Email<input name="email" value={localLI.email} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                 </tr>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
                         Loan Purpose
-                        <select name="loanPurpose" value={context.loanPurpose} onChange={context.handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}>
+                        <select name="loanPurpose" value={localLI.loanPurpose} onChange={handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}>
                             <option></option>
                             <option value="purchase">Purchase</option>
                             <option value="refinance">Refinance</option>
@@ -67,23 +85,23 @@ function LoanInput() {
                 <h2>Current Loan / Housing Info (If Applicable)</h2>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Current Rate
-                        <input name="currentRate" value={context.currentRate} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                        <input name="currentRate" value={localLI.currentRate} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                     </td>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Current Escrow
-                        <input name="currentEscrow" value={context.currentEscrow} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                        <input name="currentEscrow" value={localLI.currentEscrow} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                     </td>
                 </tr>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Rent/House Pymnt
-                        <input name="rentPayment" value={context.rentPayment} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                        <input name="rentPayment" value={localLI.rentPayment} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                     </td>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Current MI
-                        <input name="currentMI" value={context.currentMI} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                        <input name="currentMI" value={localLI.currentMI} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                     </td>
                 </tr>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Term
-                        <select name="term" style={{margin: "5px", backgroundColor: "white"}} value={context.term} onChange={context.handleChangeLoanInput}>
+                        <select name="term" style={{margin: "5px", backgroundColor: "white"}} value={localLI.term} onChange={handleChangeLoanInput}>
                             <option></option>
                             <option value="360">360</option>
                             <option value="240">240</option>
@@ -92,7 +110,7 @@ function LoanInput() {
                         </select>
                     </td>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>1st Loan Balance
-                        <input name="firstLoanBalance" value={context.firstLoanBalance} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                        <input name="firstLoanBalance" value={localLI.firstLoanBalance} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                     </td>
                 </tr>
                 <tr style={{textAlign: "right"}}>
@@ -112,44 +130,12 @@ function LoanInput() {
                     </td>
                 </tr>
                 <h2>Loan Terms</h2>
-                {/* <div style={{display: "flex"}}>
-                    <h4>Loan Type</h4>
-                    <select style={{margin: "5px"}}>
-                        <option value="conventional">Conventional</option>
-                        <option value="fha">FHA</option>
-                        <option value="va">VA</option>
-                        <option value="usda">USDA</option>
-                    </select>
-                    <select style={{margin: "5px"}}>
-                        <option value="conventional">Conventional</option>
-                        <option value="fha">FHA</option>
-                        <option value="va">VA</option>
-                        <option value="usda">USDA</option>
-                    </select>
-                    <select style={{margin: "5px"}}>
-                        <option value="conventional">Conventional</option>
-                        <option value="fha">FHA</option>
-                        <option value="va">VA</option>
-                        <option value="usda">USDA</option>
-                    </select>
-                </div>
-                <br />
-                <div style={{display: "flex"}}>
-                    <h4>Quote Title</h4>
-                    <p style={{margin: "12px"}}>Best Rate / <br />
-                        Higher Cost</p>
-                    <p style={{margin: "12px"}}>Better Rate / <br />
-                        Moderate Cost</p>
-                    <p style={{margin: "12px"}}>Good Rate / <br />
-                        Low Cost</p>
-                </div>
-                <br /> */}
                 <table style={{borderCollapse: "collapse"}}>
                     <tbody>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Loan Type:</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <select name="loanType" value={context.loanType} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}>
+                                    <select name="loanType" value={localLI.loanType} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}>
                                         <option></option>
                                         <option value="conventional">Conventional</option>
                                         <option value="fha">FHA</option>
@@ -187,48 +173,48 @@ function LoanInput() {
                                     <h4 style={{backgroundColor: "#c9daf8"}}>Rate</h4> 
                                 </td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <input placeholder="Rate %" name="bestRate" value={context.bestRate} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>%
+                                    <input placeholder="Rate %" name="bestRate" value={localLI.bestRate} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>%
                                 </td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <input placeholder="Rate %" name="betterRate" value={context.betterRate} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>%
+                                    <input placeholder="Rate %" name="betterRate" value={localLI.betterRate} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>%
                                 </td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <input placeholder="Rate %" name="goodRate" value={context.goodRate} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>%
+                                    <input placeholder="Rate %" name="goodRate" value={localLI.goodRate} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>%
                                 </td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Credit(-) / Discount(+) %</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <input name="creditDiscountBest" value={context.creditDiscountBest} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                                    <input name="creditDiscountBest" value={localLI.creditDiscountBest} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                                 </td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <input name="creditDiscountBetter" value={context.creditDiscountBetter} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                                    <input name="creditDiscountBetter" value={localLI.creditDiscountBetter} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                                 </td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <input name="creditDiscountGood" value={context.creditDiscountGood} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/>
+                                    <input name="creditDiscountGood" value={localLI.creditDiscountGood} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/>
                                 </td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Additional Credit / Discount</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="additionalBest" value={context.additionalBest} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="additionalBetter" value={context.additionalBetter} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="additionalGood" value={context.additionalGood} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="additionalBest" value={localLI.additionalBest} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="additionalBetter" value={localLI.additionalBetter} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="additionalGood" value={localLI.additionalGood} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Appraised Value</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="appraisedValue" value={context.appraisedValue} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="appraisedValue" value={localLI.appraisedValue} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Purchase Price</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="purchasePrice" value={context.purchasePrice} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="purchasePrice" value={localLI.purchasePrice} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Base Loan Amount</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="baseLoanAmount" value={context.baseLoanAmount} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="baseLoanAmount" value={localLI.baseLoanAmount} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
@@ -253,7 +239,7 @@ function LoanInput() {
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Loan Term</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
-                                    <select name="loanTerm" value={context.loanTerm} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}>
+                                    <select name="loanTerm" value={localLI.loanTerm} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}>
                                         <option></option>
                                         <option>360</option>
                                         <option>300</option>
@@ -283,7 +269,7 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Monthly MI Factor</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="monthlyMIFactor" value={context.monthlyMIFactor} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="monthlyMIFactor" value={localLI.monthlyMIFactor} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
                             </tr>
@@ -307,9 +293,9 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Adtnl Monthly Pymnts</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}><input name="additionalMonthlyBest" value={context.additionalMonthlyBest} onChange={context.handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}><input name="additionalMonthlyBetter" value={context.additionalMonthlyBetter} onChange={context.handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}><input name="additionalMonthlyGood" value={context.additionalMonthlyGood} onChange={context.handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}><input name="additionalMonthlyBest" value={localLI.additionalMonthlyBest} onChange={handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}><input name="additionalMonthlyBetter" value={localLI.additionalMonthlyBetter} onChange={handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}><input name="additionalMonthlyGood" value={localLI.additionalMonthlyGood} onChange={handleChangeLoanInput} style={{backgroundColor: "#c9daf8"}}/></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Cash to Close</td>
@@ -382,46 +368,46 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Title Insurance</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="titleInsurance" value={context.titleInsurance} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="titleInsurance" value={localLI.titleInsurance} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <button type="button" onClick={() => testing()}>testing</button>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Closing Fee</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].closingFee}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.closingFee}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.closingFee}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.closingFee}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>CPL</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].cpl}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.cpl}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.cpl}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.cpl}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>CPL Borrower</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].cplBorrower}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.cplBorrower}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.cplBorrower}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.cplBorrower}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Endorsements</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].endorsements}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.endorsements}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.endorsements}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.endorsements}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Recording Services</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].recordingServices}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.recordingServices}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.recordingServices}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.recordingServices}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Recording</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0].recording}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.recording}</td>
                             </tr>
                             <h2>Escrow and Prepaids</h2>
                             <tr>
@@ -439,14 +425,14 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Taxes</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="monthlyTaxes" value={context.monthlyTaxes} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="reservesTaxes" value={context.reservesTaxes} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="monthlyTaxes" value={localLI.monthlyTaxes} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="reservesTaxes" value={localLI.reservesTaxes} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Insurance</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="monthlyInsurance" value={context.monthlyInsurance} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="reservesInsurance" value={context.reservesInsurance} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="monthlyInsurance" value={localLI.monthlyInsurance} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="reservesInsurance" value={localLI.reservesInsurance} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
                             <tr>
@@ -464,9 +450,9 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Days Required</td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="daysRequired" value={context.daysRequired} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="daysRequired" value={context.daysRequired} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="daysRequired" value={context.daysRequired} onChange={context.handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="daysRequired" value={localLI.daysRequired} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>{localLI.daysRequired}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "white"}}>{localLI.daysRequired}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Total</td>
@@ -476,6 +462,12 @@ function LoanInput() {
                             </tr>
                     </tbody>
                 </table>
+                <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}} onClick={() => 
+                    editLoanInput(loanInput._id, )}>Update</button>
+                <div style={{display: "flex"}}>
+                    <button type="submit" style={{backgroundColor: "#c9daf8", margin: "5px", padding: "5px"}}>Submit Inputs</button>
+                    <p>(Submit is only for initial inputs)</p>
+                </div>
             </form>
         </div>
     )
