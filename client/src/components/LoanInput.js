@@ -7,16 +7,15 @@ function LoanInput() {
 
     const {editLoanInput, getLoanInputs, loanInput, getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData, setGetLoanInput, handleSubmitLoanInput} = useContext(MortgageContext)
 
-    const testing = () => {
-        console.log(
-            "testing",
-            getTitleFeesData
-        )
-    }
+    // const testing = () => {
+    //     console.log(
+    //         "testing",
+    //         getTitleFeesData
+    //     )
+    // }
     useEffect(() => {
         userAxios.get("/api/feesetup")
             .then(res => {
-                console.log("feesetup response", res.data)
                 setGetFeeSetupData(res.data)
             })
             .catch(err => console.log(err))
@@ -24,25 +23,24 @@ function LoanInput() {
     useEffect(() => {
         userAxios.get("/api/titlefees")
             .then(res => {
-                console.log("titlefees", res.data)
                 setGetTitleFeesData(res.data)
             })
             .catch(err => console.log(err))
     }, [])
 
-    
-    const [localLI, setLocalLI] = useState({name: loanInput.name, address: loanInput.address, phone: loanInput.phone, email: loanInput.email, loanPurpose: loanInput.loanPurpose, currentRate: loanInput.currentRate, currentEscrow: loanInput.currentEscrow, rentPayment: loanInput.rentPayment, currentMI: loanInput.currentMI, term: loanInput.term, firstLoanBalance: loanInput.firstLoanBalance, loanType: loanInput.loanType, bestRate: loanInput.bestRate, betterRate: loanInput.betterRate, goodRate: loanInput.goodRate, creditDiscountBest: loanInput.creditDiscountBest, creditDiscountBetter: loanInput.creditDiscountBetter, creditDiscountGood: loanInput.creditDiscountGood, additionalBest: loanInput.additionalBest, additionalBetter: loanInput.additionalBetter, additionalGood: loanInput.additionalGood, appraisedValue: loanInput.appraisedValue, purchasePrice: loanInput.purchasePrice, baseLoanAmount: loanInput.baseLoanAmount, loanTerm: loanInput.loanTerm, monthlyMIFactor: loanInput.monthlyMIFactor, additionalMonthlyBest: loanInput.additionalMonthlyBest, additionalMonthlyBetter: loanInput.additionalMonthlyBetter, additionalMonthlyGood: loanInput.additionalMonthlyGood, titleInsurance: loanInput.titleInsurance, monthlyTaxes: loanInput.monthlyTaxes, reservesTaxes: loanInput.reservesTaxes, monthlyInsurance: loanInput.monthlyInsurance, reservesInsurance: loanInput.reservesInsurance, daysRequired: loanInput.daysRequired})
-    const [getLocalLI, setGetLocalLI] = useState([])
-    const handleChangeLoanInput = (event) => {
-        const {name, value} = event.target
-        setLocalLI(prevLoanInput => ({...prevLoanInput, [name]: value}))
-    }
     useEffect(() => {
         getLoanInputs()
     }, [])
     useEffect(() => {
         setLocalLI(loanInput)
     }, [loanInput])
+
+    const [localLI, setLocalLI] = useState({name: loanInput.name, address: loanInput.address, phone: loanInput.phone, email: loanInput.email, loanPurpose: loanInput.loanPurpose, currentRate: loanInput.currentRate, currentEscrow: loanInput.currentEscrow, rentPayment: loanInput.rentPayment, currentMI: loanInput.currentMI, term: loanInput.term, firstLoanBalance: loanInput.firstLoanBalance, loanType: loanInput.loanType, bestRate: loanInput.bestRate, betterRate: loanInput.betterRate, goodRate: loanInput.goodRate, creditDiscountBest: loanInput.creditDiscountBest, creditDiscountBetter: loanInput.creditDiscountBetter, creditDiscountGood: loanInput.creditDiscountGood, additionalBest: loanInput.additionalBest, additionalBetter: loanInput.additionalBetter, additionalGood: loanInput.additionalGood, appraisedValue: loanInput.appraisedValue, purchasePrice: loanInput.purchasePrice, baseLoanAmount: loanInput.baseLoanAmount, loanTerm: loanInput.loanTerm, monthlyMIFactor: loanInput.monthlyMIFactor, additionalMonthlyBest: loanInput.additionalMonthlyBest, additionalMonthlyBetter: loanInput.additionalMonthlyBetter, additionalMonthlyGood: loanInput.additionalMonthlyGood, titleInsurance: loanInput.titleInsurance, monthlyTaxes: loanInput.monthlyTaxes, reservesTaxes: loanInput.reservesTaxes, monthlyInsurance: loanInput.monthlyInsurance, reservesInsurance: loanInput.reservesInsurance, daysRequired: loanInput.daysRequired})
+    const [getLocalLI, setGetLocalLI] = useState([])
+    const handleChangeLoanInput = (event) => {
+        const {name, value} = event.target
+        setLocalLI(prevLoanInput => ({...prevLoanInput, [name]: value}))
+    }
 
 
 
@@ -52,9 +50,11 @@ function LoanInput() {
             <h2>Client Info</h2>
             <form onSubmit={(e) => {
                 e.preventDefault()
-                editLoanInput()
+                handleSubmitLoanInput()
             }}>
-                <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}}>Update</button>
+                <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}} onClick={() => 
+                    editLoanInput(loanInput._id, {name: localLI.name, address: localLI.address, phone: localLI.phone, email: localLI.email, loanPurpose: localLI.loanPurpose, currentRate: localLI.currentRate, currentEscrow: localLI.currentEscrow, rentPayment: localLI.rentPayment, currentMI: localLI.currentMI, term: localLI.term, firstLoanBalance: localLI.firstLoanBalance, loanType: localLI.loanType, bestRate: localLI.bestRate, betterRate: localLI.betterRate, goodRate: localLI.goodRate, creditDiscountBest: localLI.creditDiscountBest, creditDiscountBetter: localLI.creditDiscountBetter, creditDiscountGood: localLI.creditDiscountGood, additionalBest: localLI.additionalBest, additionalBetter: localLI.additionalBetter, additionalGood: localLI.additionalGood, appraisedValue: localLI.appraisedValue, purchasePrice: localLI.purchasePrice, baseLoanAmount: localLI.baseLoanAmount, loanTerm: localLI.loanTerm, monthlyMIFactor: localLI.monthlyMIFactor, additionalMonthlyBest: localLI.additionalMonthlyBest, additionalMonthlyBetter: localLI.additionalMonthlyBetter, additionalMonthlyGood: localLI.additionalMonthlyGood, titleInsurance: localLI.titleInsurance, monthlyTaxes: localLI.monthlyTaxes, reservesTaxes: localLI.reservesTaxes, monthlyInsurance: localLI.monthlyInsurance, reservesInsurance: localLI.reservesInsurance, daysRequired: localLI.daysRequired})}>
+                Update</button>
                 <tr style={{textAlign: "right"}}>
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
                         Name <input name="name" value={localLI.name} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
@@ -305,10 +305,10 @@ function LoanInput() {
                             </tr>
                             <h2>Closing Costs</h2>
                             <tr>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Total</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#334960", color: "white", fontWeight: "bold"}}>Total</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#334960", color: "white"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#334960", color: "white"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#334960", color: "white"}}>$</td>
                             </tr>
                             <h3 style={{display: "flex", justifyContent: "center"}}>Lender Costs</h3>
                             <tr>
@@ -362,17 +362,17 @@ function LoanInput() {
                             <h3 style={{display: "flex", justifyContent: "center"}}>Title Costs</h3>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Total</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Title Insurance</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="titleInsurance" value={localLI.titleInsurance} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance}</td>
                             </tr>
-                            <button type="button" onClick={() => testing()}>testing</button>
+                            {/* <button type="button" onClick={() => testing()}>testing</button> */}
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Closing Fee</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.closingFee}</td>
@@ -427,17 +427,17 @@ function LoanInput() {
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Taxes</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="monthlyTaxes" value={localLI.monthlyTaxes} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="reservesTaxes" value={localLI.reservesTaxes} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.monthlyTaxes.toLocaleString() * localLI.reservesTaxes.toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Insurance</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="monthlyInsurance" value={localLI.monthlyInsurance} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="reservesInsurance" value={localLI.reservesInsurance} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.monthlyInsurance.toLocaleString() * localLI.reservesInsurance.toLocaleString()}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Total</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {+localLI.monthlyTaxes.toLocaleString() + +localLI.monthlyInsurance.toLocaleString()}</td>
                                 {/* <td style={{border: "1px solid black"}}>$<input /></td>
                                 <td style={{border: "1px solid black"}}>$<input /></td> */}
                             </tr>
@@ -463,7 +463,8 @@ function LoanInput() {
                     </tbody>
                 </table>
                 <button type="button" style={{backgroundColor: "black", color: "white", margin: "5px", padding: "10px"}} onClick={() => 
-                    editLoanInput(loanInput._id, )}>Update</button>
+                    editLoanInput(loanInput._id, {name: localLI.name, address: localLI.address, phone: localLI.phone, email: localLI.email, loanPurpose: localLI.loanPurpose, currentRate: localLI.currentRate, currentEscrow: localLI.currentEscrow, rentPayment: localLI.rentPayment, currentMI: localLI.currentMI, term: localLI.term, firstLoanBalance: localLI.firstLoanBalance, loanType: localLI.loanType, bestRate: localLI.bestRate, betterRate: localLI.betterRate, goodRate: localLI.goodRate, creditDiscountBest: localLI.creditDiscountBest, creditDiscountBetter: localLI.creditDiscountBetter, creditDiscountGood: localLI.creditDiscountGood, additionalBest: localLI.additionalBest, additionalBetter: localLI.additionalBetter, additionalGood: localLI.additionalGood, appraisedValue: localLI.appraisedValue, purchasePrice: localLI.purchasePrice, baseLoanAmount: localLI.baseLoanAmount, loanTerm: localLI.loanTerm, monthlyMIFactor: localLI.monthlyMIFactor, additionalMonthlyBest: localLI.additionalMonthlyBest, additionalMonthlyBetter: localLI.additionalMonthlyBetter, additionalMonthlyGood: localLI.additionalMonthlyGood, titleInsurance: localLI.titleInsurance, monthlyTaxes: localLI.monthlyTaxes, reservesTaxes: localLI.reservesTaxes, monthlyInsurance: localLI.monthlyInsurance, reservesInsurance: localLI.reservesInsurance, daysRequired: localLI.daysRequired})}>
+                Update</button>
                 <div style={{display: "flex"}}>
                     <button type="submit" style={{backgroundColor: "#c9daf8", margin: "5px", padding: "5px"}}>Submit Inputs</button>
                     <p>(Submit is only for initial inputs)</p>
