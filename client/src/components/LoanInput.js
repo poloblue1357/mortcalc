@@ -137,13 +137,13 @@ function LoanInput() {
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
                                     <select name="loanType" value={localLI.loanType} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}>
                                         <option></option>
-                                        <option value="conventional">Conventional</option>
-                                        <option value="fha">FHA</option>
-                                        <option value="va">VA</option>
-                                        <option value="usda">USDA</option>
+                                        <option value="Conventional">Conventional</option>
+                                        <option value="FHA">FHA</option>
+                                        <option value="VA">VA</option>
+                                        <option value="USDA">USDA</option>
                                     </select>
                                 </td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanType}
                                     {/* <select>
                                         <option value="conventional">Conventional</option>
                                         <option value="fha">FHA</option>
@@ -151,7 +151,7 @@ function LoanInput() {
                                         <option value="usda">USDA</option>
                                     </select> */}
                                 </td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanType}
                                     {/* <select>
                                         <option value="conventional">Conventional</option>
                                         <option value="fha">FHA</option>
@@ -248,7 +248,7 @@ function LoanInput() {
                                         <option>120</option>
                                     </select>
                                 </td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanTerm}
                                     {/* <select>
                                         <option>360</option>
                                         <option>300</option>
@@ -257,7 +257,7 @@ function LoanInput() {
                                         <option>120</option>
                                     </select> */}
                                 </td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanTerm}
                                     {/* <select>
                                         <option>360</option>
                                         <option>300</option>
@@ -270,8 +270,8 @@ function LoanInput() {
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Monthly MI Factor</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}><input name="monthlyMIFactor" value={localLI.monthlyMIFactor} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.monthlyMIFactor}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.monthlyMIFactor}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Monthly MI Premium</td>
