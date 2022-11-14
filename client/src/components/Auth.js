@@ -23,7 +23,6 @@ function Auth() {
       e.preventDefault()
       signup(inputs)
     }
-  
     function handleLogin(e){
       e.preventDefault()
       login(inputs)

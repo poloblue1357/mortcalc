@@ -42,8 +42,6 @@ function LoanInput() {
         setLocalLI(prevLoanInput => ({...prevLoanInput, [name]: value}))
     }
 
-
-
     return (
         <div style={{display: "grid"}}>
             <h1 style={{display: "flex", justifyContent: "center"}}>Loan Input</h1>
