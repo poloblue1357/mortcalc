@@ -11,7 +11,7 @@ const context = useContext(MortgageContext)
             <h1>Refinance Quote</h1>
             <div class="parent">
                 <div class="one">
-                    <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
+                    <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>
                         Comparing Your Current Loan With Our Loan Offers
                     </div>
                 </div>
@@ -30,7 +30,7 @@ const context = useContext(MortgageContext)
                     <div class="threeThree"></div> 
                     <div class="threeFour"></div>
                     <div class="threeFive"></div>
-                    <div class="threeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Payment Breakdown</div>
+                    <div class="threeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Breakdown<br /> Payment</div>
                     <div class="threeHorizontal"></div>
                 </div>
                 <div class="four" style={{display: "flex"}}>
@@ -48,7 +48,7 @@ const context = useContext(MortgageContext)
                     <div class="fiveThree"></div> 
                     <div class="fiveFour"></div>
                     <div class="fiveFive"></div>
-                    <div class="fiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Cash Needed to Close</div>
+                    <div class="fiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>to Close <br /> Cash Needed</div>
                     <div class="fiveHorizontal"></div>
                 </div>
                 <div class="six" style={{display: "flex"}}>
