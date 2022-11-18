@@ -9,59 +9,59 @@ const context = useContext(MortgageContext)
     return (
         <div>
             <h1>Purchase Quote</h1>
-            <div class="parent">
-                <div class="one" style={{display: "flex"}}>
-                    <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>
+            <div class="pparent">
+                <div class="pone" style={{display: "flex"}}>
+                    <div class="poneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>
                         Comparing Your Current Loan With Our Loan Offers
                     </div>
                 </div>
-                <div class="two" style={{display: "flex"}}>
-                    <div class="twoOne"></div>
-                    <div class="twoTwo"></div>
-                    <div class="twoThree"></div> 
-                    <div class="twoFour"></div>
-                    <div class="twoFive"></div>
-                    <div class="twoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "25px"}}>Loan Terms</div>
-                    <div class="twoHorizontal"></div> 
+                <div class="ptwo" style={{display: "flex"}}>
+                    <div class="ptwoOne"></div>
+                    <div class="ptwoTwo"></div>
+                    <div class="ptwoThree"></div> 
+                    <div class="ptwoFour"></div>
+                    <div class="ptwoFive"></div>
+                    <div class="ptwoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "25px"}}>Loan Terms</div>
+                    <div class="ptwoHorizontal"></div> 
                 </div> 
-                <div class="three" style={{display: "flex"}}>
-                    <div class="threeOne"></div>
-                    <div class="threeTwo"></div>
-                    <div class="threeThree"></div> 
-                    <div class="threeFour"></div>
-                    <div class="threeFive"></div>
-                    <div class="threeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Payment Breakdown</div>
-                    <div class="threeHorizontal"></div>
+                <div class="pthree" style={{display: "flex"}}>
+                    <div class="pthreeOne"></div>
+                    <div class="pthreeTwo"></div>
+                    <div class="pthreeThree"></div> 
+                    <div class="pthreeFour"></div>
+                    <div class="pthreeFive"></div>
+                    <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Payment Breakdown</div>
+                    <div class="pthreeHorizontal"></div>
                 </div>
-                <div class="four" style={{display: "flex"}}>
-                    <div class="fourOne"></div>
-                    <div class="fourTwo"></div>
-                    <div class="fourThree"></div> 
-                    <div class="fourFour"></div>
-                    <div class="fourFive"></div>
-                    <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "15px"}}>Closing Cost Breakdown</div>
-                    <div class="fourHorizontal"></div>
+                <div class="pfour" style={{display: "flex"}}>
+                    <div class="pfourOne"></div>
+                    <div class="pfourTwo"></div>
+                    <div class="pfourThree"></div> 
+                    <div class="pfourFour"></div>
+                    <div class="pfourFive"></div>
+                    <div class="pfourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "15px"}}>Closing Cost Breakdown</div>
+                    <div class="pfourHorizontal"></div>
                 </div>
-                <div class="five" style={{display: "flex"}}>
-                    <div class="fiveOne"></div>
-                    <div class="fiveTwo"></div>
-                    <div class="fiveThree"></div> 
-                    <div class="fiveFour"></div>
-                    <div class="fiveFive"></div>
-                    <div class="fiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Cash Needed to Close</div>
-                    <div class="fiveHorizontal"></div>
+                <div class="pfive" style={{display: "flex"}}>
+                    <div class="pfiveOne"></div>
+                    <div class="pfiveTwo"></div>
+                    <div class="pfiveThree"></div> 
+                    <div class="pfiveFour"></div>
+                    <div class="pfiveFive"></div>
+                    <div class="pfiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Cash Needed to Close</div>
+                    <div class="pfiveHorizontal"></div>
                 </div>
-                <div class="six" style={{display: "flex"}}>
-                    <div class="sixOne" style={{fontSize: "12px"}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.
+                <div class="psix" style={{display: "flex"}}>
+                    <div class="psixOne" style={{fontSize: "12px"}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.
                         <br />
                         *The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.
                     </div>
-                    <div class="sixTwo">Notes:</div>
-                    <div class="sixThree"></div> 
-                    <div class="sixFour"></div>
-                    <div class="sixFive"></div>
-                    <div class="sixVertical"></div>
-                    <div class="sixHorizontal"></div>
+                    <div class="psixTwo">Notes:</div>
+                    <div class="psixThree"></div> 
+                    <div class="psixFour"></div>
+                    <div class="psixFive"></div>
+                    <div class="psixVertical"></div>
+                    <div class="psixHorizontal"></div>
                 </div>
                 {/* <div class="seven"></div> */}
             </div>

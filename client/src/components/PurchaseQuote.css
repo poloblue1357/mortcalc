@@ -1,15 +1,15 @@
-.parent {
+.pparent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(7, 1fr);
     position: relative;
 }
-.one {
+.pone {
     background-color: #334960;
     grid-column: 1 / 6;
     grid-row: 1 / 2;
 }
-.oneYellow {
+.poneYellow {
     background-color: #fbbc04;
     grid-column: 1 / 6;
     grid-row: 1 / 2;
@@ -29,36 +29,36 @@
     bottom: 0;
     color: white;
 } */
-.two {
+.ptwo {
     grid-column: 1 / 6;
     grid-row: 2 / 3;
 }
-.twoOne {
+.ptwoOne {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.twoTwo {
+.ptwoTwo {
     background-color: #d9ead3;
     width: 100%;
     height: 100%;
 }
-.twoThree {
+.ptwoThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
 }
-.twoFour {
+.ptwoFour {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.twoFive {
+.ptwoFive {
     background-color: #334960;
     width: 100%;
     height: 100%;
 }
-.twoVertical {
+.ptwoVertical {
     background-color: #7e9fce;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
@@ -70,7 +70,7 @@
     color: white;
     z-index: 999999;
 }
-.twoHorizontal {
+.ptwoHorizontal {
     background-color: #7e9fce;
     grid-column: 1 / 6;
     grid-row: 2 / 3;
@@ -80,36 +80,36 @@
     bottom: 0;
     color: white;
 }
-.three {
+.pthree {
     grid-column: 1 / 6;
     grid-row: 3 / 4;
 }
-.threeOne {
+.pthreeOne {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.threeTwo {
+.pthreeTwo {
     background-color: #d9ead3;
     width: 100%;
     height: 100%;
 }
-.threeThree {
+.pthreeThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
 }
-.threeFour {
+.pthreeFour {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.threeFive {
+.pthreeFive {
     background-color: #334960;
     width: 100%;
     height: 100%;
 }
-.threeVertical {
+.pthreeVertical {
     background-color: #0b5394;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
@@ -121,7 +121,7 @@
     color: white;
     z-index: 999999;
 }
-.threeHorizontal {
+.pthreeHorizontal {
     background-color: #0b5394;
     grid-column: 1 / 6;
     grid-row: 3 / 4;
@@ -131,36 +131,36 @@
     bottom: 0;
     color: white;
 }
-.four {
+.pfour {
     grid-column: 1 / 6;
     grid-row: 4 / 5;
 }
-.fourOne {
+.pfourOne {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.fourTwo {
+.pfourTwo {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.fourThree {
+.pfourThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
 }
-.fourFour {
+.pfourFour {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.fourFive {
+.pfourFive {
     background-color: #334960;
     width: 100%;
     height: 100%;
 }
-.fourVertical {
+.pfourVertical {
     background-color: #6fa8dc;
     grid-column: 1 / 2;
     grid-row: 4 / 5;
@@ -172,7 +172,7 @@
     color: white;
     z-index: 999999;
 }
-.fourHorizontal {
+.pfourHorizontal {
     background-color: #6fa8dc;
     grid-column: 1 / 6;
     grid-row: 4 / 5;
@@ -182,36 +182,36 @@
     bottom: 0;
     color: white;
 }
-.five {
+.pfive {
     grid-column: 1 / 6;
     grid-row: 5 / 6;
 }
-.fiveOne {
+.pfiveOne {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.fiveTwo {
+.pfiveTwo {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.fiveThree {
+.pfiveThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
 }
-.fiveFour {
+.pfiveFour {
     background-color: white;
     width: 100%;
     height: 100%;
 }
-.fiveFive {
+.pfiveFive {
     background-color: #334960;
     width: 100%;
     height: 100%;
 }
-.fiveVertical {
+.pfiveVertical {
     background-color: #073763;
     grid-column: 1 / 2;
     grid-row: 5 / 6;
@@ -223,7 +223,7 @@
     color: white;
     z-index: 99999;
 }
-.fiveHorizontal {
+.pfiveHorizontal {
     background-color: #073763;
     grid-column: 1 / 6;
     grid-row: 5 / 6;
@@ -233,18 +233,18 @@
     bottom: 0;
     color: white;
 }
-.six {
+.psix {
     grid-column: 1 / 6;
     grid-row: 6 / 7;
     background-color: white;
 }
-.sixOne {
+.psixOne {
     background-color: white;
     width: 100%;
     height: 100%;
     padding: 5px;
 } 
-.sixTwo {
+.psixTwo {
     background-color: white;
     width: 100%;
     height: 100%;
