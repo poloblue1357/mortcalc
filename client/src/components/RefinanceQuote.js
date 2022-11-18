@@ -39,7 +39,8 @@ const context = useContext(MortgageContext)
                     <div class="fourThree"></div> 
                     <div class="fourFour"></div>
                     <div class="fourFive"></div>
-                    <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Long Term Savings</div>
+                    <div class="fourSix">Savings over 5 years <br /> Savings over 10 years</div>
+                    <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Savings<br /> Long Term</div>
                     <div class="fourHorizontal"></div>
                 </div>
                 <div class="five" style={{display: "flex"}}>
@@ -48,20 +49,29 @@ const context = useContext(MortgageContext)
                     <div class="fiveThree"></div> 
                     <div class="fiveFour"></div>
                     <div class="fiveFive"></div>
-                    <div class="fiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>to Close <br /> Cash Needed</div>
+                    <div class="fiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Benefit Analysis<br /> Closing Cost</div>
                     <div class="fiveHorizontal"></div>
                 </div>
                 <div class="six" style={{display: "flex"}}>
-                    <div class="sixOne" style={{fontSize: "12px"}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.
-                        <br />
-                        *The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.
-                    </div>
-                    <div class="sixTwo">Notes:</div>
+                    <div class="sixOne"></div>
+                    <div class="sixTwo"></div>
                     <div class="sixThree"></div> 
                     <div class="sixFour"></div>
                     <div class="sixFive"></div>
-                    <div class="sixVertical"></div>
+                    <div class="sixVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>to Close <br /> Cash Needed</div>
                     <div class="sixHorizontal"></div>
+                </div>
+                <div class="seven" style={{display: "flex"}}>
+                    <div class="sevenOne" style={{fontSize: "12px"}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.
+                        <br />
+                        *The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.
+                    </div>
+                    <div class="sevenTwo">Notes:</div>
+                    <div class="sevenThree"></div> 
+                    <div class="sevenFour"></div>
+                    <div class="sevenFive"></div>
+                    <div class="sevenVertical"></div>
+                    <div class="sevenHorizontal"></div>
                 </div>
                 {/* <div class="seven"></div> */}
             </div>
