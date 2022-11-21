@@ -42,7 +42,7 @@ function FeeSetup() {
                 <form style={{display: "grid"}} onSubmit={(event) => {
                     {/* event.preventDefault() */}
                     handleSubmitFeeSetup()
-                   event.target.reset()
+                    event.target.reset()
                 }}>
                     <input placeholder="Fee Scenario" name="feeScenario" value={context.feeScenario} onChange={handleChangeFeeSetup}/>
                     <input placeholder="Origination" name="origination" value={context.origination} onChange={handleChangeFeeSetup}/>
