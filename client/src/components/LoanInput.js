@@ -8,10 +8,12 @@ function LoanInput() {
     const {editLoanInput, getLoanInputs, loanInput, getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData, setGetLoanInput, handleSubmitLoanInput} = useContext(MortgageContext)
 
     const testing = () => {
+
         console.log(
-            "testing",
-            // loanTypeDropDown 
-            localLI,
+            "getFeeSetupData",
+            // getFeeSetupData,
+            // localLI,
+            x
         )
     }
     const [localLI, setLocalLI] = useState({name: loanInput.name, address: loanInput.address, phone: loanInput.phone, email: loanInput.email, loanPurpose: loanInput.loanPurpose, currentRate: loanInput.currentRate, currentEscrow: loanInput.currentEscrow, rentPayment: loanInput.rentPayment, currentMI: loanInput.currentMI, term: loanInput.term, firstLoanBalance: loanInput.firstLoanBalance, loanType: loanInput.loanType, bestRate: loanInput.bestRate, betterRate: loanInput.betterRate, goodRate: loanInput.goodRate, creditDiscountBest: loanInput.creditDiscountBest, creditDiscountBetter: loanInput.creditDiscountBetter, creditDiscountGood: loanInput.creditDiscountGood, additionalBest: loanInput.additionalBest, additionalBetter: loanInput.additionalBetter, additionalGood: loanInput.additionalGood, appraisedValue: loanInput.appraisedValue, purchasePrice: loanInput.purchasePrice, baseLoanAmount: loanInput.baseLoanAmount, loanTerm: loanInput.loanTerm, monthlyMIFactor: loanInput.monthlyMIFactor, additionalMonthlyBest: loanInput.additionalMonthlyBest, additionalMonthlyBetter: loanInput.additionalMonthlyBetter, additionalMonthlyGood: loanInput.additionalMonthlyGood, titleInsurance: loanInput.titleInsurance, monthlyTaxes: loanInput.monthlyTaxes, reservesTaxes: loanInput.reservesTaxes, monthlyInsurance: loanInput.monthlyInsurance, reservesInsurance: loanInput.reservesInsurance, daysRequired: loanInput.daysRequired})
@@ -22,10 +24,8 @@ function LoanInput() {
     }
 
     const loanTypeDropDown = getFeeSetupData?.map(data => <option value={data.feeScenario}>{data.feeScenario}</option>)
-    const x = getFeeSetupData?.map(data => {
-        if(data.feeScenario === localLI.loanType) {
-
-        }
+    const x = getFeeSetupData?.find(data => {
+        return data.feeScenario === localLI.loanType 
     })
     useEffect(() => {
         userAxios.get("/api/feesetup")
@@ -139,34 +139,20 @@ function LoanInput() {
                 <h2>Loan Terms</h2>
                 <table style={{borderCollapse: "collapse"}}>
                     <tbody>
-                                {/* <button type="button" onClick={() => testing()}>testing</button> */}
+                                <button type="button" onClick={() => testing()}>testing</button>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Loan Type:</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>
                                     <select name="loanType" value={localLI.loanType} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}>
                                         <option></option>
-                                        {/* <option value="Conventional">Conventional</option>
-                                        <option value="FHA">FHA</option>
-                                        <option value="VA">VA</option>
-                                        <option value="USDA">USDA</option> */}
                                         {loanTypeDropDown}
                                     </select>
                                 </td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanType}
-                                    {/* <select>
-                                        <option value="conventional">Conventional</option>
-                                        <option value="fha">FHA</option>
-                                        <option value="va">VA</option>
-                                        <option value="usda">USDA</option>
-                                    </select> */}
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
+                                    {localLI.loanType}
                                 </td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanType}
-                                    {/* <select>
-                                        <option value="conventional">Conventional</option>
-                                        <option value="fha">FHA</option>
-                                        <option value="va">VA</option>
-                                        <option value="usda">USDA</option>
-                                    </select> */}
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
+                                    {localLI.loanType}
                                 </td>
                             </tr>
                             <tr style={{border: "1px solid black"}}>
@@ -328,9 +314,9 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Origination</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>${localLI.origination}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{x?.origination} %</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{x?.origination} %</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{x?.origination} %</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Lender Credit / Discount</td>
@@ -340,40 +326,46 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Underwriting</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.underwriting}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.underwriting}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.underwriting}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Tax Service</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.taxService}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.taxService}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.taxService}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Credit Report</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.creditReport}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.creditReport}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.creditReport}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Flood Certificate</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.flood}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.flood}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.flood}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Appraisal</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.appraisal}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.appraisal}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.appraisal}</td>
+                            </tr>
+                            <tr>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Pest Inspection</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.pestInspection}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.pestInspection}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {x?.pestInspection}</td>
                             </tr>
                             <h3 style={{display: "flex", justifyContent: "center"}}>Title Costs</h3>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Total</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {+localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {+localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {+localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Title Insurance</td>
@@ -381,7 +373,7 @@ function LoanInput() {
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.titleInsurance}</td>
                             </tr>
-                            {/* <button type="button" onClick={() => testing()}>testing</button> */}
+                            <button type="button" onClick={() => testing()}>testing</button>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Closing Fee</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {getTitleFeesData[0]?.closingFee}</td>
