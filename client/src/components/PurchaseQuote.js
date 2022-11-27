@@ -30,7 +30,7 @@ const context = useContext(MortgageContext)
                     <div class="pthreeThree"></div> 
                     <div class="pthreeFour"></div>
                     <div class="pthreeFive"></div>
-                    <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Payment Breakdown</div>
+                    <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Breakdown <br /> Payment</div>
                     <div class="pthreeHorizontal"></div>
                 </div>
                 <div class="pfour" style={{display: "flex"}}>
@@ -39,7 +39,7 @@ const context = useContext(MortgageContext)
                     <div class="pfourThree"></div> 
                     <div class="pfourFour"></div>
                     <div class="pfourFive"></div>
-                    <div class="pfourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "15px"}}>Closing Cost Breakdown</div>
+                    <div class="pfourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Breakdown <br />Closing Cost</div>
                     <div class="pfourHorizontal"></div>
                 </div>
                 <div class="pfive" style={{display: "flex"}}>
@@ -48,7 +48,7 @@ const context = useContext(MortgageContext)
                     <div class="pfiveThree"></div> 
                     <div class="pfiveFour"></div>
                     <div class="pfiveFive"></div>
-                    <div class="pfiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Cash Needed to Close</div>
+                    <div class="pfiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>to Close<br />Cash Needed </div>
                     <div class="pfiveHorizontal"></div>
                 </div>
                 <div class="psix" style={{display: "flex"}}>

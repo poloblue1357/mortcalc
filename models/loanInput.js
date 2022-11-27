@@ -15,7 +15,7 @@ const loanInputSchema = new Schema ({
         type: String
     },
     loanPurpose: {
-        type: Number
+        type: String
     },
     currentRate: {
         type: Number
