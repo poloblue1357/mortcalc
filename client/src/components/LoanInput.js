@@ -54,7 +54,11 @@ function LoanInput() {
         setLocalLI(loanInput)
     }, [loanInput])
 
-
+    // const r = (localLI.bestRate / 100) / 12
+    // const n = localLI.loanTerm
+    // const p = localLI.baseLoanAmount
+    // const b = (r * ((1 + r)**n)) / (((1 + r)**n) - 1)
+    // const c = Math.round((localLI.baseLoanAmount * ((((localLI.bestRate / 100) / 12) * (1 + ((localLI.bestRate / 100) / 12))**(localLI.loanTerm)) / ((1 + ((localLI.bestRate / 100) / 12))**(localLI.loanTerm) - 1))) * 100) / 100
 
     return (
         <div style={{display: "grid"}}>
@@ -205,20 +209,20 @@ function LoanInput() {
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Appraised Value</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="appraisedValue" value={localLI.appraisedValue} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.appraisedValue}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.appraisedValue}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Purchase Price</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="purchasePrice" value={localLI.purchasePrice} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.purchasePrice}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.purchasePrice}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Base Loan Amount</td>
                                 <td style={{border: "1px solid black", backgroundColor: "white"}}>$<input name="baseLoanAmount" value={localLI.baseLoanAmount} onChange={handleChangeLoanInput} style={{backgroundColor: "white"}}/></td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.baseLoanAmount}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.baseLoanAmount}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>UFMIP / Funding Fee %</td>
@@ -234,9 +238,9 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Final Loan Amount</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.baseLoanAmount}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.baseLoanAmount}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {localLI.baseLoanAmount}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Loan Term</td>
@@ -251,22 +255,8 @@ function LoanInput() {
                                     </select>
                                 </td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanTerm}
-                                    {/* <select>
-                                        <option>360</option>
-                                        <option>300</option>
-                                        <option>240</option>
-                                        <option>180</option>
-                                        <option>120</option>
-                                    </select> */}
                                 </td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.loanTerm}
-                                    {/* <select>
-                                        <option>360</option>
-                                        <option>300</option>
-                                        <option>240</option>
-                                        <option>180</option>
-                                        <option>120</option>
-                                    </select> */}
                                 </td>
                             </tr>
                             <tr>
@@ -277,21 +267,21 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Monthly MI Premium</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {((localLI.monthlyMIFactor * localLI.baseLoanAmount) / 100) / 12}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {((localLI.monthlyMIFactor * localLI.baseLoanAmount) / 100) / 12}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {((localLI.monthlyMIFactor * localLI.baseLoanAmount) / 100) / 12}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>LTV (FYI)</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>%</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>%</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>%</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{Math.round((+localLI.baseLoanAmount / +localLI.appraisedValue) * 10000) / 100} %</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{Math.round((+localLI.baseLoanAmount / +localLI.appraisedValue) * 10000) / 100} %</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{Math.round((+localLI.baseLoanAmount / +localLI.appraisedValue) * 10000) / 100} %</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>P&I Payment</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {Math.round((localLI.baseLoanAmount * ((((localLI.bestRate / 100) / 12) * (1 + ((localLI.bestRate / 100) / 12))**(localLI.loanTerm)) / ((1 + ((localLI.bestRate / 100) / 12))**(localLI.loanTerm) - 1))) * 100) / 100}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {Math.round((localLI.baseLoanAmount * ((((localLI.betterRate / 100) / 12) * (1 + ((localLI.betterRate / 100) / 12))**(localLI.loanTerm)) / ((1 + ((localLI.betterRate / 100) / 12))**(localLI.loanTerm) - 1))) * 100) / 100}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {Math.round((localLI.baseLoanAmount * ((((localLI.goodRate / 100) / 12) * (1 + ((localLI.goodRate / 100) / 12))**(localLI.loanTerm)) / ((1 + ((localLI.goodRate / 100) / 12))**(localLI.loanTerm) - 1))) * 100) / 100}</td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Adtnl Monthly Pymnts</td>
@@ -301,9 +291,9 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Cash to Close</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {Math.round((+localLI.purchasePrice + +(((x?.origination / 100) * localLI.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal + x?.pestInspection) + +(+localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + +(Math.round(((localLI.monthlyTaxes * localLI.reservesTaxes) + (localLI.monthlyInsurance * localLI.reservesInsurance) + (Math.round(((Math.round(((+localLI.bestRate * (+localLI.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +localLI.daysRequired) * 100) / 100)) * 100) / 100) - +localLI.baseLoanAmount) * 100) / 100}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {Math.round((+localLI.purchasePrice + +(((x?.origination / 100) * localLI.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal + x?.pestInspection) + +(+localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + +(Math.round(((localLI.monthlyTaxes * localLI.reservesTaxes) + (localLI.monthlyInsurance * localLI.reservesInsurance) + (Math.round(((Math.round(((+localLI.betterRate * (+localLI.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +localLI.daysRequired) * 100) / 100)) * 100) / 100) - +localLI.baseLoanAmount) * 100) / 100}</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {Math.round((+localLI.purchasePrice + +(((x?.origination / 100) * localLI.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal + x?.pestInspection) + +(+localLI.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + +(Math.round(((localLI.monthlyTaxes * localLI.reservesTaxes) + (localLI.monthlyInsurance * localLI.reservesInsurance) + (Math.round(((Math.round(((+localLI.goodRate * (+localLI.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +localLI.daysRequired) * 100) / 100)) * 100) / 100) - +localLI.baseLoanAmount) * 100) / 100}</td>
                             </tr>
                             <h2>Closing Costs</h2>
                             <tr>
