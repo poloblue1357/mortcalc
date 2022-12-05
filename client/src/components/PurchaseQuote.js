@@ -100,7 +100,7 @@ const context = useContext(MortgageContext)
                 </div>
                 <div class="pthreeHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}>
                     <div class="pthreeHorizontal1" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>House Payment</div>
-                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column"}}><p>$0.00</p> <p>N/A</p></div> </div>
+                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}><p>$0.00</p> <p style={{fontSize: "12px", justifyContent: "center"}}>N/A</p></div> </div>
                     <div class="pthreeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,457.13 N/A</div>
                     <div class="pthreeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,486.87 N/A</div>
                     <div class="pthreeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,516.84 N/A</div>
