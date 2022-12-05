@@ -18,10 +18,10 @@ const context = useContext(MortgageContext)
                 <div class="ptwo" style={{display: "flex"}}>
                     <div class="ptwoOne" style={{display: "grid"}}>
                         <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px"}}>Purchase Price</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Down Payment</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Loan Amount</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Loan Amount</div>
+                        <div style={{backgroundColor: "white", fontSize: "16px", display: "flex", justifyContent: "flex-end"}}>Purchase Price</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Down Payment</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Loan Amount</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Loan Amount</div>
                     </div>
                     <div class="ptwoTwo" style={{display: "grid"}}>
                         <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px"}}>Current Housing Expense</div>
@@ -63,10 +63,10 @@ const context = useContext(MortgageContext)
                 <div class="pthree" style={{display: "flex"}}>
                     <div class="pthreeOne" style={{display: "grid"}}>
                         {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
-                        <div style={{backgroundColor: "white"}}>Principal & Interest</div>
-                        <div style={{backgroundColor: "white"}}>Mortgage Insurance</div>
-                        <div style={{backgroundColor: "white"}}>Add Taxes & Insurance</div>
-                        <div style={{backgroundColor: "white"}}>Extra Principle Payment</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Principal & Interest</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Mortgage Insurance</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Add Taxes & Insurance</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Extra Principle Payment</div>
                     </div>
                     <div class="pthreeTwo" style={{display: "grid"}}>
                         {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
