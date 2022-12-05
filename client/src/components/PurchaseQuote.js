@@ -94,24 +94,24 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$2,066.84</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$0.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$450.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}></div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>test</div>
                     </div>
                     <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "25px"}}>Payment Breakdown</div>
                 </div>
                 <div class="pthreeHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}>
-                    <div class="pthreeHorizontal1" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>House Payment</div>
-                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center"}}><p>$0.00</p> <p style={{fontSize: "12px", justifyContent: "center"}}>N/A</p></div> </div>
-                    <div class="pthreeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,457.13 N/A</div>
-                    <div class="pthreeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,486.87 N/A</div>
-                    <div class="pthreeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,516.84 N/A</div>
+                    <div class="pthreeHorizontal1" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "flex-end", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>House Payment</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>Difference</div></div></div>
+                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center", height: '20px'}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div> </div>
+                    <div class="pthreeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div></div>
+                    <div class="pthreeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div></div>
+                    <div class="pthreeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div></div>
                 </div>
                 <div class="pfour" style={{display: "flex"}}>
                 <div class="pfourOne" style={{display: "grid"}}>
                         {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
-                        <div style={{backgroundColor: "white"}}>Principal & Interest</div>
-                        <div style={{backgroundColor: "white"}}>Mortgage Insurance</div>
-                        <div style={{backgroundColor: "white"}}>Add Taxes & Insurance</div>
-                        <div style={{backgroundColor: "white"}}>Extra Principle Payment</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Principal & Interest</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Mortgage Insurance</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Add Taxes & Insurance</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "flex-end"}}>Extra Principle Payment</div>
                     </div>
                     <div class="pfourTwo" style={{display: "grid"}}>
                         {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
