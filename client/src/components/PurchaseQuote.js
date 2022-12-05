@@ -94,16 +94,16 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$2,066.84</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$0.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$450.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>test</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}></div>
                     </div>
                     <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "25px"}}>Payment Breakdown</div>
                 </div>
                 <div class="pthreeHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}>
                     <div class="pthreeHorizontal1" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>House Payment</div>
-                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$0.00</div>
-                    <div class="pthreeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,457.13</div>
-                    <div class="pthreeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,486.87</div>
-                    <div class="pthreeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,516.84</div>
+                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column"}}><p>$0.00</p> <p>N/A</p></div> </div>
+                    <div class="pthreeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,457.13 N/A</div>
+                    <div class="pthreeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,486.87 N/A</div>
+                    <div class="pthreeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}>$2,516.84 N/A</div>
                 </div>
                 <div class="pfour" style={{display: "flex"}}>
                 <div class="pfourOne" style={{display: "grid"}}>
