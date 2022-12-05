@@ -24,7 +24,12 @@ app.use(morgan("dev"))
     // },
 //     () => console.log("Connected to the DB.")    
 // )
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true,  useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
+mongoose.connect(process.env.MONGODB_URI, { 
+    useNewUrlParser: true,  
+    useUnifiedTopology: true, 
+    // useFindAndModify: false, 
+    useCreateIndex: true 
+});
 
 app.use("/auth", require("./routes/auth.js"))
 app.use("/api", expressJwt({ secret: secret, algorithms: ["HS256"]}))
