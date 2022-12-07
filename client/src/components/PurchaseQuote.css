@@ -1,6 +1,6 @@
 .pparent {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr;
     position: relative;
 }
@@ -19,18 +19,8 @@
     bottom: 0;
     color: white;
 }
-/* .twoHorizontal {
-    background-color: #7e9fce;
-    grid-column: 1 / 6;
-    grid-row: 2 / 3;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-} */
 .ptwo {
-    grid-column: 1 / 7;
+    grid-column: 2 / 7;
     grid-row: 3 / 4;
 }
 .ptwoOne {
@@ -40,7 +30,7 @@
     display: flex;
     font-weight: bold;
     align-content: space-evenly;
-    font-size: 16px;
+    font-size: 18px;
 }
 .ptwoTwo {
     background-color: #d9ead3;
@@ -50,6 +40,7 @@
     display: flex;
     font-weight: bold;
     align-content: space-evenly;
+    font-size: 16px;
 }
 .ptwoThree {
     background-color: #cfe2f3;
@@ -59,6 +50,7 @@
     display: flex;
     font-weight: bold;
     align-content: space-evenly;
+    font-size: 16px;
 }
 .ptwoFour {
     background-color: white;
@@ -68,6 +60,7 @@
     display: flex;
     font-weight: bold;
     align-content: space-evenly;
+    font-size: 16px;
 }
 .ptwoFive {
     background-color: #334960;
@@ -77,37 +70,33 @@
     justify-content: center;
     display: flex;
     align-content: space-evenly;
+    font-size: 16px;
 }
 .ptwoVertical {
     background-color: #7e9fce;
     grid-column: 1 / 2;
     grid-row: 3 / 5;
     height: 100%;
-    width: 50px;
+    width: 60px;
     position: absolute;
-    /* left: 0;
-    bottom: 0; */
     color: white;
-    /* z-index: 999999; */
 }
-.ptwoHorizontal {
+ .ptwoHorizontal {
     background-color: #7e9fce;
-    grid-column: 1 / 7;
+    grid-column: 2 / 7;
     grid-row: 4 / 5;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 99;
-}
+} 
 .ptwoHorizontal1 {
     background-color: #7e9fce;
     grid-column: 2 / 3;
     grid-row: 4 / 5;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 999;
@@ -118,7 +107,6 @@
     grid-row: 4 / 5;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 9999;
@@ -129,7 +117,6 @@
     grid-row: 4 / 5;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 99999;
@@ -140,7 +127,6 @@
     grid-row: 4 / 5;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 999999;
@@ -151,13 +137,12 @@
     grid-row: 4 / 5;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 99999;
 }
 .pthree {
-    grid-column: 1 / 7;
+    grid-column: 2 / 7;
     grid-row: 5 / 6;
 }
 .pthreeOne {
@@ -167,8 +152,8 @@
     display: flex;
     font-weight: bold;
     align-content: space-evenly;
-    font-size: 16px;
-    justify-content: flex-end;
+    font-size: 18px;
+    justify-content: center;
 }
 .pthreeTwo {
     background-color: #d9ead3;
@@ -211,7 +196,7 @@
     grid-column: 1 / 2;
     grid-row: 5 / 7;
     height: 100%;
-    width: 50px;
+    width: 60px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -231,10 +216,9 @@
 .pthreeHorizontal1 {
     background-color: #0b5394;
     grid-column: 2 / 3;
-    grid-row: 4 / 5;
+    grid-row: 6 / 7;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 999;
@@ -242,10 +226,9 @@
 .pthreeHorizontal2 {
     background-color: #0b5394;
     grid-column: 3 / 4;
-    grid-row: 4 / 5;
+    grid-row: 6 / 7;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 9999;
@@ -253,10 +236,9 @@
 .pthreeHorizontal3 {
     background-color: #0b5394;
     grid-column: 4 / 5;
-    grid-row: 4 / 5;
+    grid-row: 6 / 7;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 99999;
@@ -264,10 +246,9 @@
 .pthreeHorizontal4 {
     background-color: #0b5394;
     grid-column: 5 / 6;
-    grid-row: 4 / 5;
+    grid-row: 6 / 7;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 999999;
@@ -275,17 +256,16 @@
 .pthreeHorizontal5 {
     background-color: #0b5394;
     grid-column: 6 / 7;
-    grid-row: 4 / 5;
+    grid-row: 6 / 7;
     width: 100%;
     height: 50px;
-    /* position: absolute; */
     bottom: 0;
     color: white;
     z-index: 99999;
 }
 .pfour {
-    grid-column: 1 / 7;
-    grid-row: 7 / 8;
+    /* grid-column: 4 / 7;
+    grid-row: 7 / 8; */
 }
 .pfourOne {
     background-color: white;
@@ -293,6 +273,8 @@
     height: 100%;
     align-content: space-evenly;
     display: flex;
+    grid-column: 2 / 4;
+    grid-row: 7 / 8;
 }
 .pfourTwo {
     background-color: white;
@@ -309,6 +291,8 @@
     display: flex;
     justify-content: center;
     align-content: space-evenly;
+    grid-column: 4 / 5;
+    grid-row: 7 / 8;
 }
 .pfourFour {
     background-color: white;
@@ -317,6 +301,8 @@
     display: flex;
     justify-content: center;
     align-content: space-evenly;
+    grid-column: 5 / 6;
+    grid-row: 7 / 8;
 }
 .pfourFive {
     background-color: #334960;
@@ -326,13 +312,15 @@
     display: flex;
     justify-content: center;
     align-content: space-evenly;
+    grid-column: 6 / 7;
+    grid-row: 7 / 8;
 }
 .pfourVertical {
     background-color: #6fa8dc;
     grid-column: 1 / 2;
     grid-row: 7 / 9;
     height: 100%;
-    width: 50px;
+    width: 60px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -348,6 +336,56 @@
     position: absolute;
     bottom: 0;
     color: white;
+}
+.pfourHorizontal1 {
+    background-color: #0b5394;
+    grid-column: 2 / 3;
+    grid-row: 8 / 9;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    color: white;
+    z-index: 999;
+}
+.pfourHorizontal2 {
+    background-color: #0b5394;
+    grid-column: 3 / 4;
+    grid-row: 8 / 9;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    color: white;
+    z-index: 999;
+}
+.pfourHorizontal3 {
+    background-color: #0b5394;
+    grid-column: 4 / 5;
+    grid-row: 8 / 9;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    color: white;
+    z-index: 999;
+}
+.pfourHorizontal4 {
+    background-color: #0b5394;
+    grid-column: 5 / 6;
+    grid-row: 8 / 9;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    color: white;
+    z-index: 999;
+}
+.pfourHorizontal5 {
+    background-color: #0b5394;
+    grid-column: 6 / 7;
+    grid-row: 8 / 9;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    color: white;
+    z-index: 999;
 }
 .pfive {
     grid-column: 1 / 7;
