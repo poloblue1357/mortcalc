@@ -19,21 +19,21 @@ const context = useContext(MortgageContext)
             <div class="pparent">
                 {/* <div class="pone" style={{display: "flex"}}> */}
                     <div class="poneOne" style={{backgroundColor: "#334960", display: "flex"}}>
-                        <img style={{height: 150, width: 270, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginLeft: 10}} src={beamLogo}/>
+                        <img style={{height: 140, width: 270, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 25, marginLeft: 10}} src={beamLogo}/>
                     </div>
                     <div class="poneTwo" style={{backgroundColor: "#334960", display: "grid"}}> 
-                        <img style={{height: 120, width: 230, display: "flex",justifyContent: "left", alignContent: "center", backgroundColor: "#334960", marginTop: 10, marginRight: 30}} src={customQuotes}/>
+                        <img style={{height: 90, width: 180, display: "flex",justifyContent: "left", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginRight: 30}} src={customQuotes}/>
                         <br />
-                        <div style={{display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960"}}>This is not a loan estimate*</div>
+                        <div style={{display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginBottom: 11}}>This is not a loan estimate*</div>
                     </div>
                     <div class="poneThree" style={{backgroundColor: "#334960", display: "grid"}}>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "center"}}>Name</div>
                         <br />
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Date: {date}</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Date: {date}</div>
                     </div>
                     <div class="poneFour" style={{backgroundColor: "#334960", display: "flex"}}>
-                        <img style={{height: 150, width: 200, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 25}} src={contactInfo}/>
-                        <img style={{height: 150, width: 200, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginLeft: 20}} src={pfp}/>
+                        <img style={{height: 150, width: 240, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 21}} src={contactInfo}/>
+                        <img style={{height: 130, width: 180, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginLeft: 20}} src={pfp}/>
                         <br />
                         <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px", alignItems: "flex-end", justifyContent: "flex-start", marginBottom: 5}}>NMLS# 1097309</div>
                     </div>
