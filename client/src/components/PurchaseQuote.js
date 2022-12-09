@@ -1,27 +1,41 @@
 import React, {useContext, useEffect} from "react"
 import {MortgageContext} from "../ContextProvider"
 import "./PurchaseQuote.css"
+import beamLogo from "./beamlogo.png"
+import contactInfo from "./contactinfo.png"
+import customQuotes from "./custom quotes.png"
+import pfp from "./pfp.png"
 
 function PurchaseQuote() {
 
 const context = useContext(MortgageContext)
-
+    // {loadInput.extra ? loanInput?.extra || "&nbsp;"}
+    // linkedin endorsement, pass on my info to clients, stress it was a client project in resume
+    const current = new Date();
+    const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`
     return (
         <div>
             <h1>Purchase Quote</h1>
             <div class="pparent">
                 {/* <div class="pone" style={{display: "flex"}}> */}
-                    <div class="poneOne" style={{backgroundColor: "#334960", display: "flex"}}>Image
-
+                    <div class="poneOne" style={{backgroundColor: "#334960", display: "flex"}}>
+                        <img style={{height: 150, width: 270, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginLeft: 10}} src={beamLogo}/>
                     </div>
-                    <div class="poneTwo" style={{backgroundColor: "#334960", display: "flex"}}>Custom Quote Analysis for <br /> This is not a loan estimate*
-                    
+                    <div class="poneTwo" style={{backgroundColor: "#334960", display: "grid"}}> 
+                        <img style={{height: 120, width: 230, display: "flex",justifyContent: "left", alignContent: "center", backgroundColor: "#334960", marginTop: 10, marginRight: 30}} src={customQuotes}/>
+                        <br />
+                        <div style={{display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960"}}>This is not a loan estimate*</div>
                     </div>
-                    <div class="poneThree" style={{backgroundColor: "#334960", display: "flex"}}>Name <br /> Current Date
-                    
+                    <div class="poneThree" style={{backgroundColor: "#334960", display: "grid"}}>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "center"}}>Name</div>
+                        <br />
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Date: {date}</div>
                     </div>
-                    <div class="poneFour" style={{backgroundColor: "#334960", display: "flex"}}>Prepared by: Chris Buckway / Image
-
+                    <div class="poneFour" style={{backgroundColor: "#334960", display: "flex"}}>
+                        <img style={{height: 150, width: 200, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 25}} src={contactInfo}/>
+                        <img style={{height: 150, width: 200, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginLeft: 20}} src={pfp}/>
+                        <br />
+                        <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px", alignItems: "flex-end", justifyContent: "flex-start", marginBottom: 5}}>NMLS# 1097309</div>
                     </div>
                 {/* </div> */}
                 <div class="poneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "22px", fontWeight: "bold"}}>
@@ -85,7 +99,7 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center"}}>Unknown</div>
                         <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center"}}>Unknown</div>
                         <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center"}}>Unknown</div>
-                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center"}}>&nbsp;</div>
+                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center"}}>&nbsp;</div> 
                     </div>
                     <div class="pthreeThree" style={{display: "grid"}}>
                         {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#cfe2f3"}}>$0.00</div> */}
@@ -111,16 +125,16 @@ const context = useContext(MortgageContext)
                 </div>
                 <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}>Payment Breakdown</div>
                 {/* <div class="pthreeHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}> */}
-                    <div class="pthreeHorizontal1" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>House Payment</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>Difference</div></div></div>
-                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div> </div>
-                    <div class="pthreeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div></div>
-                    <div class="pthreeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div></div>
-                    <div class="pthreeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394"}}>N/A</div></div></div>
+                    <div class="pthreeHorizontal1" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>House Payment</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>Difference</div></div></div>
+                    <div class="pthreeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div> </div>
+                    <div class="pthreeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                    <div class="pthreeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                    <div class="pthreeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
                 {/* </div> */}
                 {/* <div class="pfour" style={{display: "flex"}}> */}
                     <div class="pfourOne" style={{display: "grid"}}>
                         {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>Beam Lending Costs</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>Beam Lending Costs</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Origination</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Lender Credit/Discount</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Underwriting</div>
@@ -130,7 +144,7 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Appraisal</div>
                         <br />
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>Title Company Fees</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Funding Fee / Upfront Mortgage Insurance (if applicable)</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>Funding Fee / Upfront Mortgage Insurance (if applicable)</div>
                     </div>
                     <div class="pfourTwo" style={{display: "grid"}}>
                         {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
@@ -141,7 +155,7 @@ const context = useContext(MortgageContext)
                     </div>
                     <div class="pfourThree" style={{display: "grid"}}>
                         {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#cfe2f3"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$3,776.00</div>
+                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$2,010.00</div>
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
@@ -151,11 +165,11 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$635.00</div>
                         <br />
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
+                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>$0.00</div>
                     </div>
                     <div class="pfourFour" style={{display: "grid"}}>
                         {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "18px", color: "white"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$3,776.00</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$2,010.00</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
@@ -165,11 +179,11 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$635.00</div>
                         <br />
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>$0.00</div>
                     </div>
                     <div class="pfourFive" style={{display: "grid"}}>
                         {/* <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "18px", color: "#334960"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$3,776.00</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$2,010.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
@@ -179,7 +193,7 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$635.00</div>
                         <br />
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>$0.00</div>
                     </div>
                 {/* </div> */}
                 <div class="pfourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Closing Cost Breakdown</div>
@@ -192,16 +206,16 @@ const context = useContext(MortgageContext)
                 {/* </div> */}
                 {/* <div class="pfive" style={{display: "flex"}}> */}
                     <div class="pfiveOne" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "#white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>Total Closing Costs</div>
-                        <div style={{backgroundColor: "#white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>Plus Down Payment</div>
-                        <div style={{backgroundColor: "#white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>Plus Money for YOUR New Escrow Account & Prepaids</div>
-                        <div style={{backgroundColor: "#white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Taxes</div>
-                        <div style={{backgroundColor: "#white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Insurance</div>
-                        <div style={{backgroundColor: "#white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Prepaid Interest</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>Total Closing Costs</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>Plus Down Payment</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>Plus Money for YOUR New Escrow Account & Prepaids</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Taxes</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Insurance</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Prepaid Interest</div>
                     </div>
                     <div class="pfiveTwo"></div>
                     <div class="pfiveThree" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>$3,776.00</div>
+                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$2,010.00</div>
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$0.00</div>
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
@@ -209,7 +223,7 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>   
                     </div> 
                     <div class="pfiveFour" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>$3,776.00</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$2,010.00</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$0.00</div>
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
@@ -217,7 +231,7 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>
                     </div>
                     <div class="pfiveFive" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>$3,776.00</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$2,010.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$0.00</div>
                         <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
@@ -236,9 +250,9 @@ const context = useContext(MortgageContext)
                     {/* </div> */}
                 {/* </div> */}
                 {/* <div class="psix" style={{display: "flex"}}> */}
-                    <div class="psixOne" style={{fontSize: "12px"}}><p style={{backgroundColor: "white", fontSize: "16px"}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.</p>
+                    <div class="psixOne" style={{fontSize: "12px"}}><p style={{backgroundColor: "white", fontSize: "16px", marginLeft: 5}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.</p>
                         {/* <br /> */}
-                        <p style={{backgroundColor: "white", fontSize: "14px"}}>*The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.</p>
+                        <p style={{backgroundColor: "white", fontSize: "14px", marginLeft: 5}}>*The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.</p>
                     </div>
                     <div class="psixTwo">Notes:</div>
                     <div class="psixThree"></div> 
