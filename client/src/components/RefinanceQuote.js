@@ -31,6 +31,8 @@ function RefinanceQuote() {
                     </div>
                     <div class="oneFour" style={{backgroundColor: "#334960", display: "flex"}}>
                         <img style={{height: 150, width: 240, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 21}} src={contactInfo}/>
+                    </div>
+                    <div class="oneFive" style={{backgroundColor: "#334960", display: "flex"}}>
                         <img style={{height: 130, width: 180, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginLeft: 20}} src={pfp}/>
                         <br />
                         <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px", alignItems: "flex-end", justifyContent: "flex-start", marginBottom: 5}}>NMLS# 1097309</div>
