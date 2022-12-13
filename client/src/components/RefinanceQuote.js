@@ -15,113 +15,107 @@ function RefinanceQuote() {
         <div>
             <h1>Refinance Quote</h1>
             <div class="parent">
-                 {/* <div class="one" style={{display: "flex"}}> */}
-                 <div class="oneOne" style={{backgroundColor: "#334960", display: "flex"}}>
-                        <img style={{height: 140, width: 270, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 25, marginLeft: 10}} src={beamLogo}/>
+                {/* <div class="one"> */}
+                <div class="oneOne">
+                        <img style={{height: 140, width: 270, backgroundColor: "#334960"}} src={beamLogo}/>
                     </div>
-                    <div class="oneTwo" style={{backgroundColor: "#334960", display: "grid"}}> 
-                        <img style={{height: 90, width: 180, display: "flex",justifyContent: "left", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginRight: 30}} src={customQuotes}/>
+                    <div class="oneTwo"> 
+                        {/* <img style={{height: 90, width: 150, backgroundColor: "#334960"}} src={customQuotes}/> */}
+                        <p style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "flex-end", fontSize: "29px"}}>Custom Quote <br /> Analysis For:</p>
+                        <div style={{backgroundColor: "#334960"}}>This is not a loan estimate*</div>
+                    </div>
+                    <div class="oneThree">
+                        <div style={{backgroundColor: "#334960", fontSize: "26px"}}>Morgan Brush</div>
+                        <div style={{backgroundColor: "#334960"}}>Date: {date}</div>
+                    </div>
+                    <div class="oneFour">
+                        {/* <img style={{height: 150, width: 180, backgroundColor: "#334960"}} src={contactInfo}/> */}
+                            <div style={{backgroundColor: "#334960"}}>Prepared by <br /></div>
+                            <div style={{backgroundColor: "#334960", fontSize: "30px"}}>Chris Buckway <br /></div>
+                            <div style={{backgroundColor: "#334960"}}>Mortgage Loan Officer <br /></div>
+                            <div style={{backgroundColor: "#334960"}}>chrisbuckway@beamlending.com </div>
+                            <div style={{backgroundColor: "#334960"}}>(801) 786-9837</div>
+                    </div>
+                    <div class="oneFive">
+                        <img style={{height: 130, width: 160, backgroundColor: "#334960"}} src={pfp}/>
                         <br />
-                        <div style={{display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginBottom: 11}}>This is not a loan estimate*</div>
-                    </div>
-                    <div class="oneThree" style={{backgroundColor: "#334960", display: "grid"}}>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "center"}}>Name</div>
-                        <br />
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Date: {date}</div>
-                    </div>
-                    <div class="oneFour" style={{backgroundColor: "#334960", display: "flex"}}>
-                        <img style={{height: 150, width: 240, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 21}} src={contactInfo}/>
-                    </div>
-                    <div class="oneFive" style={{backgroundColor: "#334960", display: "flex"}}>
-                        <img style={{height: 130, width: 180, display: "flex", justifyContent: "center", alignContent: "center", backgroundColor: "#334960", marginTop: 20, marginLeft: 20}} src={pfp}/>
-                        <br />
-                        <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px", alignItems: "flex-end", justifyContent: "flex-start", marginBottom: 5}}>NMLS# 1097309</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px"}}>NMLS# 1097309</div>
                     </div>
                 {/* </div> */}
-                <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "22px", fontWeight: "bold"}}>
-                Comparing Your Current Loan With Our Loan Offers
+                <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px", fontWeight: "bold"}}>
+                    Comparing Your Current Loan With Our Loan Offers
                 </div>
-                <div class="two" style={{display: "flex"}}>
-                <div class="twoOne" style={{display: "grid"}}>
-                    <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div>
-                    {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Purchase Price</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Down Payment</div> */}
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Loan Amount</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Remaining Years</div>
-                </div>
-                <div class="twoTwo" style={{display: "grid"}}>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", fontWeight: "bold"}}>Current Loan</div>
-                    {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>N/A</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>N/A</div> */}
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>0.0</div>
-                </div>
-                <div class="twoThree" style={{display: "grid"}}>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px"}}>Best Rate / Higher Cost</div>
-                    {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "16px"}}>$560,000.00</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center"}}>$158,000.00</div> */}
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center"}}>$402,000.00</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center"}}>30.0</div>
-                </div>
-                <div class="twoFour" style={{display: "grid"}}>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "18px"}}>Better Rate / Moderate Cost</div>
-                    {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>$560,000.00</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>$158,000.00</div> */}
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>$402,000.00</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>30.0</div>
-                </div>
-                <div class="twoFive" style={{display: "grid"}}>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "18px"}}>Good Rate / Low Cost</div>
-                    {/* <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$560,000.00</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$158,000.00</div> */}
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$402,000.00</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>30.0</div>
-                </div>
+                <div class="two">
+                    <div class="twoOne">
+                        <div>&nbsp;</div>
+                        <div>Loan Amount</div>
+                        <div>Remaining Years</div>
+                    </div>
+                    <div class="twoTwo">
+                        <div style={{fontSize: "18px", fontWeight: "bold"}}>Current Loan</div>
+                        <div>&nbsp;</div>
+                        <div>0.0</div>
+                    </div>
+                    <div class="twoThree">
+                        <div style={{fontSize: "18px"}}>Best Rate / Higher Cost</div>
+                        <div>$402,000.00</div>
+                        <div>30</div>
+                    </div>
+                    <div class="twoFour">
+                        <div style={{fontSize: "18px"}}>Better Rate / Moderate Cost</div>
+                        <div>$402,000.00</div>
+                        <div>30</div>
+                    </div>
+                    <div class="twoFive">
+                        <div style={{fontSize: "18px"}}>Good Rate / Low Cost</div>
+                        <div>$402,000.00</div>
+                        <div>30</div>
+                    </div>
                 </div> 
                 <div class="twoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "30px"}}>Loan Terms</div>
-                {/* <div class="twoHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}> */}
-                <div class="twoHorizontal1" style={{backgroundColor: "#7e9fce", fontSize: "25px", display: "flex", justifyContent: "flex-end", alignItems: "center"}}>Interest Rate</div>
-                <div class="twoHorizontal2" style={{backgroundColor: "#7e9fce", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}></div>
-                <div class="twoHorizontal3" style={{backgroundColor: "#7e9fce", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>4.375%</div>
-                <div class="twoHorizontal4" style={{backgroundColor: "#7e9fce", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>4.500%</div>
-                <div class="twoHorizontal5" style={{backgroundColor: "#7e9fce", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>4.625%</div>
-                {/* </div> */}
+                <div class="twoHorizontal">
+                    <div style={{justifyContent: "flex-end"}}>Interest Rate</div>
+                    <div>&nbsp;</div>
+                    <div>4.375%</div>
+                    <div>4.500%</div>
+                    <div>4.625%</div>
+                </div>
                 <div class="three" style={{display: "flex"}}>
-                <div class="threeOne" style={{display: "grid"}}>
-                    {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Principal & Interest</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Mortgage Insurance</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Add Taxes & Insurance</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Extra Principal Payment</div>
-                </div>
-                <div class="threeTwo" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                </div>
-                <div class="threeThree" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#cfe2f3"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,007.13</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                </div>
-                <div class="threeFour" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "18px", color: "white"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,036.87</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                </div>
-                <div class="threeFive" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "18px", color: "#334960"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,066.84</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                </div>
+                    <div class="threeOne" style={{display: "grid"}}>
+                        {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Principal & Interest</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Mortgage Insurance</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Add Taxes & Insurance</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Extra Principal Payment</div>
+                    </div>
+                    <div class="threeTwo" style={{display: "grid"}}>
+                        {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
+                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    </div>
+                    <div class="threeThree" style={{display: "grid"}}>
+                        {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#cfe2f3"}}>$0.00</div> */}
+                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,007.13</div>
+                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
+                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
+                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    </div>
+                    <div class="threeFour" style={{display: "grid"}}>
+                        {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "18px", color: "white"}}>$0.00</div> */}
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,036.87</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
+                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    </div>
+                    <div class="threeFive" style={{display: "grid"}}>
+                        {/* <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "18px", color: "#334960"}}>$0.00</div> */}
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,066.84</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    </div>
                 </div>
                 <div class="threeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}>Payment Breakdown</div>
                 {/* <div class="threeHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}> */}

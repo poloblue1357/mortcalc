@@ -44,7 +44,7 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px"}}>NMLS# 1097309</div>
                     </div>
                 {/* </div> */}
-                <div class="poneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "22px", fontWeight: "bold"}}>
+                <div class="poneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px", fontWeight: "bold"}}>
                     Comparing Your Current Loan With Our Loan Offers
                 </div>
                 <div class="ptwo">
@@ -86,7 +86,7 @@ const context = useContext(MortgageContext)
                 </div> 
                 <div class="ptwoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "30px"}}>Loan Terms</div>
                 <div class="ptwoHorizontal">
-                    <div>Interest Rate</div>
+                    <div style={{justifyContent: "flex-end"}}>Interest Rate</div>
                     <div>&nbsp;</div>
                     <div>4.375%</div>
                     <div>4.500%</div>
