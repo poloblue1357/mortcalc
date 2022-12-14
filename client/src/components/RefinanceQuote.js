@@ -21,25 +21,25 @@ function RefinanceQuote() {
                     </div>
                     <div class="oneTwo"> 
                         {/* <img style={{height: 90, width: 150, backgroundColor: "#334960"}} src={customQuotes}/> */}
-                        <p style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "flex-end", fontSize: "29px"}}>Custom Quote <br /> Analysis For:</p>
-                        <div style={{backgroundColor: "#334960"}}>This is not a loan estimate*</div>
+                        <p style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "flex-end", fontSize: "29px", fontFamily: "sans-serif"}}>Custom Quote <br /> Analysis For:</p>
+                        <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>This is not a loan estimate*</div>
                     </div>
                     <div class="oneThree">
-                        <div style={{backgroundColor: "#334960", fontSize: "26px"}}>Morgan Brush</div>
-                        <div style={{backgroundColor: "#334960"}}>Date: {date}</div>
+                        <div style={{backgroundColor: "#334960", fontSize: "26px", fontFamily: "sans-serif"}}>Morgan Brush</div>
+                        <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>Date: {date}</div>
                     </div>
                     <div class="oneFour">
                         {/* <img style={{height: 150, width: 180, backgroundColor: "#334960"}} src={contactInfo}/> */}
-                            <div style={{backgroundColor: "#334960"}}>Prepared by <br /></div>
-                            <div style={{backgroundColor: "#334960", fontSize: "30px"}}>Chris Buckway <br /></div>
-                            <div style={{backgroundColor: "#334960"}}>Mortgage Loan Officer <br /></div>
-                            <div style={{backgroundColor: "#334960"}}>chrisbuckway@beamlending.com </div>
-                            <div style={{backgroundColor: "#334960"}}>(801) 786-9837</div>
+                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>Prepared by <br /></div>
+                            <div style={{backgroundColor: "#334960", fontSize: "30px", fontFamily: "sans-serif"}}>Chris Buckway <br /></div>
+                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>Mortgage Loan Officer <br /></div>
+                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>chrisbuckway@beamlending.com </div>
+                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>(801) 786-9837</div>
                     </div>
                     <div class="oneFive">
                         <img style={{height: 130, width: 160, backgroundColor: "#334960"}} src={pfp}/>
                         <br />
-                        <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px"}}>NMLS# 1097309</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px", fontFamily: "sans-serif"}}>NMLS# 1097309</div>
                     </div>
                 {/* </div> */}
                 <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px", fontWeight: "bold"}}>

@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 .pparent {
     display: grid;
     grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 34px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr;
     position: relative;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: sans-serif;
+    font-size: 14px;
 }
  /* .pone {
     background-color: #334960;
@@ -78,6 +82,11 @@
     height: 34px;
     width: 100%;
     color: white;
+    font-weight: bold;
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .ptwo {
@@ -90,7 +99,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 18px;
     flex-direction: column;
     display: flex;
 }
@@ -107,7 +115,6 @@
     background-color: #d9ead3;
     width: 100%;
     height: 100%;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -125,7 +132,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -143,7 +149,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -161,7 +166,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -209,6 +213,7 @@
 } 
 
 .pthree {
+    display: flex;
     grid-column: 2 / 7;
     grid-row: 5 / 6;
 }
@@ -216,43 +221,83 @@
     background-color: white;
     width: 100%;
     height: 100%;
-    display: flex;
     font-weight: bold;
-    align-content: space-evenly;
-    font-size: 18px;
-    justify-content: center;
+    flex-direction: column;
+    display: flex;
 }
-.pthreeTwo {
+.pthreeOne div{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+.pthreeTwo  {
     background-color: #d9ead3;
     width: 100%;
     height: 100%;
+    flex-direction: column;
     display: flex;
+}
+.pthreeTwo div{
+    background-color: #d9ead3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pthreeThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    flex-direction: column;
     display: flex;
+}
+.pthreeThree div{
+    background-color: #cfe2f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pthreeFour {
     background-color: white;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    flex-direction: column;
     display: flex;
-    align-content: space-evenly;
 }
-.pthreeFive {
+.pthreeFour div{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+.pthreeFive  {
     background-color: #334960;
     width: 100%;
     height: 100%;
-    color: white;
-    justify-content: center;
+    flex-direction: column;
     display: flex;
+}
+.pthreeFive div{
+    background-color: #334960;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pthreeVertical {
     background-color: #0b5394;
@@ -261,10 +306,7 @@
     height: 100%;
     width: 60px;
     position: absolute;
-    left: 0;
-    bottom: 0;
     color: white;
-    z-index: 999999;
     font-weight: bold;
 }
 .pthreeHorizontal {
@@ -277,6 +319,10 @@
     bottom: 0;
     color: white;
     font-weight: bold;
+    font-size: 23px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pthreeHorizontal1 {
     background-color: #0b5394;
@@ -288,6 +334,10 @@
     color: white;
     z-index: 999;
     font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pthreeHorizontal2 {
     background-color: #0b5394;
@@ -299,6 +349,10 @@
     color: white;
     z-index: 9999;
     font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pthreeHorizontal3 {
     background-color: #0b5394;
@@ -310,6 +364,10 @@
     color: white;
     z-index: 99999;
     font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pthreeHorizontal4 {
     background-color: #0b5394;
@@ -321,6 +379,10 @@
     color: white;
     z-index: 999999;
     font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .pthreeHorizontal5 {
     background-color: #0b5394;
@@ -332,57 +394,81 @@
     color: white;
     z-index: 99999;
     font-weight: bold;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-/* .pfour {
+
+.pfour {
+    display: flex;
     grid-column: 4 / 7;
     grid-row: 7 / 8;
-} */
+}
 .pfourOne {
     background-color: white;
     width: 100%;
     height: 100%;
     display: flex;
-    grid-column: 2 / 4;
-    grid-row: 7 / 8;
+    flex-direction: column;
 }
-.pfourTwo {
+.pfourOne div{
     background-color: white;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pfourThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.pfourThree div{
+    background-color: #cfe2f3;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    grid-column: 4 / 5;
-    grid-row: 7 / 8;
+    width: 100%;
+    height: 100%;
 }
 .pfourFour {
     background-color: white;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.pfourFour div{
+    background-color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    grid-column: 5 / 6;
-    grid-row: 7 / 8;
+    width: 100%;
+    height: 100%;
 }
-.pfourFive {
+.pfourFive  {
     background-color: #334960;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.pfourFive div{
+    background-color: #334960;
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    grid-column: 6 / 7;
-    grid-row: 7 / 8;
+    width: 100%;
+    height: 100%;
 }
 .pfourVertical {
     background-color: #6fa8dc;
@@ -391,122 +477,108 @@
     height: 100%;
     width: 60px;
     position: absolute;
-    left: 0;
-    bottom: 0;
     color: white;
-    z-index: 999999;
     font-weight: bold;
 }
 .pfourHorizontal {
     background-color: #6fa8dc;
-    grid-column: 1 / 7;
+    grid-column: 2 / 7;
     grid-row: 8 / 9;
     width: 100%;
     height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-}
-.pfourHorizontal1 {
-    background-color: #0b5394;
-    grid-column: 2 / 4;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    color: white;
-    z-index: 999;
+    color: #ffffff;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
 }
-/* .pfourHorizontal2 {
-    background-color: #0b5394;
-    grid-column: 3 / 4;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    color: white;
-    z-index: 999;
-} */
-.pfourHorizontal3 {
-    background-color: #0b5394;
-    grid-column: 4 / 5;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    color: white;
-    z-index: 999;
-    font-weight: bold;
-}
-.pfourHorizontal4 {
-    background-color: #0b5394;
-    grid-column: 5 / 6;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    color: white;
-    z-index: 999;
-    font-weight: bold;
-}
-.pfourHorizontal5 {
-    background-color: #0b5394;
-    grid-column: 6 / 7;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    bottom: 0;
-    color: white;
-    z-index: 999;
-    font-weight: bold;
-}
-/* .pfive {
+
+.pfive {
+    display: flex;
     grid-column: 4 / 7;
     grid-row: 9 / 10;
-} */
+}
 .pfiveOne {
     background-color: white;
     width: 100%;
     height: 100%;
     display: flex;
-    grid-column: 2 / 4;
-    grid-row: 9 / 10;
+    flex-direction: column;
+}
+.pfiveOne div{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pfiveTwo {
     background-color: white;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+}
+.pfiveTwo div{
+    background-color: #d9ead3;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pfiveThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.pfiveThree div{
+    background-color: #cfe2f3;
     display: flex;
     justify-content: center;
-    grid-column: 4 / 5;
-    grid-row: 9 / 10;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pfiveFour {
     background-color: white;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.pfiveFour div{
+    background-color: white;
     display: flex;
     justify-content: center;
-    grid-column: 5 / 6;
-    grid-row: 9 / 10;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
-.pfiveFive {
+.pfiveFive  {
     background-color: #334960;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.pfiveFive div{
+    background-color: #334960;
     color: white;
     display: flex;
     justify-content: center;
-    grid-column: 6 / 7;
-    grid-row: 9 / 10;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .pfiveVertical {
     background-color: #073763;
@@ -515,78 +587,23 @@
     height: 100%;
     width: 60px;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    color: white;
-    z-index: 99999;
-    font-weight: bold;
-}
-/* .pfiveHorizontal {
-    background-color: #073763;
-    grid-column: 1 / 7;
-    grid-row: 10 / 11;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-} */
-.pfiveHorizontal1 {
-    background-color: #073763;
-    grid-column: 2 / 4;
-    grid-row: 10 / 11;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
     color: white;
     font-weight: bold;
 }
-/* .pfiveHorizontal2 {
+.pfiveHorizontal {
     background-color: #073763;
-    grid-column: 4 / 5;
+    grid-column: 2 / 7;
     grid-row: 10 / 11;
     width: 100%;
     height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
+    color: #ffffff;
     font-weight: bold;
-} */
-.pfiveHorizontal3 {
-    background-color: #073763;
-    grid-column: 4 / 5;
-    grid-row: 10 / 11;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
 }
-.pfiveHorizontal4 {
-    background-color: #073763;
-    grid-column: 5 / 6;
-    grid-row: 10 / 11;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
-.pfiveHorizontal5 {
-    background-color: #073763;
-    grid-column: 6 / 7;
-    grid-row: 10 / 11;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
+
 /* .psix {
     grid-column: 1 / 7;
     grid-row: 11 / 12;
@@ -606,39 +623,3 @@
     grid-column: 5 / 7;
     grid-row: 11 / 12;
 }
-/* .sixThree {
-    background-color: #cfe2f3;
-    width: 100%;
-    height: 100%;
-}
-.sixFour {
-    background-color: white;
-    width: 100%;
-    height: 100%;
-}
-.sixFive {
-    background-color: #334960;
-    width: 100%;
-    height: 100%;
-}
-.sixVertical {
-    background-color: #7e9fce;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    height: 100%;
-    width: 40px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    color: white;
-}
-.sixHorizontal {
-    background-color: #7e9fce;
-    grid-column: 1 / 6;
-    grid-row: 2 / 3;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-}   */

@@ -3,6 +3,7 @@
     grid-template-columns: 60px 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 34px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr;
     position: relative;
+    font-family: sans-serif;
 }
  /* .one {
     background-color: #334960;
