@@ -4,6 +4,7 @@
     grid-template-rows: 1fr 34px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr 50px 1fr;
     position: relative;
     font-family: sans-serif;
+    font-size: 14px;
 }
  /* .one {
     background-color: #334960;
@@ -79,6 +80,11 @@
     height: 34px;
     width: 100%;
     color: white;
+    font-weight: bold;
+    font-size: 17px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .two {
@@ -91,7 +97,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 18px;
     flex-direction: column;
     display: flex;
 }
@@ -108,7 +113,6 @@
     background-color: #d9ead3;
     width: 100%;
     height: 100%;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -126,7 +130,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -144,7 +147,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -162,7 +164,6 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 16px;
     flex-direction: column;
     display: flex;
 }
@@ -206,10 +207,11 @@
     width: 100%;
     height: 100%;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 18px;
 } 
 
 .three {
+    display: flex;
     grid-column: 2 / 7;
     grid-row: 5 / 6;
 }
@@ -217,46 +219,83 @@
     background-color: white;
     width: 100%;
     height: 100%;
-    display: flex;
     font-weight: bold;
-    align-content: space-evenly;
-    font-size: 18px;
-    justify-content: center;
+    flex-direction: column;
+    display: flex;
 }
-.threeTwo {
+.threeOne div{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+.threeTwo  {
     background-color: #d9ead3;
     width: 100%;
     height: 100%;
+    flex-direction: column;
     display: flex;
+}
+.threeTwo div{
+    background-color: #d9ead3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .threeThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    flex-direction: column;
     display: flex;
+}
+.threeThree div{
+    background-color: #cfe2f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    font-weight: bold;
+    width: 100%;
+    height: 100%;
 }
 .threeFour {
     background-color: white;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    flex-direction: column;
     display: flex;
-    align-content: space-evenly;
-    font-weight: bold;
 }
-.threeFive {
+.threeFour div{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+.threeFive  {
     background-color: #334960;
     width: 100%;
     height: 100%;
-    color: white;
-    justify-content: center;
+    flex-direction: column;
     display: flex;
+}
+.threeFive div{
+    background-color: #334960;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    font-weight: bold;
+    width: 100%;
+    height: 100%;
 }
 .threeVertical {
     background-color: #0b5394;
@@ -265,10 +304,7 @@
     height: 100%;
     width: 60px;
     position: absolute;
-    left: 0;
-    bottom: 0;
     color: white;
-    z-index: 999999;
     font-weight: bold;
 }
 .threeHorizontal {
@@ -281,6 +317,10 @@
     bottom: 0;
     color: white;
     font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .threeHorizontal1 {
     background-color: #0b5394;
@@ -292,6 +332,10 @@
     color: white;
     z-index: 999;
     font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .threeHorizontal2 {
     background-color: #0b5394;
@@ -303,6 +347,10 @@
     color: white;
     z-index: 9999;
     font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .threeHorizontal3 {
     background-color: #0b5394;
@@ -314,6 +362,10 @@
     color: white;
     z-index: 99999;
     font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .threeHorizontal4 {
     background-color: #0b5394;
@@ -325,6 +377,10 @@
     color: white;
     z-index: 999999;
     font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .threeHorizontal5 {
     background-color: #0b5394;
@@ -336,8 +392,14 @@
     color: white;
     z-index: 99999;
     font-weight: bold;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .four {
+    display: flex;
     grid-column: 2 / 7;
     grid-row: 7 / 8;
 }
@@ -347,40 +409,84 @@
     height: 100%;
     display: flex;
     font-weight: bold;
-    align-content: space-evenly;
+    flex-direction: column;
+}
+.fourOne div {
+    background-color: white;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .fourTwo {
     background-color: #d9ead3;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+}
+.fourTwo div {
+    background-color: #d9ead3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .fourThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    font-weight: bold;
+    flex-direction: column;
     display: flex;
+}
+.fourThree div {
+    background-color: #cfe2f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .fourFour {
     background-color: white;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    font-weight: bold;
+    flex-direction: column;
     display: flex;
+}
+.fourFour div {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .fourFive {
     background-color: #334960;
     width: 100%;
     height: 100%;
-    color: white;
-    justify-content: center;
+    font-weight: bold;
+    flex-direction: column;
     display: flex;
+}
+.fourFive div {
+    background-color: #334960;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .fourSix {
     background-color: #6fa8dc;
@@ -391,10 +497,10 @@
     position: absolute;
     bottom: 0;
     color: white;
-    justify-content: center;
-    align-content: space-evenly;
+    font-size: 18px;
     display: flex;
-    font-size: 22px;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .fourVertical {
     background-color: #3d85c6;
@@ -403,10 +509,7 @@
     height: 100%;
     width: 60px;
     position: absolute;
-    left: 0;
-    bottom: 0;
     color: white;
-    z-index: 999999;
     font-weight: bold;
 }
 .fourHorizontal {
@@ -415,115 +518,83 @@
     grid-row: 8 / 9;
     width: 100%;
     height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-}
-.fourHorizontal1 {
-    background-color: #3d85c6;
-    grid-column: 2 / 4;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
+    color: #ffffff;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
 }
-/* .fourHorizontal2 {
-    background-color: #3d85c6;
-    grid-column: 4 / 5;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-} */
-.fourHorizontal3 {
-    background-color: #3d85c6;
-    grid-column: 4 / 5;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
-.fourHorizontal4 {
-    background-color: #3d85c6;
-    grid-column: 5 / 6;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
-.fourHorizontal5 {
-    background-color: #3d85c6;
-    grid-column: 6 / 7;
-    grid-row: 8 / 9;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
-/* .five {
+
+.five {
+    display: flex;
     grid-column: 4 / 7;
     grid-row: 9 / 10;
-} */
+}
 .fiveOne {
     background-color: white;
     width: 100%;
     height: 100%;
     display: flex;
-    grid-column: 2 / 4;
-    grid-row: 9 / 10;
+    flex-direction: column;
 }
-.fiveTwo {
+.fiveOne div{
     background-color: white;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .fiveThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.fiveThree div{
+    background-color: #cfe2f3;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    grid-column: 4 / 5;
-    grid-row: 9 / 10;
+    width: 100%;
+    height: 100%;
 }
 .fiveFour {
     background-color: white;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.fiveFour div{
+    background-color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    grid-column: 5 / 6;
-    grid-row: 9 / 10;
+    width: 100%;
+    height: 100%;
 }
-.fiveFive {
+.fiveFive  {
     background-color: #334960;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.fiveFive div{
+    background-color: #334960;
     color: white;
     display: flex;
     justify-content: center;
+    align-items: center;
     align-content: space-evenly;
-    grid-column: 6 / 7;
-    grid-row: 9 / 10;
+    width: 100%;
+    height: 100%;
 }
 .fiveVertical {
     background-color: #6fa8dc;
@@ -532,10 +603,7 @@
     height: 100%;
     width: 60px;
     position: absolute;
-    left: 0;
-    bottom: 0;
     color: white;
-    z-index: 999999;
     font-weight: bold;
 }
 .fiveHorizontal {
@@ -602,52 +670,92 @@
     z-index: 999;
     /* font-weight: bold; */
 }
-/* .six {
+
+.six {
+    display: flex;
     grid-column: 4 / 7;
     grid-row: 11 / 12;
-} */
+}
 .sixOne {
     background-color: white;
     width: 100%;
     height: 100%;
     display: flex;
-    grid-column: 2 / 4;
-    grid-row: 11 / 12;
+    flex-direction: column;
+}
+.sixOne div{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .sixTwo {
     background-color: white;
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+}
+.sixTwo div{
+    background-color: #d9ead3;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .sixThree {
     background-color: #cfe2f3;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.sixThree div{
+    background-color: #cfe2f3;
     display: flex;
     justify-content: center;
-    grid-column: 4 / 5;
-    grid-row: 11 / 12;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .sixFour {
     background-color: white;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.sixFour div{
+    background-color: white;
     display: flex;
     justify-content: center;
-    grid-column: 5 / 6;
-    grid-row: 11 / 12;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
-.sixFive {
+.sixFive  {
     background-color: #334960;
     width: 100%;
     height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+.sixFive div{
+    background-color: #334960;
     color: white;
     display: flex;
     justify-content: center;
-    grid-column: 6 / 7;
-    grid-row: 11 / 12;
+    align-items: center;
+    align-content: space-evenly;
+    width: 100%;
+    height: 100%;
 }
 .sixVertical {
     background-color: #073763;
@@ -656,83 +764,23 @@
     height: 100%;
     width: 60px;
     position: absolute;
-    left: 0;
-    bottom: 0;
-    color: white;
-    z-index: 99999;
-    font-weight: bold;
-}
-/* .sixHorizontal {
-    background-color: #073763;
-    grid-column: 1 / 7;
-    grid-row: 12 / 13;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-} */
-.sixHorizontal1 {
-    background-color: #073763;
-    grid-column: 2 / 4;
-    grid-row: 12 / 13;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
     color: white;
     font-weight: bold;
 }
-/* .sixHorizontal2 {
+.sixHorizontal {
     background-color: #073763;
-    grid-column: 4 / 5;
+    grid-column: 2 / 7;
     grid-row: 12 / 13;
     width: 100%;
     height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
+    color: #ffffff;
     font-weight: bold;
-} */
-.sixHorizontal3 {
-    background-color: #073763;
-    grid-column: 4 / 5;
-    grid-row: 12 / 13;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
 }
-.sixHorizontal4 {
-    background-color: #073763;
-    grid-column: 5 / 6;
-    grid-row: 12 / 13;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
-.sixHorizontal5 {
-    background-color: #073763;
-    grid-column: 6 / 7;
-    grid-row: 12 / 13;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-    font-weight: bold;
-}
-/* .seven {
-    grid-column: 1 / 7;
-    grid-row: 13 / 14;
-    background-color: white;
-} */
+
 .sevenOne {
     background-color: white;
     width: 100%;
@@ -747,39 +795,3 @@
     grid-column: 5 / 7;
     grid-row: 13 / 14;
 }
-/* .sevenThree {
-    background-color: #cfe2f3;
-    width: 100%;
-    height: 100%;
-}
-.sevenFour {
-    background-color: white;
-    width: 100%;
-    height: 100%;
-}
-.sevenFive {
-    background-color: #334960;
-    width: 100%;
-    height: 100%;
-}
-.sevenVertical {
-    background-color: #7e9fce;
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
-    height: 100%;
-    width: 40px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    color: white;
-}
-.sevenHorizontal {
-    background-color: #7e9fce;
-    grid-column: 1 / 6;
-    grid-row: 2 / 3;
-    width: 100%;
-    height: 50px;
-    position: absolute;
-    bottom: 0;
-    color: white;
-}   */

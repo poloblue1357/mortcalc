@@ -20,29 +20,27 @@ function RefinanceQuote() {
                         <img style={{height: 140, width: 270, backgroundColor: "#334960"}} src={beamLogo}/>
                     </div>
                     <div class="oneTwo"> 
-                        {/* <img style={{height: 90, width: 150, backgroundColor: "#334960"}} src={customQuotes}/> */}
-                        <p style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "flex-end", fontSize: "29px", fontFamily: "sans-serif"}}>Custom Quote <br /> Analysis For:</p>
-                        <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>This is not a loan estimate*</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", alignItems: "flex-end", fontSize: "29px", fontFamily: "sans-serif"}}>Custom Quote <br /> Analysis For:</div>
+                        <div style={{backgroundColor: "#334960", fontSize: "14px", alignItems: "bottom"}}>This is not a loan estimate*</div>
                     </div>
                     <div class="oneThree">
-                        <div style={{backgroundColor: "#334960", fontSize: "26px", fontFamily: "sans-serif"}}>Morgan Brush</div>
-                        <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>Date: {date}</div>
+                        <div style={{backgroundColor: "#334960", fontSize: "26px"}}>Morgan Brush</div>
+                        <div style={{backgroundColor: "#334960"}}>Date: {date}</div>
                     </div>
                     <div class="oneFour">
-                        {/* <img style={{height: 150, width: 180, backgroundColor: "#334960"}} src={contactInfo}/> */}
-                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>Prepared by <br /></div>
-                            <div style={{backgroundColor: "#334960", fontSize: "30px", fontFamily: "sans-serif"}}>Chris Buckway <br /></div>
-                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>Mortgage Loan Officer <br /></div>
-                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>chrisbuckway@beamlending.com </div>
-                            <div style={{backgroundColor: "#334960", fontFamily: "sans-serif"}}>(801) 786-9837</div>
+                            <div style={{backgroundColor: "#334960"}}>Prepared by <br /></div>
+                            <div style={{backgroundColor: "#334960", fontSize: "30px"}}>Chris Buckway <br /></div>
+                            <div style={{backgroundColor: "#334960"}}>Mortgage Loan Officer <br /></div>
+                            <div style={{backgroundColor: "#334960", fontSize: "15px"}}>chrisbuckway@beamlending.com </div>
+                            <div style={{backgroundColor: "#334960"}}>(801) 786-9837</div>
                     </div>
                     <div class="oneFive">
                         <img style={{height: 130, width: 160, backgroundColor: "#334960"}} src={pfp}/>
                         <br />
-                        <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px", fontFamily: "sans-serif"}}>NMLS# 1097309</div>
+                        <div style={{backgroundColor: "#334960", display: "flex", fontSize: "14px"}}>NMLS# 1097309</div>
                     </div>
                 {/* </div> */}
-                <div class="oneYellow" style={{display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px", fontWeight: "bold"}}>
+                <div class="oneYellow">
                     Comparing Your Current Loan With Our Loan Offers
                 </div>
                 <div class="two">
@@ -52,27 +50,27 @@ function RefinanceQuote() {
                         <div>Remaining Years</div>
                     </div>
                     <div class="twoTwo">
-                        <div style={{fontSize: "18px", fontWeight: "bold"}}>Current Loan</div>
+                        <div style={{fontSize: "17px", fontWeight: "bold"}}>Current Loan</div>
                         <div>&nbsp;</div>
                         <div>0.0</div>
                     </div>
                     <div class="twoThree">
-                        <div style={{fontSize: "18px"}}>Best Rate / Higher Cost</div>
+                        <div style={{fontSize: "17px"}}>Best Rate / Higher Cost</div>
                         <div>$402,000.00</div>
                         <div>30</div>
                     </div>
                     <div class="twoFour">
-                        <div style={{fontSize: "18px"}}>Better Rate / Moderate Cost</div>
+                        <div style={{fontSize: "17px"}}>Better Rate / Moderate Cost</div>
                         <div>$402,000.00</div>
                         <div>30</div>
                     </div>
                     <div class="twoFive">
-                        <div style={{fontSize: "18px"}}>Good Rate / Low Cost</div>
+                        <div style={{fontSize: "17px"}}>Good Rate / Low Cost</div>
                         <div>$402,000.00</div>
                         <div>30</div>
                     </div>
                 </div> 
-                <div class="twoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "30px"}}>Loan Terms</div>
+                <div class="twoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Loan Terms</div>
                 <div class="twoHorizontal">
                     <div style={{justifyContent: "flex-end"}}>Interest Rate</div>
                     <div>&nbsp;</div>
@@ -80,236 +78,202 @@ function RefinanceQuote() {
                     <div>4.500%</div>
                     <div>4.625%</div>
                 </div>
-                <div class="three" style={{display: "flex"}}>
-                    <div class="threeOne" style={{display: "grid"}}>
-                        {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Principal & Interest</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Mortgage Insurance</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Add Taxes & Insurance</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Extra Principal Payment</div>
+                <div class="three">
+                    <div class="threeOne">
+                        <div>Principal & Interest</div>
+                        <div>Mortgage Insurance</div>
+                        <div>Add Taxes & Insurance</div>
+                        <div>Extra Principal Payment</div>
                     </div>
-                    <div class="threeTwo" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                        <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    <div class="threeTwo">
+                        <div>Unknown</div>
+                        <div>Unknown</div>
+                        <div>Unknown</div>
+                        <div>&nbsp;</div>
                     </div>
-                    <div class="threeThree" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#cfe2f3"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,007.13</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    <div class="threeThree">
+                        <div>$2,007.13</div>
+                        <div>$0.00</div>
+                        <div>$450.00</div>
+                        <div>&nbsp;</div>
                     </div>
-                    <div class="threeFour" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "18px", color: "white"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,036.87</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    <div class="threeFour">
+                        <div>$2,036.87</div>
+                        <div>$0.00</div>
+                        <div>$450.00</div>
+                        <div>&nbsp;</div>
                     </div>
-                    <div class="threeFive" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "18px", color: "#334960"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$2,066.84</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$0.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$450.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
+                    <div class="threeFive">
+                        <div>$2,066.84</div>
+                        <div>$0.00</div>
+                        <div>$450.00</div>
+                        <div>&nbsp;</div>
                     </div>
                 </div>
-                <div class="threeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}>Payment Breakdown</div>
-                {/* <div class="threeHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}> */}
-                <div class="threeHorizontal1" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>Total Payment</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>Monthly P&I / MI Savings**</div></div></div>
-                <div class="threeHorizontal2" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>$0.00</div></div> </div>
-                <div class="threeHorizontal3" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>-$2,007.13</div></div></div>
-                <div class="threeHorizontal4" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>-$2,036.87</div></div></div>
-                <div class="threeHorizontal5" style={{backgroundColor: "#0b5394", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>-$2,066.84</div></div></div>
-                {/* </div> */}
-                <div class="four" style={{display: "flex"}}>
-                <div class="fourOne" style={{display: "grid"}}>
-                    {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Total Remaining Interest</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>Total Reamining MI Payments</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>&nbsp;</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>&nbsp;</div>
-                </div>
-                <div class="fourTwo" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center"}}>$0.00</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center"}}>&nbsp;</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                    <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontWeight: "bold"}}>&nbsp;</div>
-                </div>
-                <div class="fourThree" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#cfe2f3"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center"}}>$320,565.68</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center"}}>$0.00</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center"}}>-$84,183.50</div>
-                    <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center"}}>-$159,522.51</div>
-                </div>
-                <div class="fourFour" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "18px", color: "white"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>$331,274.92</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>$0.00</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>-$86,667.32</div>
-                    <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}>-$164,384.53</div>
-                </div>
-                <div class="fourFive" style={{display: "grid"}}>
-                    {/* <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "18px", color: "#334960"}}>$0.00</div> */}
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$342,063.10</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>$0.00</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>-$89,154.34</div>
-                    <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center"}}>-$169,259.46</div>
-                </div>
-                    <div class="fourSix" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "#6fa8dc"}}>Savings over 5 years</div>
-                        <div style={{backgroundColor: "#6fa8dc"}}>Savings over 10 years</div>
-                    </div>
-                </div>
-                    <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "25px"}}>Long Term Savings</div>
-                    {/* <div class="fourHorizontal"> */}
-                    <div class="fourHorizontal1" style={{backgroundColor: "#3d85c6", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>Savings Over Life of Loan</div>
-                    {/* <div class="fourHorizontal2" style={{backgroundColor: "#3d85c6", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}></div> */}
-                    <div class="fourHorizontal3" style={{backgroundColor: "#3d85c6", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>-$320,565.68</div>
-                    <div class="fourHorizontal4" style={{backgroundColor: "#3d85c6", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>-$331,274.92</div>
-                    <div class="fourHorizontal5" style={{backgroundColor: "#3d85c6", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>-$342.063.10</div>
-                    {/* </div> */}
-               {/* <div class="five" style={{display: "flex"}}> */}
-               <div class="fiveOne" style={{display: "grid"}}>
-                        {/* <div style={{color: 'white', backgroundColor: "white", display: "flex", justifyContent: "center"}}>blank</div> */}
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>Beam Lending Costs</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Origination</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Lender Credit/Discount</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Underwriting</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Tax Service</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Credit Report</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Flood Certificate</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Appraisal</div>
-                        <br />
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>Title Company Fees</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>Funding Fee / Upfront Mortgage Insurance (if applicable)</div>
-                    </div>
-                    <div class="fiveTwo" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "#d9ead3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#d9ead3"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}></div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}></div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}></div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center"}}></div>
-                    </div>
-                    <div class="fiveThree" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "18px", color: "#cfe2f3"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$2,010.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$80.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$8.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$635.00</div>
-                        <br />
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>$0.00</div>
-                    </div>
-                    <div class="fiveFour" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "18px", color: "white"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$2,010.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$80.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$8.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$635.00</div>
-                        <br />
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>$0.00</div>
-                    </div>
-                    <div class="fiveFive" style={{display: "grid"}}>
-                        {/* <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "18px", color: "#334960"}}>$0.00</div> */}
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$2,010.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$0.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$80.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$8.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$635.00</div>
-                        <br />
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px", marginBottom: 3}}>$0.00</div>
-                    </div>
-                {/* </div> */}
-                <div class="fiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Closing Cost Breakdown</div>
-                {/* <div class="fiveHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}> */}
-                    <div class="fiveHorizontal1" style={{backgroundColor: "#6fa8dc", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>Total Closing Costs</div> <div style={{fontSize: "15px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>Years to Break Even on Closing Costs</div></div></div>
-                    {/* <div class="fiveHorizontal2" style={{backgroundColor: "#6fa8dc", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "15px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc"}}></div></div> </div> */}
-                    <div class="fiveHorizontal3" style={{backgroundColor: "#6fa8dc", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$5,676.00</div> <div style={{fontSize: "15px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>0.2</div></div></div>
-                    <div class="fiveHorizontal4" style={{backgroundColor: "#6fa8dc", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$5,676.00</div> <div style={{fontSize: "15px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>0.2</div></div></div>
-                    <div class="fiveHorizontal5" style={{backgroundColor: "#6fa8dc", fontSize: "23px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$5,676.00</div> <div style={{fontSize: "15px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>0.2</div></div></div>
-                {/* </div> */}
-                {/* <div class="six" style={{display: "flex"}}> */}
-                    <div class="sixOne" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>Total Closing Costs</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>Plus Payoff of Prior Loan(s)</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>Plus Money for YOUR New Escrow Account & Prepaids</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Taxes</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Insurance</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>Prepaid Interest</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>Minus Your New Loan Amount</div>
-                    </div>
-                    <div class="sixTwo"></div>
-                    <div class="sixThree" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$2,010.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$0.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$80.00</div>
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>   
-                        <div style={{backgroundColor: "#cfe2f3", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>$402,000.00</div>
-                    </div> 
-                    <div class="sixFour" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$2,010.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$0.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$80.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>
-                        <div style={{backgroundColor: "white", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>$402,000.00</div>
-                    </div>
-                    <div class="sixFive" style={{display: "grid"}}>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$2,010.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "16px", fontWeight: "bold"}}>$0.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$995.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$80.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontSize: "14px"}}>$48.00</div>
-                        <div style={{backgroundColor: "#334960", display: "flex", justifyContent: "center", fontWeight: "bold", fontSize: "16px"}}>$402,000.00</div>
-                    </div>
-                    <div class="sixVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "23px"}}>Cash Needed to Close</div>
-                    {/* <div class="sixHorizontal"> */}
-                    {/* <div class="sixHorizontal" style={{display: "flex", justifyContent: "space-around", alignItems: "center"}}> */}
-                    <div class="sixHorizontal1" style={{backgroundColor: "#073763", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>Total Cash to Close / Cash Back</div>
-                    {/* <div class="sixHorizontal2" style={{backgroundColor: "#334960", fontSize: "22px", display: "flex", justifyContent: "center", alignItems: "center"}}></div> */}
-                    <div class="sixHorizontal3" style={{backgroundColor: "#073763", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>$166,198.77</div>
-                    <div class="sixHorizontal4" style={{backgroundColor: "#073763", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>$166,219.42</div>
-                    <div class="sixHorizontal5" style={{backgroundColor: "#073763", fontSize: "25px", display: "flex", justifyContent: "center", alignItems: "center"}}>$166,240.08</div>
-                {/* </div> */}
-                    {/* </div> */}
-                {/* </div> */}
+                <div class="threeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Payment Breakdown</div>
 
-                {/* <div class="seven" style={{display: "flex"}}> */}
-                <div class="sevenOne" style={{fontSize: "12px"}}><p style={{backgroundColor: "white", fontSize: "16px", marginLeft: 5}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.</p>
-                        {/* <br /> */}
-                        <p style={{backgroundColor: "white", fontSize: "14px", marginLeft: 5}}>*The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.</p>
+                <div class="threeHorizontal1"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>House Payment</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>Monthly P&I / MI Savings**</div></div></div>
+                <div class="threeHorizontal2"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>$0.00</div></div> </div>
+                <div class="threeHorizontal3"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>-$2,007.13</div></div></div>
+                <div class="threeHorizontal4"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>-$2,036.87</div></div></div>
+                <div class="threeHorizontal5"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>-$2,066.84</div></div></div>
+
+                <div class="four">
+                    <div class="fourOne">
+                        <div>Total Remaining Interest</div>
+                        <div>Total Reamining MI Payments</div>
+                        <div>&nbsp;</div>
+                        <div>&nbsp;</div>
                     </div>
-                    <div class="sevenTwo">Notes:</div>
-                    <div class="sevenThree"></div> 
-                    <div class="sevenFour"></div>
-                    <div class="sevenFive"></div>
-                    <div class="sevenVertical"></div>
-                    <div class="sevenHorizontal"></div>
-                {/* </div> */}
-                {/* <div class="seven"></div> */}
+                    <div class="fourTwo">
+                        <div>$0.00</div>
+                        <div>&nbsp;</div>
+                        <div style={{fontWeight: "bold"}}>&nbsp;</div>
+                        <div style={{fontWeight: "bold"}}>&nbsp;</div>
+                    </div>
+                    <div class="fourThree">
+                        <div>$320,565.68</div>
+                        <div>$0.00</div>
+                        <div>-$84,183.50</div>
+                        <div>-$159,522.51</div>
+                    </div>
+                    <div class="fourFour">
+                        <div>$331,274.92</div>
+                        <div>$0.00</div>
+                        <div>-$86,667.32</div>
+                        <div>-$164,384.53</div>
+                    </div>
+                    <div class="fourFive">
+                        <div>$342,063.10</div>
+                        <div>$0.00</div>
+                        <div>-$89,154.34</div>
+                        <div>-$169,259.46</div>
+                    </div>
+                </div>
+                <div class="fourSix">
+                    <div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "space-evenly", alignItems: "center"}}>Savings over 5 years</div>
+                    <div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "space-evenly", alignItems: "center"}}>Savings over 10 years</div>
+                </div>
+                <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Long Term Savings</div>
+                <div class="fourHorizontal" style={{gridColumn: "2 / 4"}}>Savings Over Life of Loan</div>
+                <div class="fourHorizontal" style={{gridColumn: "4 / 5"}}>-$320,565.68</div>
+                <div class="fourHorizontal" style={{gridColumn: "5 / 6"}}>-$331,274.92</div>
+                <div class="fourHorizontal" style={{gridColumn: "6 / 7"}}>-$342.063.10</div>
+
+                <div class="fiveOne" style={{display: "grid", gridColumn: "2 / 4", gridRow: "9 / 10"}}>
+                    <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>Beam Lending Costs</div>
+                    <div>Origination</div>
+                    <div>Lender Credit/Discount</div>
+                    <div>Underwriting</div>
+                    <div>Tax Service</div>
+                    <div>Credit Report</div>
+                    <div>Flood Certificate</div>
+                    <div>Appraisal</div>
+                    <br />
+                    <div style={{fontWeight: "bold", fontSize: "18px"}}>Title Company Fees</div>
+                    <div style={{fontSize: "14px", marginBottom: 3}}>Funding Fee / Upfront Mortgage Insurance (if applicable)</div>
+                </div>
+                <div class="five">
+                    <div class="fiveThree">
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
+                        <div>$2,010.00</div>
+                        <div>$0.00</div>
+                        <div>$995.00</div>
+                        <div>$80.00</div>
+                        <div>$48.00</div>
+                        <div>$8.00</div>
+                        <div>$635.00</div>
+                        <br />
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
+                        <div style={{marginBottom: 3}}>$0.00</div>
+                    </div>
+                    <div class="fiveFour">
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
+                        <div>$2,010.00</div>
+                        <div>$0.00</div>
+                        <div>$995.00</div>
+                        <div>$80.00</div>
+                        <div>$48.00</div>
+                        <div>$8.00</div>
+                        <div>$635.00</div>
+                        <br />
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
+                        <div style={{marginBottom: 3}}>$0.00</div>
+                    </div>
+                    <div class="fiveFive">
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
+                        <div>$2,010.00</div>
+                        <div>$0.00</div>
+                        <div>$995.00</div>
+                        <div>$80.00</div>
+                        <div>$48.00</div>
+                        <div>$8.00</div>
+                        <div>$635.00</div>
+                        <br />
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
+                        <div style={{marginBottom: 3}}>$0.00</div>
+                    </div>
+                </div>
+                <div class="fiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Closing Cost Breakdown</div>
+
+                <div class="fiveHorizontal1" style={{backgroundColor: "#6fa8dc", fontSize: "18px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>Total Closing Costs</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>Years to Break Even on Closing Costs</div></div></div>
+                <div class="fiveHorizontal3" style={{backgroundColor: "#6fa8dc", fontSize: "18px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$5,676.00</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>0.2</div></div></div>
+                <div class="fiveHorizontal4" style={{backgroundColor: "#6fa8dc", fontSize: "18px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$5,676.00</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>0.2</div></div></div>
+                <div class="fiveHorizontal5" style={{backgroundColor: "#6fa8dc", fontSize: "18px", display: "flex", justifyContent: "center", alignItems: "center"}}><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#6fa8dc"}}><div style={{backgroundColor: "#6fa8dc", display: "flex", justifyContent: "center", fontWeight: "bold"}}>$5,676.00</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", height: "14px", backgroundColor: "#6fa8dc", marginBottom: 3}}>0.2</div></div></div>
+
+                <div class="sixOne" style={{display: "grid", gridColumn: "2 / 4", gridRow: "11 / 12"}}>
+                    <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>Total Closing Costs</div>
+                    <div style={{fontSize: "16px", fontWeight: "bold"}}>Plus Payoff of Prior Loan(s)</div>
+                    <div style={{fontSize: "16px", fontWeight: "bold"}}>Plus Money for YOUR New Escrow Account & Prepaids</div>
+                    <div>Taxes</div>
+                    <div>Insurance</div>
+                    <div>Prepaid Interest</div>
+                    <div style={{fontSize: "16px", fontWeight: "bold"}}>Minus Your New Loan Amount</div>
+                </div>
+                <div class="six">
+                    {/* <div class="pfiveTwo"></div> */}
+                    <div class="sixThree">
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$5,676.00</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$560,000.00</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$2,522.77</div>
+                        <div>$750.00</div>
+                        <div>$1,050.00</div>
+                        <div>$722.77.00</div>
+                        <div style={{fontWeight: "bold"}}>$402,000.00</div>   
+                    </div> 
+                    <div class="sixFour">
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$5,676.00</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$560,000.00</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$2,543.42</div>
+                        <div>$750.00</div>
+                        <div>$1,050.00</div>
+                        <div>$743.42.00</div>
+                        <div style={{fontWeight: "bold"}}>$402,000.00</div>
+                    </div>
+                    <div class="sixFive">
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$5,676.00</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$560,000.00</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$2,564.08</div>
+                        <div>$750.00</div>
+                        <div>$1,050.00</div>
+                        <div>$764.08.00</div>
+                        <div style={{fontWeight: "bold"}}>$402,000.00</div>
+                    </div>
+                </div>
+                <div class="sixVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Cash Needed to Close</div>
+                <div class="sixHorizontal" style={{gridColumn: "2 / 4"}}>Total Cash to Close / Cash Back</div>
+                <div class="sixHorizontal" style={{gridColumn: "4 / 5"}}>$166,198.77</div>
+                <div class="sixHorizontal" style={{gridColumn: "5 / 6"}}>$166,219.42</div>
+                <div class="sixHorizontal" style={{gridColumn: "6 / 7"}}>$166,240.08</div>
+
+                <div class="sevenOne">
+                    <p style={{backgroundColor: "white", fontSize: "15px", marginLeft: 5}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.</p>
+                    <p style={{backgroundColor: "white", fontSize: "12px", marginLeft: 5}}>*The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.</p>
+                </div>
+                <div class="sevenTwo">
+                    <p style={{backgroundColor: "white", fontSize: "16px"}}>Notes:</p>
+                </div>
+                
             </div>
         </div>
     )

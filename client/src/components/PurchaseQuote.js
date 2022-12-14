@@ -82,7 +82,7 @@ const context = useContext(MortgageContext)
                         <div>30</div>
                     </div>
                 </div> 
-                <div class="ptwoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "24px"}}>Loan Terms</div>
+                <div class="ptwoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Loan Terms</div>
                 <div class="ptwoHorizontal">
                     <div style={{justifyContent: "flex-end"}}>Interest Rate</div>
                     <div>&nbsp;</div>
@@ -122,30 +122,30 @@ const context = useContext(MortgageContext)
                         <div>&nbsp;</div>
                     </div>
                 </div>
-                <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "22px"}}>Payment Breakdown</div>
+                <div class="pthreeVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Payment Breakdown</div>
 
-                    <div class="pthreeHorizontal1"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>House Payment</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>Difference</div></div></div>
-                    <div class="pthreeHorizontal2"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div> </div>
-                    <div class="pthreeHorizontal3"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
-                    <div class="pthreeHorizontal4"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
-                    <div class="pthreeHorizontal5"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "14px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                <div class="pthreeHorizontal1"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>House Payment</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>Difference</div></div></div>
+                <div class="pthreeHorizontal2"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div> </div>
+                <div class="pthreeHorizontal3"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                <div class="pthreeHorizontal4"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                <div class="pthreeHorizontal5"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
 
-                    <div class="pfourOne" style={{display: "grid", gridColumn: "2 / 4"}}>
-                        <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>Beam Lending Costs</div>
-                        <div>Origination</div>
-                        <div>Lender Credit/Discount</div>
-                        <div>Underwriting</div>
-                        <div>Tax Service</div>
-                        <div>Credit Report</div>
-                        <div>Flood Certificate</div>
-                        <div>Appraisal</div>
-                        <br />
-                        <div style={{fontWeight: "bold", fontSize: "18px"}}>Title Company Fees</div>
-                        <div style={{fontSize: "14px", marginBottom: 3}}>Funding Fee / Upfront Mortgage Insurance (if applicable)</div>
-                    </div>
+                <div class="pfourOne" style={{display: "grid", gridColumn: "2 / 4"}}>
+                    <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>Beam Lending Costs</div>
+                    <div>Origination</div>
+                    <div>Lender Credit/Discount</div>
+                    <div>Underwriting</div>
+                    <div>Tax Service</div>
+                    <div>Credit Report</div>
+                    <div>Flood Certificate</div>
+                    <div>Appraisal</div>
+                    <br />
+                    <div style={{fontWeight: "bold", fontSize: "18px"}}>Title Company Fees</div>
+                    <div style={{fontSize: "14px", marginBottom: 3}}>Funding Fee / Upfront Mortgage Insurance (if applicable)</div>
+                </div>
                 <div class="pfour">
                     <div class="pfourThree">
-                        <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
                         <div>$2,010.00</div>
                         <div>$0.00</div>
                         <div>$995.00</div>
@@ -154,11 +154,11 @@ const context = useContext(MortgageContext)
                         <div>$8.00</div>
                         <div>$635.00</div>
                         <br />
-                        <div style={{fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
                         <div style={{marginBottom: 3}}>$0.00</div>
                     </div>
                     <div class="pfourFour">
-                        <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
                         <div>$2,010.00</div>
                         <div>$0.00</div>
                         <div>$995.00</div>
@@ -167,11 +167,11 @@ const context = useContext(MortgageContext)
                         <div>$8.00</div>
                         <div>$635.00</div>
                         <br />
-                        <div style={{fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
                         <div style={{marginBottom: 3}}>$0.00</div>
                     </div>
                     <div class="pfourFive">
-                        <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>$3,776.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
                         <div>$2,010.00</div>
                         <div>$0.00</div>
                         <div>$995.00</div>
@@ -180,7 +180,7 @@ const context = useContext(MortgageContext)
                         <div>$8.00</div>
                         <div>$635.00</div>
                         <br />
-                        <div style={{fontWeight: "bold", fontSize: "18px"}}>$1,900.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
                         <div style={{marginBottom: 3}}>$0.00</div>
                     </div>
                 </div>
@@ -225,24 +225,19 @@ const context = useContext(MortgageContext)
                         <div>$764.08.00</div>
                     </div>
                 </div>
-                <div class="pfiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "20px"}}>Cash Needed to Close</div>
+                <div class="pfiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Cash Needed to Close</div>
                 <div class="pfiveHorizontal" style={{gridColumn: "2 / 4"}}>Total Cash to Close / Cash Back</div>
                 <div class="pfiveHorizontal" style={{gridColumn: "4 / 5"}}>$166,198.77</div>
                 <div class="pfiveHorizontal" style={{gridColumn: "5 / 6"}}>$166,219.42</div>
                 <div class="pfiveHorizontal" style={{gridColumn: "6 / 7"}}>$166,240.08</div>
 
-                    <div class="psixOne">
-                        <p style={{backgroundColor: "white", fontSize: "15px", marginLeft: 5}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.</p>
-                        <p style={{backgroundColor: "white", fontSize: "12px", marginLeft: 5}}>*The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.</p>
-                    </div>
-                    <div class="psixTwo">
-                        <p style={{backgroundColor: "white", fontSize: "16px"}}>Notes:</p>
-                    </div>
-                    {/* <div class="psixThree"></div> 
-                    <div class="psixFour"></div>
-                    <div class="psixFive"></div>
-                    <div class="psixVertical"></div>
-                    <div class="psixHorizontal"></div> */}
+                <div class="psixOne">
+                    <p style={{backgroundColor: "white", fontSize: "15px", marginLeft: 5}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.</p>
+                    <p style={{backgroundColor: "white", fontSize: "12px", marginLeft: 5}}>*The Information provided herein reflects estimates of the charges which you would likely incur should you be approved for a loan. This is not a Loan Estimate required by Federal Law. If you make an application, your Loan Estimate will be sent to you in the opening package. This is not a commitment to lend, nor is it a rate lock, prequalification or pre-approval. This estimate is intended to assist you in evaluating a loan or home purchase using estimated closing and property costs. Closing and settlement cost, reserve deposits, Interest rate and APR are subject to change and the estimates shown above may be more or less depending on factors such as down payment, property type, appraisal and occupancy. Housing costs will vary depending on location, homeowner’s association dues, local and state fees, taxes, and hazard and mortgage insurance. You may wish to compare these estimated charges in considering the total cost of your mortgage.</p>
+                </div>
+                <div class="psixTwo">
+                    <p style={{backgroundColor: "white", fontSize: "16px"}}>Notes:</p>
+                </div>
 
                 {/* <div class="seven"></div> */}
             </div>
