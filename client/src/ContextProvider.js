@@ -377,7 +377,7 @@ function MortgageContextProvider(props) {
     function getLoanInputs() {
         userAxios.get("/api/loaninput")
             .then(res => {
-                // console.log(res.data, "get req")
+                console.log("context, getLoanInputs()")
                 setLoanInput(res.data[0])
             })
             .catch(err => console.log(err))

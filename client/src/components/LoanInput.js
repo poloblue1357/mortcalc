@@ -8,7 +8,6 @@ function LoanInput() {
     const {editLoanInput, getLoanInputs, loanInput, getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData, setGetLoanInput, handleSubmitLoanInput} = useContext(MortgageContext)
 
     const testing = () => {
-
         console.log(
             "localLI state",
             // getFeeSetupData,
@@ -21,6 +20,7 @@ function LoanInput() {
         console.log("clear")
         setLocalLI({name: "", address: "", phone: "", email: "", loanPurpose: "", currentRate: "", currentEscrow: "", rentPayment: "", currentMI: "", term: "", firstLoanBalance: "", loanType: "", bestRate: "", betterRate: "", goodRate: "", creditDiscountBest: "", creditDiscountBetter: "", creditDiscountGood: "", additionalBest: "", additionalBetter: "", additionalGood: "", appraisedValue: "", purchasePrice: "", baseLoanAmount: "", loanTerm: "", monthlyMIFactor: "", additionalMonthlyBest: "", additionalMonthlyBetter: "", additionalMonthlyGood: "", titleInsurance: "", monthlyTaxes: "", reservesTaxes: "", monthlyInsurance: "", reservesInsurance: "", daysRequired: ""})
     }
+
     const [localLI, setLocalLI] = useState({name: loanInput.name, address: loanInput.address, phone: loanInput.phone, email: loanInput.email, loanPurpose: loanInput.loanPurpose, currentRate: loanInput.currentRate, currentEscrow: loanInput.currentEscrow, rentPayment: loanInput.rentPayment, currentMI: loanInput.currentMI, term: loanInput.term, firstLoanBalance: loanInput.firstLoanBalance, loanType: loanInput.loanType, bestRate: loanInput.bestRate, betterRate: loanInput.betterRate, goodRate: loanInput.goodRate, creditDiscountBest: loanInput.creditDiscountBest, creditDiscountBetter: loanInput.creditDiscountBetter, creditDiscountGood: loanInput.creditDiscountGood, additionalBest: loanInput.additionalBest, additionalBetter: loanInput.additionalBetter, additionalGood: loanInput.additionalGood, appraisedValue: loanInput.appraisedValue, purchasePrice: loanInput.purchasePrice, baseLoanAmount: loanInput.baseLoanAmount, loanTerm: loanInput.loanTerm, monthlyMIFactor: loanInput.monthlyMIFactor, additionalMonthlyBest: loanInput.additionalMonthlyBest, additionalMonthlyBetter: loanInput.additionalMonthlyBetter, additionalMonthlyGood: loanInput.additionalMonthlyGood, titleInsurance: loanInput.titleInsurance, monthlyTaxes: loanInput.monthlyTaxes, reservesTaxes: loanInput.reservesTaxes, monthlyInsurance: loanInput.monthlyInsurance, reservesInsurance: loanInput.reservesInsurance, daysRequired: loanInput.daysRequired})
     const [getLocalLI, setGetLocalLI] = useState([])
     const handleChangeLoanInput = (event) => {
@@ -32,6 +32,7 @@ function LoanInput() {
     const x = getFeeSetupData?.find(data => {
         return data.feeScenario === localLI.loanType 
     })
+
     useEffect(() => {
         userAxios.get("/api/feesetup")
             .then(res => {
