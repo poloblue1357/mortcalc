@@ -26,6 +26,7 @@
     text-align: center;
     align-items: flex-end;
     display: flex;
+    font-size: 14px;
 }
 .rightSide {
     background-color: #334960;

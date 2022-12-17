@@ -27,10 +27,10 @@ function LPS() {
                 handleSubmitLPS()
                 event.target.reset()
             }}>
-                <input placeholder="$ Loan Amount" type="number" name="loanAmount" value={context.loanAmount} onChange={context.handleChangeLPS}/>
-                <input placeholder="$ Refinance" type="number" name="refinance" value={context.refinance} onChange={context.handleChangeLPS}/>
-                <input placeholder="$ Purchases" type="number" name="purchases" value={context.purchases} onChange={context.handleChangeLPS}/>
-                <button type="submit">Submit!</button>
+                <input placeholder="$ Loan Amount" type="number" name="loanAmount" value={context.loanAmount} onChange={context.handleChangeLPS} style={{backgroundColor: "#d9ead3"}}/>
+                <input placeholder="$ Refinance" type="number" name="refinance" value={context.refinance} onChange={context.handleChangeLPS} style={{backgroundColor: "#d9ead3"}}/>
+                <input placeholder="$ Purchases" type="number" name="purchases" value={context.purchases} onChange={context.handleChangeLPS} style={{backgroundColor: "#d9ead3"}}/>
+                <button type="submit" style={{backgroundColor: "black", color: "white"}}>Submit!</button>
             </form>
             <br />
             <br />

@@ -15,6 +15,7 @@ function LPSdisplay(props) {
                             padding: "5px", 
                             height: "18px", 
                             width: "134px",
+                            backgroundColor: "#d9ead3",
                             display: "flex", justifyContent: "center"}}>$ {props.item.loanAmount.toLocaleString()}</td>
                         <td style={{
                             border: "1px solid black", 
@@ -28,8 +29,9 @@ function LPSdisplay(props) {
                             padding: "5px", 
                             height: "18px", 
                             width: "134px",
+                            backgroundColor: "#d9ead3",
                             display: "flex", justifyContent: "center"}}>$ {props.item.purchases.toLocaleString()}</td>
-                        <button onClick={() => context.deleteLPS(props.item._id)}>Delete</button>
+                        <button onClick={() => context.deleteLPS(props.item._id)} style={{backgroundColor: "black", color: "white"}}>Delete</button>
                     </tr>
                 </tbody>
             </table>
