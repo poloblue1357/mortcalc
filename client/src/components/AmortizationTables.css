@@ -79,6 +79,7 @@
 } */
 .currentContainer {
     display: grid;
+    position: relative;
     /* grid-template-columns: 60px 380px;
     grid-template-rows: 30px 1fr;
     width: 440px; */
@@ -96,10 +97,15 @@
     grid-row: 3 / 4;
     /* padding: 0px; */
     margin: 0px;
+    position: absolute;
+    left: -62px;
+    top: -2px;
+    font-size: 12px;
 }
 .tableNumber {
     background-color: #c9daf8;
     grid-column: 2 / 4;
     grid-row: 3 / 4;
     width: 396px;
+    font-size: 12px;
 }

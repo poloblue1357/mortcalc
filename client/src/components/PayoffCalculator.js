@@ -4,7 +4,7 @@ import {MortgageContext} from "../ContextProvider"
 function PayoffCalculator(props) {
 
     const context = useContext(MortgageContext)
-    const {editPayoffCalc, userAxios, handleSubmitPayoffCalc, checked, getPayoffCalc, pcInput} = useContext(MortgageContext)
+    const {editPayoffCalc, userAxios, handleSubmitPayoffCalc, checked, getPayoffCalc, pcInput, loanInput} = useContext(MortgageContext)
 
     useEffect(() => {
         getPayoffCalc()
@@ -24,9 +24,6 @@ function PayoffCalculator(props) {
             return ({...prevInput, [name]: value})
         }) 
     }
-    // const handleChangeCheckbox = () => {
-    //     setChecked(!checked)
-    // }
 
     return (
         <div>
@@ -39,7 +36,7 @@ function PayoffCalculator(props) {
                     <tbody style={{backgroundColor: "#c9daf8"}}>
                         <tr style={{backgroundColor: "#c9daf8"}}>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Most Recent Known Loan Balance</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {loanInput.firstLoanBalance}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
@@ -90,15 +87,15 @@ function PayoffCalculator(props) {
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Estimated Days of Perdiem</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Accrued Interest</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {Math.round(((+loanInput.firstLoanBalance * +loanInput.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)) * 100) / 100}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Typical Fees from Prior Lender</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ 
                                 <input placeholder="Fee Amount" 
                                     style={{backgroundColor: "white"}} 
                                     name="typicalFees"
@@ -109,7 +106,7 @@ function PayoffCalculator(props) {
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Estimated Payoff</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {150}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {+pcInput.typicalFees + +(Math.round(((+loanInput.firstLoanBalance * +loanInput.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)) * 100) / 100)}</td>
                         </tr>
                     </tbody>
                 </table>
