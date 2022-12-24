@@ -1,6 +1,6 @@
 .container {
     display: grid;
-    grid-template-columns: 60px 200px 200px;
+    grid-template-columns: 60px 200px 200px 60px;
     grid-template-rows: 30px 190px 45px 1fr;
     width: 460px;
 }
@@ -34,6 +34,17 @@
     height: 100%;
     grid-row: 1 / 5;
     grid-column: 4 / 5;
+}
+.rightMap {
+    display: flex;
+    flex-direction: row;
+    grid-column: 4 / 5;
+    /* grid-row: 4 / 5; */
+    width: 60px;
+    background-color: #334960;
+    height: 100%;
+    color: #334960;
+    font-size: 12px;
 }
 .table {
     background-color: #c9daf8;

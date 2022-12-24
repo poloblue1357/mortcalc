@@ -3,7 +3,7 @@ import {MortgageContext} from "../ContextProvider"
 import "./AmortizationTables.css"
 
 
-function AmortizationTablesdisplay(props) {
+function AmortizationTablesBest(props) {
 
 const context = useContext(MortgageContext)
 
@@ -27,8 +27,8 @@ function countOne() {
   maximumFractionDigits: 2})}</td>
                         <td class="tableNumber" style={{flex: 1, textAlign: "center", width: "60px", padding: "4px 2px"}}>${props.info.payment.toLocaleString("en", {minimumFractionDigits: 2,
   maximumFractionDigits: 2})}</td>
-                        <td class="tableNumber" style={{flex: .5, textAlign: "center", width: "60px", padding: "4px 0px"}}>MI</td>
-                        <td class="tableNumber" style={{flex: .75, textAlign: "center", width: "60px", padding: "4px 0px"}}>Extra</td>
+                        <td class="tableNumber" style={{flex: .5, textAlign: "center", width: "60px", padding: "4px 0px"}}></td>
+                        <td class="tableNumber" style={{flex: .75, textAlign: "center", width: "60px", padding: "4px 0px"}}></td>
                     </tr>
                 {/* </tbody>
             </table> */}
@@ -37,4 +37,4 @@ function countOne() {
     )
 }
 
-export default AmortizationTablesdisplay
+export default AmortizationTablesBest
