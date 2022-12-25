@@ -27,8 +27,8 @@ function countOne() {
   maximumFractionDigits: 2})}</td>
                         <td class="tableNumber" style={{flex: 1, textAlign: "center", width: "60px", padding: "4px 2px"}}>${props.info.payment.toLocaleString("en", {minimumFractionDigits: 2,
   maximumFractionDigits: 2})}</td>
-                        <td class="tableNumber" style={{flex: .5, textAlign: "center", width: "60px", padding: "4px 0px"}}></td>
-                        <td class="tableNumber" style={{flex: .75, textAlign: "center", width: "60px", padding: "4px 0px"}}></td>
+                        <td class="tableNumber" style={{flex: .5, textAlign: "center", width: "60px", padding: "4px 0px"}}>${props.info.MI.toLocaleString("en")}</td>
+                        <td class="tableNumber" style={{flex: .75, textAlign: "center", width: "60px", padding: "4px 0px"}}>{props.info.extra}</td>
                     </tr>
                 {/* </tbody>
             </table> */}

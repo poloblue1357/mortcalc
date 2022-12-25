@@ -19,21 +19,27 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
         {
             balance: loanInput.baseLoanAmount,
             interest: loanInput.bestRate, 
-            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100,
+            MI: ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12,
+            extra: loanInput.additionalMonthlyBest
         }
     ]
     let betterTable = [
         {
             balance: loanInput.baseLoanAmount,
             interest: loanInput.betterRate, 
-            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100,
+            MI: ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12,
+            extra: loanInput.additionalMonthlyBetter
         }
     ]
     let goodTable = [
         {
             balance: loanInput.baseLoanAmount,
             interest: loanInput.betterRate, 
-            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100,
+            MI: ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12,
+            extra: loanInput.additionalMonthlyGood
         }
     ]
     let rightTable = [
@@ -86,6 +92,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     }
     function goodLoop() {
         const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12
         while(goodTable[goodTable.length - 1].balance >= 0) {
             if(k === 0) {
                 k++
@@ -95,7 +102,9 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                     balance: goodTable[goodTable.length - 1]?.balance - (payment - interest),
                     payment,
                     interest,
-                    principal: payment - interest
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  goodTable[i - 1].MI : 0),
+                    extra: goodTable[i - 1].extra
                 }
                 goodTable.push(newObj)
                 // setBestArr(prevArr => ([...prevArr, newObj]))
@@ -105,6 +114,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     }
     function betterLoop() {
         const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12
         while(betterTable[betterTable.length - 1].balance >= 0) {
             if(j === 0) {
                 j++
@@ -114,7 +124,9 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                     balance: betterTable[betterTable.length - 1]?.balance - (payment - interest),
                     payment,
                     interest,
-                    principal: payment - interest
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  betterTable[i - 1].MI : 0),
+                    extra: betterTable[i - 1].extra
                 }
                 betterTable.push(newObj)
                 // setBestArr(prevArr => ([...prevArr, newObj]))
@@ -124,6 +136,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     }
     function bestLoop() {
         const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12
         while(bestTable[bestTable.length - 1].balance >= 0) {
             if(i === 0) {
                 i++
@@ -133,7 +146,9 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                     balance: bestTable[bestTable.length - 1]?.balance - (payment - interest),
                     payment,
                     interest,
-                    principal: payment - interest
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  bestTable[i - 1].MI : 0),
+                    extra: bestTable[i - 1].extra
                 }
                 bestTable.push(newObj)
                 // setBestArr(prevArr => ([...prevArr, newObj]))
@@ -146,6 +161,27 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     let betterTI = Math.round((betterTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     let goodTI = Math.round((goodTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     
+    let mn4 = []
+    function mn5() {
+        for(let i = 0; i <goodTable.length; i++) {
+            mn4.push(goodTable[i].MI)
+        }
+    }
+    mn5()
+    let mn2 = []
+    function mn3() {
+        for(let i = 0; i <betterTable.length; i++) {
+            mn2.push(betterTable[i].MI)
+        }
+    }
+    mn3()
+    let mn = []
+    function mn1() {
+        for(let i = 0; i <bestTable.length; i++) {
+            mn.push(bestTable[i].MI)
+        }
+    }
+    mn1()
     let m = []
     function asdf() {
         for(let i = 0; i < 60; i++) {
@@ -160,6 +196,18 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
         }
     }
     qwer()
+    let goodMI = 0
+    for(const value of mn4) {
+        goodMI += value
+    }
+    let betterMI = 0
+    for(const value of mn2) {
+        betterMI += value
+    }
+    let bestMI = 0
+    for(const value of mn) {
+        bestMI += value
+    }
     let best5 = 0;
     for(const value of m) {
         best5 += value;
@@ -217,7 +265,6 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
 
     function testing() {
         // console.log(m)
-        console.log(bestTable)
     }
 
     useEffect(() => {
@@ -227,7 +274,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     return (
         <div style={{display: "flex"}}>
             <div style={{display: "flex"}}>
-            <button onClick={testing}>TESTING</button>
+            {/* <button onClick={testing}>TESTING</button> */}
             {/* <button onClick={whileLoop}>While Loop</button> */}
             <div class="container">
                 <div class="header">
@@ -321,7 +368,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                 <td class="values" >${(Math.round((best10) * 100) / 100).toLocaleString("en")}</td>
                 <td class="values" >${loanInput.baseLoanAmount.toLocaleString("en")}</td>
                 <td class="values" >${(+loanInput.baseLoanAmount + +bestTI).toLocaleString("en")}</td>
-                <td class="values" >$</td>
+                <td class="values" >${bestMI.toLocaleString("en")}</td>
                 <td class="values" >${(+loanInput.baseLoanAmount + +bestTI).toLocaleString("en")}</td>
                 <td class="values" >{loanInput.loanTerm / 12}</td>
             </tr>
@@ -384,7 +431,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                 <td class="values" >${(Math.round((better10) * 100) / 100).toLocaleString("en")}</td>
                 <td class="values" >${loanInput.baseLoanAmount.toLocaleString("en")}</td>
                 <td class="values" >${(+loanInput.baseLoanAmount + +betterTI).toLocaleString("en")}</td>
-                <td class="values" >$</td>
+                <td class="values" >${betterMI.toLocaleString("en")}</td>
                 <td class="values" >${(+loanInput.baseLoanAmount + +betterTI).toLocaleString("en")}</td>
                 <td class="values" >{loanInput.loanTerm / 12}</td>
             </tr>
@@ -447,7 +494,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                 <td class="values" >${(Math.round((good10) * 100) / 100).toLocaleString("en")}</td>
                 <td class="values" >${loanInput.baseLoanAmount.toLocaleString("en")}</td>
                 <td class="values" >${(+loanInput.baseLoanAmount + +goodTI).toLocaleString("en")}</td>
-                <td class="values" >$</td>
+                <td class="values" >${goodMI.toLocaleString("en")}</td>
                 <td class="values" >${(+loanInput.baseLoanAmount + +goodTI).toLocaleString("en")}</td>
                 <td class="values" >{loanInput.loanTerm / 12}</td>
             </tr>
