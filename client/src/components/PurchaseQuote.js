@@ -5,16 +5,29 @@ import beamLogo from "./beamlogo.png"
 import contactInfo from "./contactinfo.png"
 import customQuotes from "./custom quotes.png"
 import pfp from "./pfp.png"
+import LoanInput from "./LoanInput"
 
 function PurchaseQuote() {
 
-const context = useContext(MortgageContext)
+    const context = useContext(MortgageContext)
+    const {loanInput, getLoanInputs} = useContext(MortgageContext)
+
     // {loadInput.extra ? loanInput?.extra || "&nbsp;"}
     // linkedin endorsement, pass on my info to clients, stress it was a client project in resume
     const current = new Date();
     const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`
+    
+    useEffect(() => {
+        getLoanInputs()
+    }, [])
+
+    function testing() {
+        console.log(loanInput)
+    }
+    
     return (
         <div>
+            <button onClick={testing}>testing</button>
             <h1>Purchase Quote</h1>
             <div class="pparent">
                 {/* <div class="pone"> */}
@@ -26,7 +39,7 @@ const context = useContext(MortgageContext)
                         <div style={{backgroundColor: "#334960", fontSize: "14px", alignItems: "bottom"}}>This is not a loan estimate*</div>
                     </div>
                     <div class="poneThree">
-                        <div style={{backgroundColor: "#334960", fontSize: "26px"}}>Morgan Brush</div>
+                        <div style={{backgroundColor: "#334960", fontSize: "26px"}}>{loanInput.name}</div>
                         <div style={{backgroundColor: "#334960"}}>Date: {date}</div>
                     </div>
                     <div class="poneFour">

@@ -5,7 +5,7 @@ function LoanInput() {
 
     const context = useContext(MortgageContext)
 
-    const {editLoanInput, getLoanInputs, loanInput, getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData, setGetLoanInput, handleSubmitLoanInput} = useContext(MortgageContext)
+    const {pcInput, editLoanInput, getLoanInputs, loanInput, getFeeSetupData, userAxios, setGetFeeSetupData, getTitleFeesData, setGetTitleFeesData, setGetLoanInput, handleSubmitLoanInput} = useContext(MortgageContext)
 
     const testing = () => {
         console.log(
@@ -144,8 +144,8 @@ function LoanInput() {
                     <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Adtnl Principal Pmnts / Mos
                         
                     </td>
-                    <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Estimated Payoff
-                        
+                    <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Estimated Payoff: {'       '}
+                        ${(+pcInput.typicalFees + +(Math.round(((+loanInput.firstLoanBalance * +loanInput.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)) * 100) / 100)).toLocaleString("en")}
                     </td>
                 </tr>
                 <h2>Loan Terms</h2>

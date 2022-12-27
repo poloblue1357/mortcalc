@@ -15,6 +15,7 @@ function AmortizationTables() {
 
 const context = useContext(MortgageContext)
 const {loanInput, getLoanInputs} = useContext(MortgageContext)
+
     let currentTable = [
         {
             balance: loanInput.firstLoanBalance,
@@ -97,8 +98,8 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                     payment,
                     interest,
                     principal: payment - interest,
-                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  currentTable[i - 1].MI : 0),
-                    extra: currentTable[i - 1].extra
+                    MI: ((mortgageInsurance[c] > (loanInput.appraisedValue * 0.8)) ?  currentTable[c - 1].MI : 0),
+                    extra: currentTable[c - 1].extra
                 }
                 currentTable.push(newObj)
                 // setBestArr(prevArr => ([...prevArr, newObj]))
@@ -138,8 +139,8 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                     payment,
                     interest,
                     principal: payment - interest,
-                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  goodTable[i - 1].MI : 0),
-                    extra: goodTable[i - 1].extra
+                    MI: ((mortgageInsurance[k] > (loanInput.appraisedValue * 0.8)) ?  goodTable[k - 1].MI : 0),
+                    extra: goodTable[k - 1].extra
                 }
                 goodTable.push(newObj)
                 // setBestArr(prevArr => ([...prevArr, newObj]))
@@ -160,8 +161,8 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                     payment,
                     interest,
                     principal: payment - interest,
-                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  betterTable[i - 1].MI : 0),
-                    extra: betterTable[i - 1].extra
+                    MI: ((mortgageInsurance[j] > (loanInput.appraisedValue * 0.8)) ?  betterTable[j - 1].MI : 0),
+                    extra: betterTable[j - 1].extra
                 }
                 betterTable.push(newObj)
                 // setBestArr(prevArr => ([...prevArr, newObj]))
