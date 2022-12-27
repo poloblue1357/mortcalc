@@ -24,10 +24,10 @@ function PurchaseQuote() {
     function testing() {
         console.log(loanInput)
     }
-    
+
     return (
         <div>
-            <button onClick={testing}>testing</button>
+            {/* <button onClick={testing}>testing</button> */}
             <h1>Purchase Quote</h1>
             <div class="pparent">
                 {/* <div class="pone"> */}

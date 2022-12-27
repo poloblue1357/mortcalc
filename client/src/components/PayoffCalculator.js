@@ -175,7 +175,7 @@ function PayoffCalculator(props) {
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Estimated Payoff</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {(+pcInput.typicalFees + +(Math.round(((+loanInput.firstLoanBalance * +loanInput.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)) * 100) / 100)).toLocaleString("en")}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {((+loanInput.firstLoanBalance + +(Math.round((principalPaid) * 100) / 100))+ +pcInput.typicalFees + +(Math.round(((+loanInput.firstLoanBalance * +loanInput.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)) * 100) / 100)).toLocaleString("en")}</td>
                         </tr>
                     </tbody>
                 </table>
