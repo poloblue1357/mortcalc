@@ -24,6 +24,7 @@ function PayoffCalculator(props) {
             return ({...prevInput, [name]: value})
         }) 
     }
+     
 
     return (
         <div>

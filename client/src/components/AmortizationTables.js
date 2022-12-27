@@ -3,6 +3,7 @@ import {MortgageContext} from "../ContextProvider"
 import AmortizationTablesBest from "./AmortizationTablesBest.js"
 import AmortizationTablesBetter from "./AmortizationTablesBetter.js"
 import AmortizationTablesGood from "./AmortizationTablesGood.js"
+import AmortizationTablesCurrent from "./AmortizationTablesCurrent.js"
 import ATRightSide from "./ATRightSide"
 import "./AmortizationTables.css"
 
@@ -14,7 +15,15 @@ function AmortizationTables() {
 
 const context = useContext(MortgageContext)
 const {loanInput, getLoanInputs} = useContext(MortgageContext)
-
+    let currentTable = [
+        {
+            balance: loanInput.firstLoanBalance,
+            interest: loanInput.currentRate,
+            payment: loanInput.rentPayment,
+            MI: loanInput.currentMI,
+            // extra
+        }
+    ]
     let bestTable = [
         {
             balance: loanInput.baseLoanAmount,
@@ -54,11 +63,12 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     let j = 0
     let k = 0
     let l = 0
-
+    let c = 0
     bestLoop()
     betterLoop()
     goodLoop()
     rightLoop()
+    currentLoop()
     const p = bestTable.map((info, i) => {
         return <AmortizationTablesBest info={info} key={i} i={i}/>
     })
@@ -71,6 +81,31 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     const s = goodTable.map((info, l) => {
         return <ATRightSide info={info} key={l} l={l}/>
     })
+    const t = currentTable.map((info, c) => {
+        return <AmortizationTablesCurrent info={info} key={c} c={c}/>
+    })
+    function currentLoop() {
+        const payment = Math.round((loanInput?.firstLoanBalance * ((((loanInput.currentRate / 100) / 12) * (1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term)) / ((1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.firstLoanBalance) / 100) / 12
+        while(currentTable[currentTable.length - 1].balance >= 0) {
+            if(c === 0) {
+                c++
+            } else {
+                let interest = (currentTable[currentTable.length-1].balance * ((loanInput.currentRate / 100) / 12))
+                const newObj = {
+                    balance: currentTable[currentTable.length - 1]?.balance - (payment - interest),
+                    payment,
+                    interest,
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  currentTable[i - 1].MI : 0),
+                    extra: currentTable[i - 1].extra
+                }
+                currentTable.push(newObj)
+                // setBestArr(prevArr => ([...prevArr, newObj]))
+            }
+        }
+        currentTable.splice(0, 1)
+    }
     function rightLoop() {
         const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
         while(goodTable[goodTable.length - 1].balance >= 0) {
@@ -160,7 +195,37 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     let bestTI = Math.round((bestTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     let betterTI = Math.round((betterTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     let goodTI = Math.round((goodTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
+    let currentTI = Math.round((currentTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     
+    let ct = []
+    function ct1() {
+        for(let i = 0; i < 60; i++) {
+            ct.push(currentTable[i]?.interest)
+        }
+    }
+    ct1()
+    let ct2 = []
+    function ct3() {
+        for(let i = 0; i < 120; i++) {
+            ct2.push(currentTable[i]?.interest)
+        }
+    }
+    ct3()
+    let current5 = 0;
+    for(const value of ct) {
+        current5 += value;
+    }
+    let current10 = 0;
+    for(const value of ct2) {
+        current10 += value;
+    }
+    let cl = []
+    function cl1() {
+        for(let i = 0; i <currentTable.length; i++) {
+            cl.push(currentTable[i].MI)
+        }
+    }
+    cl1()
     let mn4 = []
     function mn5() {
         for(let i = 0; i <goodTable.length; i++) {
@@ -196,6 +261,10 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
         }
     }
     qwer()
+    let currentMI = 0
+    for(const value of cl) {
+        currentMI += value
+    }
     let goodMI = 0
     for(const value of mn4) {
         goodMI += value
@@ -280,8 +349,11 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                 <div class="header">
                     Current Loan
                 </div>
-                <div class="leftSide">
-                    Payment Count
+                {/* <div class="leftSide" style={{backgroundColor: "#334960"}}>okay</div> */}
+                <div class="leftSide">Payment #
+                    {/* <div style={{display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "#334960", color: "#334960", fontSize: "16px", flexDirection: "column"}}>
+                        number
+                    </div> */}
                 </div>
                 <table class="table">
                     <tbody >
@@ -301,14 +373,14 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                 <table class='tableValues'>
                     <tbody class='tableValues'>
                         <tr class='tableValues'>
-                            <td class="values" >$</td>
-                            <td class="values" >$</td>
-                            <td class="values" >$</td>
-                            <td class="values" >$</td>
-                            <td class="values" >$</td>
-                            <td class="values" >$</td>
-                            <td class="values" >$</td>
-                            <td class="values" >$</td>
+                            <td class="values" >${currentTI.toLocaleString("en")}</td>
+                            <td class="values" >${(Math.round((current5) * 100) / 100).toLocaleString("en")}</td>
+                            <td class="values" >${(Math.round((current10) * 100) / 100).toLocaleString("en")}</td>
+                            <td class="values" >${loanInput.firstLoanBalance.toLocaleString("en")}</td>
+                            <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
+                            <td class="values" >${currentMI.toLocaleString("en")}</td>
+                            <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
+                            <td class="values">&nbsp;</td>
                         </tr>
                     </tbody>
                 </table>
@@ -323,13 +395,14 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                             <td class="bodyHeader" style={{fontWeight: "bold", flex: .75, textAlign: "center", width: "60px", padding: "0px 0px"}}>Extra</td>
                         </tr>
                         <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>${loanInput.firstLoanBalance}</td>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 1px"}}>{loanInput.currentRate}%</td>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>$</td>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "0px 2px"}}>${loanInput.rentPayment}</td>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "0px 0px"}}>{loanInput.currentMI}</td>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .75, justifyContent: "center", width: "60px", padding: "0px 0px"}}></td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 1px"}}>${loanInput.firstLoanBalance.toLocaleString("en")}</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 1px"}}>{loanInput.currentRate}%</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 2px"}}></td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 2px"}}>${loanInput.rentPayment.toLocaleString("en")}</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "4px 0px"}}>${loanInput.currentMI.toLocaleString("en")}</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .75, justifyContent: "center", width: "60px", padding: "4px 0px"}}></td>
                         </tr>
+                        {t}
                     </tbody>
                 </table>
                 {/* <hr class="hr"/> */}
