@@ -198,6 +198,13 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     let goodTI = Math.round((goodTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     let currentTI = Math.round((currentTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     
+    let pmtArr = []
+    function pmtArr1() {
+        for(let i = 0; i < currentTable.length; i++) {
+            pmtArr.push(currentTable[i].payment)
+        }
+    }
+    pmtArr1()
     let ct = []
     function ct1() {
         for(let i = 0; i < 60; i++) {
@@ -334,13 +341,14 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     }
 
     function testing() {
-        // console.log(m)
+        console.log(pmtArr)
     }
 
     useEffect(() => {
         getLoanInputs()
     }, [])
 
+    // let nbsp = &nbsp;
     return (
         <div style={{display: "flex"}}>
             <div style={{display: "flex"}}>
@@ -381,7 +389,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
                             <td class="values" >${currentMI.toLocaleString("en")}</td>
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
-                            <td class="values">&nbsp;</td>
+                            <td class="values">{pmtArr.length > 0 ? Math.round(pmtArr.length / 12) : <div style={{backgroundColor: "#c9daf8"}}>&nbsp;</div>}</td>
                         </tr>
                     </tbody>
                 </table>

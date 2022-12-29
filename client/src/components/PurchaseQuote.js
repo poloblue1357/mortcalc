@@ -22,12 +22,12 @@ function PurchaseQuote() {
     }, [])
 
     function testing() {
-        console.log(loanInput)
+        console.log(loanInput.term)
     }
 
     return (
         <div>
-            {/* <button onClick={testing}>testing</button> */}
+            <button onClick={testing}>testing</button>
             <h1>Purchase Quote</h1>
             <div class="pparent">
                 {/* <div class="pone"> */}
@@ -70,38 +70,38 @@ function PurchaseQuote() {
                         <div style={{fontSize: "17px", fontWeight: "bold"}}>Current Housing Expense</div>
                         <div style={{fontWeight: "bold"}}>N/A</div>
                         <div style={{fontWeight: "bold"}}>N/A</div>
-                        <div>Unknown</div>
-                        <div>0.0</div>
+                        <div>{loanInput.firstLoanBalance === null ? "Unknown" : loanInput.firstLoanBalance.toLocaleString("en")}</div>
+                        <div>{loanInput.term === null ? "Unknown" : loanInput.term / 12}</div>
                     </div>
                     <div class="ptwoThree">
                         <div style={{fontSize: "17px"}}>Best Rate / Higher Cost</div>
-                        <div>$560,000.00</div>
-                        <div>$158,000.00</div>
-                        <div>$402,000.00</div>
-                        <div>30</div>
+                        <div>${loanInput.purchasePrice.toLocaleString("en")}</div>
+                        <div>${(+loanInput.purchasePrice - +loanInput.baseLoanAmount).toLocaleString("en")}</div>
+                        <div>${loanInput.baseLoanAmount.toLocaleString("en")}</div>
+                        <div>{loanInput.loanTerm / 12}</div>
                     </div>
                     <div class="ptwoFour">
                         <div style={{fontSize: "17px"}}>Better Rate / Moderate Cost</div>
-                        <div>$560,000.00</div>
-                        <div>$158,000.00</div>
-                        <div>$402,000.00</div>
-                        <div>30</div>
+                        <div>${loanInput.purchasePrice.toLocaleString("en")}</div>
+                        <div>${(+loanInput.purchasePrice - +loanInput.baseLoanAmount).toLocaleString("en")}</div>
+                        <div>${loanInput.baseLoanAmount.toLocaleString("en")}</div>
+                        <div>{loanInput.loanTerm / 12}</div>
                     </div>
                     <div class="ptwoFive">
                         <div style={{fontSize: "17px"}}>Good Rate / Low Cost</div>
-                        <div>$560,000.00</div>
-                        <div>$158,000.00</div>
-                        <div>$402,000.00</div>
-                        <div>30</div>
+                        <div>${loanInput.purchasePrice.toLocaleString("en")}</div>
+                        <div>${(+loanInput.purchasePrice - +loanInput.baseLoanAmount).toLocaleString("en")}</div>
+                        <div>${loanInput.baseLoanAmount.toLocaleString("en")}</div>
+                        <div>{loanInput.loanTerm / 12}</div>
                     </div>
                 </div> 
                 <div class="ptwoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Loan Terms</div>
                 <div class="ptwoHorizontal">
                     <div style={{justifyContent: "flex-end"}}>Interest Rate</div>
                     <div>&nbsp;</div>
-                    <div>4.375%</div>
-                    <div>4.500%</div>
-                    <div>4.625%</div>
+                    <div>{loanInput.bestRate}%</div>
+                    <div>{loanInput.betterRate}%</div>
+                    <div>{loanInput.goodRate}%</div>
                 </div>
                 <div class="pthree">
                     <div class="pthreeOne">

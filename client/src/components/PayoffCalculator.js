@@ -105,7 +105,7 @@ function PayoffCalculator(props) {
                     <tbody style={{backgroundColor: "#c9daf8"}}>
                         <tr style={{backgroundColor: "#c9daf8"}}>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Most Recent Known Loan Balance</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {loanInput.firstLoanBalance.toLocaleString("en")}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {loanInput.firstLoanBalance}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
