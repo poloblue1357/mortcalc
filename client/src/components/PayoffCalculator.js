@@ -105,7 +105,7 @@ function PayoffCalculator(props) {
                     <tbody style={{backgroundColor: "#c9daf8"}}>
                         <tr style={{backgroundColor: "#c9daf8"}}>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Most Recent Known Loan Balance</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {loanInput.firstLoanBalance}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {loanInput?.firstLoanBalance}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>
@@ -140,7 +140,7 @@ function PayoffCalculator(props) {
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>New Loan Balance</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {(+loanInput.firstLoanBalance + +(Math.round((principalPaid) * 100) / 100)).toLocaleString("en")}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {(+loanInput?.firstLoanBalance + +(Math.round((principalPaid) * 100) / 100)).toLocaleString("en")}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Skip 2 payments</td>
@@ -160,7 +160,7 @@ function PayoffCalculator(props) {
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Accrued Interest</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {(Math.round(((+loanInput.firstLoanBalance * +loanInput.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)) * 100) / 100).toLocaleString("en")}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$ {(Math.round(((+loanInput?.firstLoanBalance * +loanInput?.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput?.daysRequired) : ((31 - +loanInput?.daysRequired) + 30)) * 100) / 100).toLocaleString("en")}</td>
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>Typical Fees from Prior Lender</td>
@@ -175,7 +175,7 @@ function PayoffCalculator(props) {
                         </tr>
                         <tr>
                             <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>Estimated Payoff</td>
-                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {((+loanInput.firstLoanBalance + +(Math.round((principalPaid) * 100) / 100))+ +pcInput.typicalFees + +(Math.round(((+loanInput.firstLoanBalance * +loanInput.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput.daysRequired) : ((31 - +loanInput.daysRequired) + 30)) * 100) / 100)).toLocaleString("en")}</td>
+                            <td style={{border: "1px solid black", backgroundColor: "#c9daf8", fontWeight: "bold"}}>$ {((+loanInput?.firstLoanBalance + +(Math.round((principalPaid) * 100) / 100))+ +pcInput.typicalFees + +(Math.round(((+loanInput?.firstLoanBalance * +loanInput?.currentRate) / 365) * (pcInput.checked ? (31 - +loanInput?.daysRequired) : ((31 - +loanInput?.daysRequired) + 30)) * 100) / 100)).toLocaleString("en")}</td>
                         </tr>
                     </tbody>
                 </table>

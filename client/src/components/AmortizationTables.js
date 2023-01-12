@@ -18,10 +18,10 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
 
     let currentTable = [
         {
-            balance: loanInput.firstLoanBalance,
-            interest: loanInput.currentRate,
-            payment: loanInput.rentPayment,
-            MI: loanInput.currentMI,
+            balance: loanInput.firstLoanBalance || 0,
+            interest: loanInput.currentRate || 0,
+            payment: loanInput.rentPayment || 0,
+            MI: loanInput.currentMI || 0,
             // extra
         }
     ]
@@ -86,7 +86,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
         return <AmortizationTablesCurrent info={info} key={c} c={c}/>
     })
     function currentLoop() {
-        const payment = Math.round((loanInput?.firstLoanBalance * ((((loanInput.currentRate / 100) / 12) * (1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term)) / ((1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term) - 1))) * 100) / 100
+        const payment = Math.round((loanInput.firstLoanBalance * ((((loanInput.currentRate / 100) / 12) * (1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term)) / ((1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term) - 1))) * 100) / 100
         const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.firstLoanBalance) / 100) / 12
         while(currentTable[currentTable.length - 1].balance >= 0) {
             if(c === 0) {
@@ -206,9 +206,13 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     }
     pmtArr1()
     let ct = []
+    let current5 = 0;
     function ct1() {
         for(let i = 0; i < 60; i++) {
             ct.push(currentTable[i]?.interest)
+        }
+        for(const value of ct) {
+            current5 += value;
         }
     }
     ct1()
@@ -219,10 +223,6 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
         }
     }
     ct3()
-    let current5 = 0;
-    for(const value of ct) {
-        current5 += value;
-    }
     let current10 = 0;
     for(const value of ct2) {
         current10 += value;
@@ -385,7 +385,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                             <td class="values" >${currentTI.toLocaleString("en")}</td>
                             <td class="values" >${(Math.round((current5) * 100) / 100).toLocaleString("en")}</td>
                             <td class="values" >${(Math.round((current10) * 100) / 100).toLocaleString("en")}</td>
-                            <td class="values" >${loanInput.firstLoanBalance.toLocaleString("en")}</td>
+                            <td class="values" >${(loanInput.firstLoanBalance)}</td>
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
                             <td class="values" >${currentMI.toLocaleString("en")}</td>
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
@@ -404,11 +404,11 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                             <td class="bodyHeader" style={{fontWeight: "bold", flex: .75, textAlign: "center", width: "60px", padding: "0px 0px"}}>Extra</td>
                         </tr>
                         <tr class="bodyHeader" style={{display: "flex", justifyContent: "space-around"}}>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 1px"}}>${loanInput.firstLoanBalance.toLocaleString("en")}</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 1px"}}>${loanInput.firstLoanBalance === null ? 0  : loanInput.firstLoanBalance.toLocaleString("en")}</td>
                             <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 1px"}}>{loanInput.currentRate}%</td>
                             <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 2px"}}></td>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 2px"}}>${loanInput.rentPayment.toLocaleString("en")}</td>
-                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "4px 0px"}}>${loanInput.currentMI.toLocaleString("en")}</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: 1, justifyContent: "center", width: "60px", padding: "4px 2px"}}>${loanInput.rentPayment ? loanInput.rentPayment.toLocaleString("en") : 0}</td>
+                            <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .5, justifyContent: "center", width: "60px", padding: "4px 0px"}}>${loanInput.currentMI ? loanInput.currentMI.toLocaleString("en") : 0}</td>
                             <td class="bodyHeader" style={{display: "flex", fontWeight: "bold", flex: .75, justifyContent: "center", width: "60px", padding: "4px 0px"}}></td>
                         </tr>
                         {t}
