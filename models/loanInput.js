@@ -35,6 +35,9 @@ const loanInputSchema = new Schema ({
     firstLoanBalance: {
         type: Number
     },
+    estimatedPayoff: {
+        type: Number
+    },
     loanType: {
         type: String
     },
@@ -74,10 +77,22 @@ const loanInputSchema = new Schema ({
     baseLoanAmount: {
         type: Number
     },
+    finalLoanAmount: {
+        type: Number
+    },
     loanTerm: {
         type: String
     },
     monthlyMIFactor: {
+        type: Number
+    },
+    monthlyMIPremium: {
+        type: Number
+    },
+    ltvFYI: {
+        type: Number
+    },
+    pniPayment: {
         type: Number
     },
     additionalMonthlyBest: {
@@ -89,6 +104,15 @@ const loanInputSchema = new Schema ({
     additionalMonthlyGood: {
         type: Number
     },
+    cashToCloseBest: {
+        type: Number
+    },
+    cashToCloseBetter: {
+        type: Number
+    },
+    cashToCloseGood: {
+        type: Number
+    },
     titleInsurance: {
         type: Number
     },
@@ -98,10 +122,16 @@ const loanInputSchema = new Schema ({
     reservesTaxes: {
         type: Number
     },
+    totalTaxes: {
+        type: Number
+    },
     monthlyInsurance: {
         type: Number
     },
     reservesInsurance: {
+        type: Number
+    },
+    totalInsurance: {
         type: Number
     },
     daysRequired: {
