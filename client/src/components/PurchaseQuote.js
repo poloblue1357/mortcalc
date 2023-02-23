@@ -87,7 +87,7 @@ function PurchaseQuote() {
                         <div style={{fontSize: "17px", fontWeight: "bold"}}>Current Housing Expense</div>
                         <div style={{fontWeight: "bold"}}>N/A</div>
                         <div style={{fontWeight: "bold"}}>N/A</div>
-                        <div>${loanInput.firstLoanBalance === null ? "" : loanInput.firstLoanBalance.toLocaleString("en")}</div>
+                        <div>{loanInput.firstLoanBalance === null ? "Unknown" : `${loanInput.firstLoanBalance.toLocaleString("en")}`}</div>
                         <div>{loanInput.term === null ? "Unknown" : loanInput.term / 12}</div>
                     </div>
                     <div class="ptwoThree">
@@ -128,9 +128,9 @@ function PurchaseQuote() {
                         <div>Extra Principal Payment</div>
                     </div>
                     <div class="pthreeTwo">
-                        <div>Unknown</div>
-                        <div>Unknown</div>
-                        <div>Unknown</div>
+                        <div>{loanInput.rentPayment ? `${loanInput.rentPayment}` : "Unknown"}</div>
+                        <div>{loanInput.currentMI ? `${loanInput.currentMI}` : "Unknown"}</div>
+                        <div>{loanInput.currentEscrow ? `${loanInput.currentEscrow}` : "Unknown"}</div>
                         <div>&nbsp;</div>
                     </div>
                     <div class="pthreeThree">
@@ -177,7 +177,7 @@ function PurchaseQuote() {
                     <div class="pfourThree">
                         <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${(((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal).toLocaleString()}</div>
                         <div>${((x?.origination / 100) * loanInput.baseLoanAmount).toLocaleString()}</div>
-                        <div>$0.00</div>
+                        <div>${((loanInput.creditDiscountBest * loanInput.baseLoanAmount) / 100) + loanInput.additionalBest}</div>
                         <div>${x?.underwriting}</div>
                         <div>${x?.taxService}</div>
                         <div>${x?.creditReport}</div>
@@ -190,7 +190,7 @@ function PurchaseQuote() {
                     <div class="pfourFour">
                         <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${(((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal).toLocaleString()}</div>
                         <div>${((x?.origination / 100) * loanInput.baseLoanAmount).toLocaleString()}</div>
-                        <div>$0.00</div>
+                        <div>${((loanInput.creditDiscountBetter * loanInput.baseLoanAmount) / 100) + loanInput.additionalBetter}</div>
                         <div>${x?.underwriting}</div>
                         <div>${x?.taxService}</div>
                         <div>${x?.creditReport}</div>
@@ -203,7 +203,7 @@ function PurchaseQuote() {
                     <div class="pfourFive">
                         <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${(((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal).toLocaleString()}</div>
                         <div>${((x?.origination / 100) * loanInput.baseLoanAmount).toLocaleString()}</div>
-                        <div>$0.00</div>
+                        <div>${((loanInput.creditDiscountGood * loanInput.baseLoanAmount) / 100) + loanInput.additionalGood}</div>
                         <div>${x?.underwriting}</div>
                         <div>${x?.taxService}</div>
                         <div>${x?.creditReport}</div>

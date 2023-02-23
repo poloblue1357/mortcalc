@@ -208,18 +208,22 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     let ct = []
     let current5 = 0;
     function ct1() {
-        for(let i = 0; i < 60; i++) {
-            ct.push(currentTable[i]?.interest)
-        }
-        for(const value of ct) {
-            current5 += value;
+        if(currentTable[0].interest !== 0 ) {
+            for(let i = 0; i < 60; i++) {
+                ct.push(currentTable[i]?.interest)
+            }
+            for(const value of ct) {
+                current5 += value;
+            }
         }
     }
     ct1()
     let ct2 = []
     function ct3() {
-        for(let i = 0; i < 120; i++) {
-            ct2.push(currentTable[i]?.interest)
+        if(currentTable[0].interest !== 0) {
+            for(let i = 0; i < 120; i++) {
+                ct2.push(currentTable[i]?.interest)
+            }
         }
     }
     ct3()
@@ -347,6 +351,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     useEffect(() => {
         getLoanInputs()
     }, [])
+
 
     // let nbsp = &nbsp;
     return (
