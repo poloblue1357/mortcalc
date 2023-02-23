@@ -10,7 +10,7 @@ import LoanInput from "./LoanInput"
 function PurchaseQuote() {
 
     const context = useContext(MortgageContext)
-    const {loanInput, getLoanInputs} = useContext(MortgageContext)
+    const {loanInput, getLoanInputs, getTitleFeesData, userAxios, setGetFeeSetupData, setGetTitleFeesData, getFeeSetupData} = useContext(MortgageContext)
 
     // {loadInput.extra ? loanInput?.extra || "&nbsp;"}
     // linkedin endorsement, pass on my info to clients, stress it was a client project in resume
@@ -24,10 +24,27 @@ function PurchaseQuote() {
     function testing() {
         console.log(loanInput.term)
     }
+    useEffect(() => {
+        userAxios.get("/api/feesetup")
+            .then(res => {
+                setGetFeeSetupData(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+    useEffect(() => {
+        userAxios.get("/api/titlefees")
+            .then(res => {
+                setGetTitleFeesData(res.data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+    const x = getFeeSetupData?.find(data => {
+        return data.feeScenario === loanInput.loanType 
+    })
 
     return (
         <div>
-            <button onClick={testing}>testing</button>
+            {/* <button onClick={testing}>testing</button> */}
             <h1>Purchase Quote</h1>
             <div class="pparent">
                 {/* <div class="pone"> */}
@@ -70,7 +87,7 @@ function PurchaseQuote() {
                         <div style={{fontSize: "17px", fontWeight: "bold"}}>Current Housing Expense</div>
                         <div style={{fontWeight: "bold"}}>N/A</div>
                         <div style={{fontWeight: "bold"}}>N/A</div>
-                        <div>{loanInput.firstLoanBalance === null ? "Unknown" : loanInput.firstLoanBalance.toLocaleString("en")}</div>
+                        <div>${loanInput.firstLoanBalance === null ? "" : loanInput.firstLoanBalance.toLocaleString("en")}</div>
                         <div>{loanInput.term === null ? "Unknown" : loanInput.term / 12}</div>
                     </div>
                     <div class="ptwoThree">
@@ -117,21 +134,21 @@ function PurchaseQuote() {
                         <div>&nbsp;</div>
                     </div>
                     <div class="pthreeThree">
-                        <div>$2,007.13</div>
-                        <div>$0.00</div>
-                        <div>$450.00</div>
+                        <div>${Math.round((loanInput.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100}</div>
+                        <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
+                        <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
                         <div>&nbsp;</div>
                     </div>
                     <div class="pthreeFour">
-                        <div>$2,036.87</div>
-                        <div>$0.00</div>
-                        <div>$450.00</div>
+                        <div>${Math.round((loanInput.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100}</div>
+                        <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
+                        <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
                         <div>&nbsp;</div>
                     </div>
                     <div class="pthreeFive">
-                        <div>$2,066.84</div>
-                        <div>$0.00</div>
-                        <div>$450.00</div>
+                        <div>${Math.round((loanInput.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100}</div>
+                        <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
+                        <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
                         <div>&nbsp;</div>
                     </div>
                 </div>
@@ -139,9 +156,9 @@ function PurchaseQuote() {
 
                 <div class="pthreeHorizontal1"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>House Payment</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>Difference</div></div></div>
                 <div class="pthreeHorizontal2"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$0.00</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div> </div>
-                <div class="pthreeHorizontal3"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,457.13</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
-                <div class="pthreeHorizontal4"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,486.87</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
-                <div class="pthreeHorizontal5"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>$2,516.84</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                <div class="pthreeHorizontal3"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100) + (((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12) + (+loanInput.monthlyTaxes + +loanInput.monthlyInsurance)}</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                <div class="pthreeHorizontal4"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100) + (((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12) + (+loanInput.monthlyTaxes + +loanInput.monthlyInsurance)}</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
+                <div class="pthreeHorizontal5"><div style={{display: "flex", flexDirection: "column", justifyContent: "center", width: "50px", height: "0px", backgroundColor: "#0b5394"}}><div style={{backgroundColor: "#0b5394", display: "flex", justifyContent: "center"}}>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100) + (((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12) + (+loanInput.monthlyTaxes + +loanInput.monthlyInsurance)}</div> <div style={{fontSize: "12px", justifyContent: "center", display: "flex", flexShrink: '0', height: "12px", backgroundColor: "#0b5394", marginBottom: 3}}>N/A</div></div></div>
 
                 <div class="pfourOne" style={{display: "grid", gridColumn: "2 / 4"}}>
                     <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>Beam Lending Costs</div>
@@ -158,50 +175,50 @@ function PurchaseQuote() {
                 </div>
                 <div class="pfour">
                     <div class="pfourThree">
-                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div>$2,010.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${(((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal).toLocaleString()}</div>
+                        <div>${((x?.origination / 100) * loanInput.baseLoanAmount).toLocaleString()}</div>
                         <div>$0.00</div>
-                        <div>$995.00</div>
-                        <div>$80.00</div>
-                        <div>$48.00</div>
-                        <div>$8.00</div>
-                        <div>$635.00</div>
+                        <div>${x?.underwriting}</div>
+                        <div>${x?.taxService}</div>
+                        <div>${x?.creditReport}</div>
+                        <div>${x?.flood}</div>
+                        <div>${x?.appraisal}</div>
                         <br />
-                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
-                        <div style={{marginBottom: 3}}>$0.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>${(+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording).toLocaleString()}</div>
+                        <div style={{marginBottom: 3}}>${(loanInput.baseLoanAmount * loanInput.ufmipPercent ? loanInput.baseLoanAmount * loanInput.ufmipPercent : "0").toLocaleString()}</div>
                     </div>
                     <div class="pfourFour">
-                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div>$2,010.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${(((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal).toLocaleString()}</div>
+                        <div>${((x?.origination / 100) * loanInput.baseLoanAmount).toLocaleString()}</div>
                         <div>$0.00</div>
-                        <div>$995.00</div>
-                        <div>$80.00</div>
-                        <div>$48.00</div>
-                        <div>$8.00</div>
-                        <div>$635.00</div>
+                        <div>${x?.underwriting}</div>
+                        <div>${x?.taxService}</div>
+                        <div>${x?.creditReport}</div>
+                        <div>${x?.flood}</div>
+                        <div>${x?.appraisal}</div>
                         <br />
-                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
-                        <div style={{marginBottom: 3}}>$0.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>${(+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording).toLocaleString()}</div>
+                        <div style={{marginBottom: 3}}>${(loanInput.baseLoanAmount * loanInput.ufmipPercent ? loanInput.baseLoanAmount * loanInput.ufmipPercent : "0").toLocaleString()}</div>
                     </div>
                     <div class="pfourFive">
-                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div>$2,010.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${(((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal).toLocaleString()}</div>
+                        <div>${((x?.origination / 100) * loanInput.baseLoanAmount).toLocaleString()}</div>
                         <div>$0.00</div>
-                        <div>$995.00</div>
-                        <div>$80.00</div>
-                        <div>$48.00</div>
-                        <div>$8.00</div>
-                        <div>$635.00</div>
+                        <div>${x?.underwriting}</div>
+                        <div>${x?.taxService}</div>
+                        <div>${x?.creditReport}</div>
+                        <div>${x?.flood}</div>
+                        <div>${x?.appraisal}</div>
                         <br />
-                        <div style={{fontWeight: "bold", fontSize: "16px"}}>$1,900.00</div>
-                        <div style={{marginBottom: 3}}>$0.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px"}}>${(+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording).toLocaleString()}</div>
+                        <div style={{marginBottom: 3}}>${(loanInput.baseLoanAmount * loanInput.ufmipPercent ? loanInput.baseLoanAmount * loanInput.ufmipPercent : "0").toLocaleString()}</div>
                     </div>
                 </div>
                 <div class="pfourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Closing Cost Breakdown</div>
                 <div class="pfourHorizontal" style={{gridColumn: "2 / 4"}}>Total Closing Costs</div>
-                <div class="pfourHorizontal" style={{gridColumn: "4 / 5"}}>$5,676.00</div>
-                <div class="pfourHorizontal" style={{gridColumn: "5 / 6"}}>$5,676.00</div>
-                <div class="pfourHorizontal" style={{gridColumn: "6 / 7"}}>$5,676.00</div>
+                <div class="pfourHorizontal" style={{gridColumn: "4 / 5"}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal)).toLocaleString()}</div>
+                <div class="pfourHorizontal" style={{gridColumn: "5 / 6"}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal)).toLocaleString()}</div>
+                <div class="pfourHorizontal" style={{gridColumn: "6 / 7"}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal)).toLocaleString()}</div>
                 
                 <div class="pfiveOne" style={{display: "grid", gridColumn: "2 / 4"}}>
                     <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>Total Closing Costs</div>
@@ -214,35 +231,35 @@ function PurchaseQuote() {
                 <div class="pfive">
                     {/* <div class="pfiveTwo"></div> */}
                     <div class="pfiveThree">
-                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$5,676.00</div>
-                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$158,000.00</div>
-                        <div>$750.00</div>
-                        <div>$1,050.00</div>
-                        <div>$722.77.00</div>   
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal)).toLocaleString()}</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>${(+loanInput.purchasePrice - +loanInput.baseLoanAmount).toLocaleString("en")}</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>${(Math.round(((loanInput.monthlyTaxes * loanInput.reservesTaxes) + (loanInput.monthlyInsurance * loanInput.reservesInsurance) + (Math.round((((((+loanInput.bestRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100)) * 100) / 100).toLocaleString()}</div>
+                        <div>${loanInput.monthlyTaxes * loanInput?.reservesTaxes}</div>
+                        <div>${(loanInput.monthlyInsurance * loanInput?.reservesInsurance).toLocaleString()}</div>
+                        <div>${Math.round(((Math.round(((+loanInput.bestRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100}</div>   
                     </div> 
                     <div class="pfiveFour">
-                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$5,676.00</div>
-                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$158,000.00</div>
-                        <div>$750.00</div>
-                        <div>$1,050.00</div>
-                        <div>$743.42.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal)).toLocaleString()}</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>${(+loanInput.purchasePrice - +loanInput.baseLoanAmount).toLocaleString("en")}</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>${(Math.round(((loanInput.monthlyTaxes * loanInput.reservesTaxes) + (loanInput.monthlyInsurance * loanInput.reservesInsurance) + (Math.round((((((+loanInput.betterRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100)) * 100) / 100).toLocaleString()}</div>
+                        <div>${loanInput.monthlyTaxes * loanInput?.reservesTaxes}</div>
+                        <div>${(loanInput.monthlyInsurance * loanInput?.reservesInsurance).toLocaleString()}</div>
+                        <div>${Math.round(((Math.round(((+loanInput.betterRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100}</div>
                     </div>
                     <div class="pfiveFive">
-                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>$3,776.00</div>
-                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$5,676.00</div>
-                        <div style={{fontSize: "16px", fontWeight: "bold"}}>$158,000.00</div>
-                        <div>$750.00</div>
-                        <div>$1,050.00</div>
-                        <div>$764.08.00</div>
+                        <div style={{fontWeight: "bold", fontSize: "16px", marginTop: 3}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal)).toLocaleString()}</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>${(+loanInput.purchasePrice - +loanInput.baseLoanAmount).toLocaleString("en")}</div>
+                        <div style={{fontSize: "16px", fontWeight: "bold"}}>${(Math.round(((loanInput.monthlyTaxes * loanInput.reservesTaxes) + (loanInput.monthlyInsurance * loanInput.reservesInsurance) + (Math.round((((((+loanInput.goodRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100)) * 100) / 100).toLocaleString()}</div>
+                        <div>${loanInput.monthlyTaxes * loanInput?.reservesTaxes}</div>
+                        <div>${(loanInput.monthlyInsurance * loanInput?.reservesInsurance).toLocaleString()}</div>
+                        <div>${Math.round(((Math.round(((+loanInput.goodRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100}</div>
                     </div>
                 </div>
                 <div class="pfiveVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Cash Needed to Close</div>
                 <div class="pfiveHorizontal" style={{gridColumn: "2 / 4"}}>Total Cash to Close / Cash Back</div>
-                <div class="pfiveHorizontal" style={{gridColumn: "4 / 5"}}>$166,198.77</div>
-                <div class="pfiveHorizontal" style={{gridColumn: "5 / 6"}}>$166,219.42</div>
-                <div class="pfiveHorizontal" style={{gridColumn: "6 / 7"}}>$166,240.08</div>
+                <div class="pfiveHorizontal" style={{gridColumn: "4 / 5"}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal) + (+loanInput.purchasePrice - +loanInput.baseLoanAmount) + (Math.round(((loanInput.monthlyTaxes * loanInput.reservesTaxes) + (loanInput.monthlyInsurance * loanInput.reservesInsurance) + (Math.round((((((+loanInput.bestRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100)) * 100) / 100)).toLocaleString()}</div>
+                <div class="pfiveHorizontal" style={{gridColumn: "5 / 6"}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal) + (+loanInput.purchasePrice - +loanInput.baseLoanAmount) + (Math.round(((loanInput.monthlyTaxes * loanInput.reservesTaxes) + (loanInput.monthlyInsurance * loanInput.reservesInsurance) + (Math.round((((((+loanInput.betterRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100)) * 100) / 100)).toLocaleString()}</div>
+                <div class="pfiveHorizontal" style={{gridColumn: "6 / 7"}}>${((+loanInput.titleInsurance + getTitleFeesData[0]?.closingFee + getTitleFeesData[0]?.cpl + getTitleFeesData[0]?.cplBorrower + getTitleFeesData[0]?.endorsements + getTitleFeesData[0]?.recordingServices + getTitleFeesData[0]?.recording) + (((x?.origination / 100) * loanInput.baseLoanAmount) + x?.underwriting + x?.taxService + x?.creditReport + x?.flood + x?.appraisal) + (+loanInput.purchasePrice - +loanInput.baseLoanAmount) + (Math.round(((loanInput.monthlyTaxes * loanInput.reservesTaxes) + (loanInput.monthlyInsurance * loanInput.reservesInsurance) + (Math.round((((((+loanInput.goodRate * (+loanInput.baseLoanAmount / 100)) / 365) * 1000) / 1000) * +loanInput.daysRequired) * 100) / 100)) * 100) / 100)).toLocaleString()}</div>
 
                 <div class="psixOne">
                     <p style={{backgroundColor: "white", fontSize: "15px", marginLeft: 5}}>Your actual rate, payment, and costs could be higher.  Get an official Loan Estimate before choosing a loan.</p>

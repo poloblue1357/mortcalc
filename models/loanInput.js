@@ -77,6 +77,12 @@ const loanInputSchema = new Schema ({
     baseLoanAmount: {
         type: Number
     },
+    ufmipPercent: {
+        type: Number
+    },
+    ufmipDollar: {
+        type: Number
+    },
     finalLoanAmount: {
         type: Number
     },

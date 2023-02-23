@@ -227,13 +227,13 @@ function LoanInput() {
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>UFMIP / Funding Fee %</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>{localLI.ufmipPercent ? localLI.ufmipPercent : ''}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}></td>
                             </tr>
                             <tr>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>UFMIP / Funding Fee $</td>
-                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
+                                <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>${localLI.baseLoanAmount * localLI.ufmipPercent ? localLI.baseLoanAMount * localLI.ufmipPercent : ''}</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                                 <td style={{border: "1px solid black", backgroundColor: "#c9daf8"}}>$</td>
                             </tr>
