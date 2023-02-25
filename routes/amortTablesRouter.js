@@ -4,7 +4,7 @@ const AmortizationTables = require("../models/amortizationTables")
 
 // Get All leads
 amortTablesRouter.get("/", (req, res, next) => {
-    Realtor.find((err, amortizationTables) => {
+    AmortizationTables.find((err, amortizationTables) => {
         if(err) {
             res.status(500)
             return next(err)

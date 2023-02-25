@@ -203,6 +203,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
         for(let i = 0; i < currentTable.length; i++) {
             pmtArr.push(currentTable[i].payment)
         }
+
     }
     pmtArr1()
     let ct = []
@@ -345,7 +346,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
     }
 
     function testing() {
-        console.log(pmtArr)
+        console.log(currentTable)
     }
 
     useEffect(() => {
@@ -390,7 +391,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                             <td class="values" >${currentTI.toLocaleString("en")}</td>
                             <td class="values" >${(Math.round((current5) * 100) / 100).toLocaleString("en")}</td>
                             <td class="values" >${(Math.round((current10) * 100) / 100).toLocaleString("en")}</td>
-                            <td class="values" >${(loanInput.firstLoanBalance)}</td>
+                            <td class="values" >${loanInput.firstLoanBalance ? <div>${loanInput.firstLoanBalance.toLocaleString("en")}</div> : 0}</td>
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
                             <td class="values" >${currentMI.toLocaleString("en")}</td>
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>

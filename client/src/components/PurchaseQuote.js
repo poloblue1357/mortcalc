@@ -134,19 +134,19 @@ function PurchaseQuote() {
                         <div>&nbsp;</div>
                     </div>
                     <div class="pthreeThree">
-                        <div>${Math.round((loanInput.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100}</div>
+                        <div>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100).toLocaleString("en")}</div>
                         <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
                         <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
                         <div>&nbsp;</div>
                     </div>
                     <div class="pthreeFour">
-                        <div>${Math.round((loanInput.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100}</div>
+                        <div>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100).toLocaleString("en")}</div>
                         <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
                         <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
                         <div>&nbsp;</div>
                     </div>
                     <div class="pthreeFive">
-                        <div>${Math.round((loanInput.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100}</div>
+                        <div>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100).toLocaleString("en")}</div>
                         <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
                         <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
                         <div>&nbsp;</div>
