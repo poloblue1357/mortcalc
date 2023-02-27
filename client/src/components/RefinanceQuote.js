@@ -44,7 +44,66 @@ function RefinanceQuote() {
             // extra
         }
     ]
+    let bestTable = [
+        {
+            balance: loanInput.baseLoanAmount,
+            interest: loanInput.bestRate, 
+            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100,
+            MI: ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12,
+            extra: loanInput.additionalMonthlyBest
+        }
+    ]
+    let betterTable = [
+        {
+            balance: loanInput.baseLoanAmount,
+            interest: loanInput.betterRate, 
+            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100,
+            MI: ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12,
+            extra: loanInput.additionalMonthlyBetter
+        }
+    ]
+    let goodTable = [
+        {
+            balance: loanInput.baseLoanAmount,
+            interest: loanInput.betterRate, 
+            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100,
+            MI: ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12,
+            extra: loanInput.additionalMonthlyGood
+        }
+    ]
+    let rightTable = [
+        {
+            balance: loanInput.baseLoanAmount,
+            interest: loanInput.betterRate, 
+            payment: Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        }
+    ]
+
+    let i = 0
+    let j = 0
+    let k = 0
+    let l = 0
     let c = 0
+    bestLoop()
+    betterLoop()
+    goodLoop()
+    rightLoop()
+    currentLoop()
+    // const p = bestTable.map((info, i) => {
+    //     return <AmortizationTablesBest info={info} key={i} i={i}/>
+    // })
+    // const q = betterTable.map((info, j) => {
+    //     return <AmortizationTablesBetter info={info} key={j} j={j}/>
+    // })
+    // const r = goodTable.map((info, k) => {
+    //     return <AmortizationTablesGood info={info} key={k} k={k}/>
+    // })
+    // const s = goodTable.map((info, l) => {
+    //     return <ATRightSide info={info} key={l} l={l}/>
+    // })
+    // const t = currentTable.map((info, c) => {
+    //     return <AmortizationTablesCurrent info={info} key={c} c={c}/>
+    // })
     function currentLoop() {
         const payment = Math.round((loanInput.firstLoanBalance * ((((loanInput.currentRate / 100) / 12) * (1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term)) / ((1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term) - 1))) * 100) / 100
         const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.firstLoanBalance) / 100) / 12
@@ -67,7 +126,97 @@ function RefinanceQuote() {
         }
         currentTable.splice(0, 1)
     }
-    currentLoop()
+    function rightLoop() {
+        const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        while(goodTable[goodTable.length - 1].balance >= 0) {
+            if(l === 0) {
+                l++
+            } else {
+                let interest = (goodTable[goodTable.length-1].balance * ((loanInput.goodRate / 100) / 12))
+                const newObj = {
+                    balance: goodTable[goodTable.length - 1]?.balance - (payment - interest),
+                    payment,
+                    interest,
+                    principal: payment - interest
+                }
+                goodTable.push(newObj)
+                // setBestArr(prevArr => ([...prevArr, newObj]))
+            }
+        }
+        goodTable.splice(0, 1)
+    }
+    function goodLoop() {
+        const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12
+        while(goodTable[goodTable.length - 1].balance >= 0) {
+            if(k === 0) {
+                k++
+            } else {
+                let interest = (goodTable[goodTable.length-1].balance * ((loanInput.goodRate / 100) / 12))
+                const newObj = {
+                    balance: goodTable[goodTable.length - 1]?.balance - (payment - interest),
+                    payment,
+                    interest,
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[k] > (loanInput.appraisedValue * 0.8)) ?  goodTable[k - 1].MI : 0),
+                    extra: goodTable[k - 1].extra
+                }
+                goodTable.push(newObj)
+                // setBestArr(prevArr => ([...prevArr, newObj]))
+            }
+        }
+        // goodTable.splice(0, 1)
+    }
+    function betterLoop() {
+        const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12
+        while(betterTable[betterTable.length - 1].balance >= 0) {
+            if(j === 0) {
+                j++
+            } else {
+                let interest = (betterTable[betterTable.length-1].balance * ((loanInput.betterRate / 100) / 12))
+                const newObj = {
+                    balance: betterTable[betterTable.length - 1]?.balance - (payment - interest),
+                    payment,
+                    interest,
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[j] > (loanInput.appraisedValue * 0.8)) ?  betterTable[j - 1].MI : 0),
+                    extra: betterTable[j - 1].extra
+                }
+                betterTable.push(newObj)
+                // setBestArr(prevArr => ([...prevArr, newObj]))
+            }
+        }
+        betterTable.splice(0, 1)
+    }
+    function bestLoop() {
+        const payment = Math.round((loanInput?.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12
+        while(bestTable[bestTable.length - 1].balance >= 0) {
+            if(i === 0) {
+                i++
+            } else {
+                let interest = (bestTable[bestTable.length-1].balance * ((loanInput.bestRate / 100) / 12))
+                const newObj = {
+                    balance: bestTable[bestTable.length - 1]?.balance - (payment - interest),
+                    payment,
+                    interest,
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[i] > (loanInput.appraisedValue * 0.8)) ?  bestTable[i - 1].MI : 0),
+                    extra: bestTable[i - 1].extra
+                }
+                bestTable.push(newObj)
+                // setBestArr(prevArr => ([...prevArr, newObj]))
+            }
+        }
+        bestTable.splice(0, 1)
+    }
+
+    let bestTI = Math.round((bestTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
+    let betterTI = Math.round((betterTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
+    let goodTI = Math.round((goodTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
+    let currentTI = Math.round((currentTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
+    
     let pmtArr = []
     function pmtArr1() {
         for(let i = 0; i < currentTable.length; i++) {
@@ -76,10 +225,151 @@ function RefinanceQuote() {
 
     }
     pmtArr1()
-    let currentTI = Math.round((currentTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
-    
+    let ct = []
+    let current5 = 0;
+    function ct1() {
+        if(currentTable[0].interest !== 0 ) {
+            for(let i = 0; i < 60; i++) {
+                ct.push(currentTable[i]?.interest)
+            }
+            for(const value of ct) {
+                current5 += value;
+            }
+        }
+    }
+    ct1()
+    let ct2 = []
+    function ct3() {
+        if(currentTable[0].interest !== 0) {
+            for(let i = 0; i < 120; i++) {
+                ct2.push(currentTable[i]?.interest)
+            }
+        }
+    }
+    ct3()
+    let current10 = 0;
+    for(const value of ct2) {
+        current10 += value;
+    }
+    let cl = []
+    function cl1() {
+        for(let i = 0; i <currentTable.length; i++) {
+            cl.push(currentTable[i].MI)
+        }
+    }
+    cl1()
+    let mn4 = []
+    function mn5() {
+        for(let i = 0; i <goodTable.length; i++) {
+            mn4.push(goodTable[i].MI)
+        }
+    }
+    mn5()
+    let mn2 = []
+    function mn3() {
+        for(let i = 0; i <betterTable.length; i++) {
+            mn2.push(betterTable[i].MI)
+        }
+    }
+    mn3()
+    let mn = []
+    function mn1() {
+        for(let i = 0; i <bestTable.length; i++) {
+            mn.push(bestTable[i].MI)
+        }
+    }
+    mn1()
+    let m = []
+    function asdf() {
+        for(let i = 0; i < 60; i++) {
+            m.push(bestTable[i]?.interest)
+        }
+    }
+    asdf()
+    let n = []
+    function qwer() {
+        for(let i = 0; i < 120; i++) {
+            n.push(bestTable[i]?.interest)
+        }
+    }
+    qwer()
+    let currentMI = 0
+    for(const value of cl) {
+        currentMI += value
+    }
+    let goodMI = 0
+    for(const value of mn4) {
+        goodMI += value
+    }
+    let betterMI = 0
+    for(const value of mn2) {
+        betterMI += value
+    }
+    let bestMI = 0
+    for(const value of mn) {
+        bestMI += value
+    }
+    let best5 = 0;
+    for(const value of m) {
+        best5 += value;
+    }
+    let best10 = 0;
+    for(const value of n) {
+        best10 += value;
+    }
+
+    let m1 = []
+    function asdf1() {
+        for(let i = 0; i < 60; i++) {
+            m1.push(betterTable[i]?.interest)
+        }
+    }
+    asdf1()
+    let n1 = []
+    function qwer1() {
+        for(let i = 0; i < 120; i++) {
+            n1.push(betterTable[i]?.interest)
+        }
+    }
+    qwer1()
+    let better5 = 0;
+    for(const value of m1) {
+        better5 += value;
+    }
+    let better10 = 0;
+    for(const value of n1) {
+        better10 += value;
+    }
+
+    let m2 = []
+    function asdf2() {
+        for(let i = 0; i < 60; i++) {
+            m2.push(goodTable[i]?.interest)
+        }
+    }
+    asdf2()
+    let n2 = []
+    function qwer2() {
+        for(let i = 0; i < 120; i++) {
+            n2.push(goodTable[i]?.interest)
+        }
+    }
+    qwer2()
+    let good5 = 0;
+    for(const value of m2) {
+        good5 += value;
+    }
+    let good10 = 0;
+    for(const value of n2) {
+        good10 += value;
+    }
+
+    function testing() {
+        console.log("test")
+    }
     return (
         <div>
+            {/* <button onClick={() => testing()}>Test</button> */}
             <h1>Refinance Quote</h1>
             <div class="parent">
                 {/* <div class="one"> */}
@@ -189,7 +479,7 @@ function RefinanceQuote() {
                 <div class="four">
                     <div class="fourOne">
                         <div>Total Remaining Interest</div>
-                        <div>Total Reamining MI Payments</div>
+                        <div>Total Remaining MI Payments</div>
                         <div>&nbsp;</div>
                         <div>&nbsp;</div>
                     </div>
@@ -200,22 +490,22 @@ function RefinanceQuote() {
                         <div style={{fontWeight: "bold"}}>&nbsp;</div>
                     </div>
                     <div class="fourThree">
-                        <div>$320,565.68</div>
-                        <div>$0.00</div>
-                        <div>-$84,183.50</div>
-                        <div>-$159,522.51</div>
+                        <div>${bestTI.toLocaleString("en")}</div>
+                        <div>${bestMI.toLocaleString("en")}</div>
+                        <div>${(((Math.round((current5) * 100) / 100) - (Math.round((best5) * 100) / 100)) + (currentMI - bestMI)).toLocaleString()}</div>
+                        <div>{(((Math.round((current10) * 100) / 100) - (Math.round((best10) * 100) / 100)) + (currentMI - bestMI)).toLocaleString()}</div>
                     </div>
                     <div class="fourFour">
-                        <div>$331,274.92</div>
-                        <div>$0.00</div>
-                        <div>-$86,667.32</div>
-                        <div>-$164,384.53</div>
+                        <div>${betterTI.toLocaleString("en")}</div>
+                        <div>${betterMI.toLocaleString("en")}</div>
+                        <div>${(((Math.round((current5) * 100) / 100) - (Math.round((better5) * 100) / 100)) + (currentMI - betterMI)).toLocaleString()}</div>
+                        <div>{(((Math.round((current10) * 100) / 100) - (Math.round((better10) * 100) / 100)) + (currentMI - betterMI)).toLocaleString()}</div>
                     </div>
                     <div class="fourFive">
-                        <div>$342,063.10</div>
-                        <div>$0.00</div>
-                        <div>-$89,154.34</div>
-                        <div>-$169,259.46</div>
+                        <div>${goodTI.toLocaleString("en")}</div>
+                        <div>${goodMI.toLocaleString("en")}</div>
+                        <div>${(((Math.round((current5) * 100) / 100) - (Math.round((good5) * 100) / 100)) + (currentMI - goodMI)).toLocaleString()}</div>
+                        <div>{(((Math.round((current10) * 100) / 100) - (Math.round((good10) * 100) / 100)) + (currentMI - goodMI)).toLocaleString()}</div>
                     </div>
                 </div>
                 <div class="fourSix">
@@ -224,9 +514,9 @@ function RefinanceQuote() {
                 </div>
                 <div class="fourVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Long Term Savings</div>
                 <div class="fourHorizontal" style={{gridColumn: "2 / 4"}}>Savings Over Life of Loan</div>
-                <div class="fourHorizontal" style={{gridColumn: "4 / 5"}}>-$320,565.68</div>
-                <div class="fourHorizontal" style={{gridColumn: "5 / 6"}}>-$331,274.92</div>
-                <div class="fourHorizontal" style={{gridColumn: "6 / 7"}}>-$342.063.10</div>
+                <div class="fourHorizontal" style={{gridColumn: "4 / 5"}}>${((currentTI - bestTI) + (currentMI - bestMI)).toLocaleString()}</div>
+                <div class="fourHorizontal" style={{gridColumn: "5 / 6"}}>${((currentTI - betterTI) + (currentMI - betterMI)).toLocaleString()}</div>
+                <div class="fourHorizontal" style={{gridColumn: "6 / 7"}}>${((currentTI - goodTI) + (currentMI - goodMI)).toLocaleString()}</div>
 
                 <div class="fiveOne" style={{display: "grid", gridColumn: "2 / 4", gridRow: "9 / 10"}}>
                     <div style={{fontWeight: "bold", fontSize: "18px", marginTop: 3}}>Beam Lending Costs</div>
