@@ -391,7 +391,7 @@ const {loanInput, getLoanInputs} = useContext(MortgageContext)
                             <td class="values" >${currentTI.toLocaleString("en")}</td>
                             <td class="values" >${(Math.round((current5) * 100) / 100).toLocaleString("en")}</td>
                             <td class="values" >${(Math.round((current10) * 100) / 100).toLocaleString("en")}</td>
-                            <td class="values" >{loanInput.firstLoanBalance ? <div style={{backgroundColor: "#c9daf8"}}>${loanInput.firstLoanBalance.toLocaleString("en")}</div> : 0}</td>
+                            <td class="values" >{loanInput.firstLoanBalance ? <div style={{backgroundColor: "#c9daf8"}}>${loanInput.firstLoanBalance.toLocaleString("en")}</div> : "$0"}</td>
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
                             <td class="values" >${currentMI.toLocaleString("en")}</td>
                             <td class="values" >${(+loanInput.firstLoanBalance + +currentTI).toLocaleString("en")}</td>
