@@ -34,6 +34,49 @@ function RefinanceQuote() {
     useEffect(() => {
         getLoanInputs()
     }, [])
+
+    let currentTable = [
+        {
+            balance: loanInput.firstLoanBalance || 0,
+            interest: loanInput.currentRate || 0,
+            payment: loanInput.rentPayment || 0,
+            MI: loanInput.currentMI || 0,
+            // extra
+        }
+    ]
+    let c = 0
+    function currentLoop() {
+        const payment = Math.round((loanInput.firstLoanBalance * ((((loanInput.currentRate / 100) / 12) * (1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term)) / ((1 + ((loanInput.currentRate / 100) / 12))**(loanInput.term) - 1))) * 100) / 100
+        const mortgageInsurance = ((loanInput.monthlyMIFactor * loanInput.firstLoanBalance) / 100) / 12
+        while(currentTable[currentTable.length - 1].balance >= 0) {
+            if(c === 0) {
+                c++
+            } else {
+                let interest = (currentTable[currentTable.length-1].balance * ((loanInput.currentRate / 100) / 12))
+                const newObj = {
+                    balance: currentTable[currentTable.length - 1]?.balance - (payment - interest),
+                    payment,
+                    interest,
+                    principal: payment - interest,
+                    MI: ((mortgageInsurance[c] > (loanInput.appraisedValue * 0.8)) ?  currentTable[c - 1].MI : 0),
+                    extra: currentTable[c - 1].extra
+                }
+                currentTable.push(newObj)
+                // setBestArr(prevArr => ([...prevArr, newObj]))
+            }
+        }
+        currentTable.splice(0, 1)
+    }
+    currentLoop()
+    let pmtArr = []
+    function pmtArr1() {
+        for(let i = 0; i < currentTable.length; i++) {
+            pmtArr.push(currentTable[i].payment)
+        }
+
+    }
+    pmtArr1()
+    let currentTI = Math.round((currentTable.reduce((accumulator, currentValue) => +accumulator + +currentValue.interest, 0)) * 100) / 100
     
     return (
         <div>
@@ -76,22 +119,22 @@ function RefinanceQuote() {
                     <div class="twoTwo">
                         <div style={{fontSize: "17px", fontWeight: "bold"}}>Current Loan</div>
                         <div>{loanInput.firstLoanBalance ? <div>${loanInput.firstLoanBalance.toLocaleString("en")}</div> : <div>&nbsp;</div>}</div>
-                        <div>0.0</div>
+                        <div>{pmtArr ? Math.round(pmtArr.length / 12) : 0}</div>
                     </div>
                     <div class="twoThree">
                         <div style={{fontSize: "17px"}}>Best Rate / Higher Cost</div>
                         <div>${loanInput.baseLoanAmount.toLocaleString("en")}</div>
-                        <div>30</div>
+                        <div>{loanInput.loanTerm / 12}</div>
                     </div>
                     <div class="twoFour">
                         <div style={{fontSize: "17px"}}>Better Rate / Moderate Cost</div>
                         <div>${loanInput.baseLoanAmount.toLocaleString("en")}</div>
-                        <div>30</div>
+                        <div>{loanInput.loanTerm / 12}</div>
                     </div>
                     <div class="twoFive">
                         <div style={{fontSize: "17px"}}>Good Rate / Low Cost</div>
                         <div>${loanInput.baseLoanAmount.toLocaleString("en")}</div>
-                        <div>30</div>
+                        <div>{loanInput.loanTerm / 12}</div>
                     </div>
                 </div> 
                 <div class="twoVertical" style={{writingMode: "vertical-lr", transform: "rotate(-180deg)", display: "flex", justifyContent: "center", alignItems: "center", fontSize: "18px"}}>Loan Terms</div>
@@ -117,20 +160,20 @@ function RefinanceQuote() {
                     </div>
                     <div class="threeThree">
                         <div>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.bestRate / 100) / 12) * (1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.bestRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100).toLocaleString("en")}</div>
-                        <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
-                        <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
+                        <div>${(((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12).toLocaleString()}</div>
+                        <div>${(+loanInput.monthlyTaxes + +loanInput.monthlyInsurance).toLocaleString()}</div>
                         <div>&nbsp;</div>
                     </div>
                     <div class="threeFour">
                         <div>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.betterRate / 100) / 12) * (1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.betterRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100).toLocaleString("en")}</div>
-                        <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
-                        <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
+                        <div>${(((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12).toLocaleString()}</div>
+                        <div>${(+loanInput.monthlyTaxes + +loanInput.monthlyInsurance).toLocaleString()}</div>
                         <div>&nbsp;</div>
                     </div>
                     <div class="threeFive">
                         <div>${(Math.round((loanInput.baseLoanAmount * ((((loanInput.goodRate / 100) / 12) * (1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm)) / ((1 + ((loanInput.goodRate / 100) / 12))**(loanInput.loanTerm) - 1))) * 100) / 100).toLocaleString("en")}</div>
-                        <div>${((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12}</div>
-                        <div>${+loanInput.monthlyTaxes + +loanInput.monthlyInsurance}</div>
+                        <div>${(((loanInput.monthlyMIFactor * loanInput.baseLoanAmount) / 100) / 12).toLocaleString()}</div>
+                        <div>${(+loanInput.monthlyTaxes + +loanInput.monthlyInsurance).toLocaleString()}</div>
                         <div>&nbsp;</div>
                     </div>
                 </div>
@@ -151,7 +194,7 @@ function RefinanceQuote() {
                         <div>&nbsp;</div>
                     </div>
                     <div class="fourTwo">
-                        <div>$0.00</div>
+                        <div>${currentTI.toLocaleString("en")}</div>
                         <div>&nbsp;</div>
                         <div style={{fontWeight: "bold"}}>&nbsp;</div>
                         <div style={{fontWeight: "bold"}}>&nbsp;</div>
