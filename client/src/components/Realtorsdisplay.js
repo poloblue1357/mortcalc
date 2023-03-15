@@ -68,7 +68,7 @@ function Realtorsdisplay(props) {
                     <button onClick={() => toggleEdit()} style={{backgroundColor: "lightblue"}}>Cancel Edit</button>
                 </div>
             :
-                <tr style={{display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "lightblue"}}>
+                <tr style={{display: "flex", justifyContent: "center", alignItems: "center", backgroundColor: "lightblue", marginLeft: "0"}}>
                     <td style={{
                         border: "1px solid black", 
                         padding: "5px", 
@@ -129,8 +129,8 @@ function Realtorsdisplay(props) {
                         border: "1px solid black", 
                         padding: "5px", 
                         height: "40px",
-                        width: "55px", 
-                        maxWidth: "55px",
+                        width: "65px", 
+                        maxWidth: "65px",
                         backgroundColor: "lightblue"}}>{props.r.numberOfContacts}</td>
                     <td style={{
                         border: "1px solid black", 

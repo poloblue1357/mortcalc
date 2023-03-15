@@ -102,7 +102,7 @@ function Leads() {
             </form>
             <br />
             <br />
-            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0 auto"}}>
+            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0"}}>
                 <tbody>
                     <tr style={{display: "flex", justifyContent: "center", alignItems: "center", backgrounColor: "lightblue"}}>
                         <td style={{
@@ -194,8 +194,8 @@ function Leads() {
                 border: "1px solid black", 
                 padding: "5px", 
                 height: "40px",
-                width: "50px", 
-                maxWidth: "50px"
+                width: "55px", 
+                maxWidth: "55px"
                 }}>Last Contact</td>
                         <td style={{
                 border: "1px solid black", 
@@ -207,7 +207,7 @@ function Leads() {
                     </tr>
                 </tbody>
             </table>
-            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0 auto"}}>
+            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0"}}>
                 <tbody>
                     {l}
                 </tbody>

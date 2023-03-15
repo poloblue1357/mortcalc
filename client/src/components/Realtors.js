@@ -81,7 +81,7 @@ function Realtors() {
             </form>
             <br />
             <br />
-            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0 auto"}}>
+            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0"}}>
                 <tbody>
                     <tr style={{display: "flex", justifyContent: "center", alignItems: "center", backgrounColor: "lightblue"}}>
                         <td style={{
@@ -145,8 +145,8 @@ function Realtors() {
                 border: "1px solid black", 
                 padding: "5px", 
                 height: "40px",
-                width: "55px", 
-                maxWidth: "55px"
+                width: "65px", 
+                maxWidth: "65px"
                 }}># of Contacts</td>
                         <td style={{
                 border: "1px solid black", 
@@ -172,7 +172,7 @@ function Realtors() {
                     </tr>
                 </tbody>
             </table>
-            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0 auto"}}>
+            <table style={{borderSpacing: "0", borderCollapse: "collapse", margin: "0"}}>
                 <tbody>
                     {r}
                 </tbody>

@@ -181,8 +181,8 @@ function Leadsdisplay(props) {
                         border: "1px solid black", 
                         padding: "5px", 
                         height: "20px",
-                        width: "50px", 
-                        maxWidth: "50px",
+                        width: "55px", 
+                        maxWidth: "55px",
                         backgroundColor: "lightblue"}}>{props.l.lastContact}</td>
                     <td style={{
                         border: "1px solid black", 
